@@ -1,0 +1,6 @@
+[submodule "toolkit-scripts"]
+	path = toolkit-scripts
+	url = git@github.com:jpmvferreira/toolkit-scripts.git
+[submodule "bin"]
+	path = bin
+	url = git@github.com:jpmvferreira/toolkit-scripts.git
