@@ -1,0 +1,13 @@
+# untrack archive
+/archive/
+
+# untrack executable files
+/exe/
+
+# untrack all files in the output folder that can be large
+simulations/**/*.asc
+simulations/**/*.h5
+simulations/**/*.gp
+simulations/**/*.xg
+simulations/**/carpet-grid-structure
+simulations/**/carpet-grid-coordinates
