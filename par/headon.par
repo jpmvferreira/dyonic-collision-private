@@ -50,11 +50,7 @@ ActiveThorns = "
 
 # evolution thorns
 ActiveThorns = "
-# LeanBSSNMoL
-  ML_ADMConstraints
-  ML_CCZ4
-  ML_CCZ4_Helper
-  ML_CCZ4_Test
+  LeanBSSNMoL
 "
 
 # matter fields
@@ -97,15 +93,15 @@ Carpet::domain_from_coordbase        = yes
 CoordBase::domainsize                = "minmax"
 
 # make sure all (xmax - xmin)/dx are integers!
-CoordBase::xmin                      = -250.00
-CoordBase::ymin                      = -250.00
-CoordBase::zmin                      = -250.00
-CoordBase::xmax                      = +250.00
-CoordBase::ymax                      = +250.00
-CoordBase::zmax                      = +250.00
-CoordBase::dx                        =    2.5
-CoordBase::dy                        =    2.5
-CoordBase::dz                        =    2.5
+CoordBase::xmin                      = -252.00
+CoordBase::ymin                      = -252.00
+CoordBase::zmin                      = -252.00
+CoordBase::xmax                      = +252.00
+CoordBase::ymax                      = +252.00
+CoordBase::zmax                      = +252.00
+CoordBase::dx                        =    3.
+CoordBase::dy                        =    3.
+CoordBase::dz                        =    3.
 
 driver::ghost_size                   = 3
 
@@ -201,8 +197,8 @@ EMGInit::M2 = 0.5
 EMGInit::T1 = 0.1
 EMGInit::T2 = 0.05
 
-EMGInit::alpha_dual1 = 0.785398163
-EMGInit::alpha_dual2 = 0.785398163
+EMGInit::alpha_dual1 = 0.
+EMGInit::alpha_dual2 = 1.570796327
 
 EMGInit::z0 = 8.001
 
@@ -223,38 +219,19 @@ EMGEvolve::calculate_constraints       = yes
 EMGEvolve::calculate_constraints_every = 128
 EMGEvolve::excise_horizon              = yes
 
-ADMBase::evolution_method         = "ML_CCZ4"
-ADMBase::lapse_evolution_method   = "ML_CCZ4"
-ADMBase::shift_evolution_method   = "ML_CCZ4"
-ADMBase::dtlapse_evolution_method = "ML_CCZ4"
-ADMBase::dtshift_evolution_method = "ML_CCZ4"
+ADMBase::evolution_method         = "LeanBSSNMoL"
+ADMBase::lapse_evolution_method   = "LeanBSSNMoL"
+ADMBase::shift_evolution_method   = "LeanBSSNMoL"
+ADMBase::dtlapse_evolution_method = "LeanBSSNMoL"
+ADMBase::dtshift_evolution_method = "LeanBSSNMoL"
 
-ML_CCZ4::harmonicN       = 1      # 1+log
-ML_CCZ4::harmonicF       = 2.0    # 1+log
-ML_CCZ4::ShiftGammaCoeff = 0.75
-ML_CCZ4::BetaDriver      = 1.0
-ML_CCZ4::advectLapse     = 1
-ML_CCZ4::advectShift     = 1
-ML_CCZ4::dampk1          = 0.04
-ML_CCZ4::dampk2          = 0.0
-
-ML_CCZ4::MinimumLapse               = 1.0e-8
-ML_CCZ4::conformalMethod            = 1 # 1 for W, 0 for phi
-ML_CCZ4::rhs_boundary_condition     = "NewRad"   # was "static"
-ML_CCZ4::initial_boundary_condition = "extrapolate-gammas"
-Boundary::radpower                  = 2
-
-ML_CCZ4::ML_log_confac_bound = "none"
-ML_CCZ4::ML_metric_bound     = "none"
-ML_CCZ4::ML_Gamma_bound      = "none"
-ML_CCZ4::ML_trace_curv_bound = "none"
-ML_CCZ4::ML_curv_bound       = "none"
-ML_CCZ4::ML_lapse_bound      = "none"
-ML_CCZ4::ML_dtlapse_bound    = "none"
-ML_CCZ4::ML_shift_bound      = "none"
-ML_CCZ4::ML_dtshift_bound    = "none"
-#ML_CCZ4::apply_dissipation   = "always"
-#ML_CCZ4::EpsDiss             = 0.1
+LeanBSSNMoL::impose_conf_fac_floor_at_initial = yes
+LeanBSSNMoL::eta_beta                         = 1
+LeanBSSNMoL::conf_fac_floor                   = 1.0d-04
+LeanBSSNMoL::derivs_order                     = 4
+LeanBSSNMoL::use_advection_stencils           = yes
+LeanBSSNMoL::calculate_constraints            = yes
+LeanBSSNMoL::calculate_constraints_every      = 128
 
 
 #------------------------------------------------------------------------------
@@ -271,17 +248,13 @@ Dissipation::epsdis_for_level[6] = 0.009375
 Dissipation::epsdis_for_level[7] = 0.3
 Dissipation::order = 5
 Dissipation::vars  = "
-# ADMBase::lapse
-# ADMBase::shift
-  ML_CCZ4::ML_log_confac
-  ML_CCZ4::ML_metric
-  ML_CCZ4::ML_trace_curv
-  ML_CCZ4::ML_curv
-  ML_CCZ4::ML_Gamma
-  ML_CCZ4::ML_lapse
-  ML_CCZ4::ML_shift
-  ML_CCZ4::ML_dtlapse
-  ML_CCZ4::ML_dtshift
+  ADMBase::lapse
+  ADMBase::shift
+  LeanBSSNMoL::conf_fac
+  LeanBSSNMoL::hmetric
+  LeanBSSNMoL::hcurv
+  LeanBSSNMoL::trk
+  LeanBSSNMoL::gammat
   EMGBase::Ei
   EMGBase::Bi
   EMGBase::Omega
@@ -561,7 +534,7 @@ TimerReport::output_schedule_timers     = no
 # I/O
 #------------------------------------------------------------------------------
 
-IO::out_dir = "Headon-noconstraints_M=1,0.5-T=0.1,0.05-alpha=0.25pi,0.25pi-x0=8.001_h=2.5"
+IO::out_dir = "Headon_M=1,0.5-T=0.1,0.05-alpha=0,0.5pi-x0=8.001_h=3"
 IOHDF5::output_symmetry_points = no
 
 # screen output
@@ -576,8 +549,8 @@ IOBasic::outInfo_vars       = "
 IOScalar::outScalar_every      = 128
 IOScalar::outScalar_reductions = "norm2"
 IOScalar::outScalar_vars       = "
-  ML_ADMConstraints::ML_Ham
-  ML_ADMConstraints::ML_mom
+  LeanBSSNMoL::ham
+  LeanBSSNMoL::mom
   EMGEvolve::Ec
   EMGEvolve::Bc
 "
@@ -602,10 +575,12 @@ IOASCII::out1D_y     = yes
 IOASCII::out1D_z     = yes
 IOASCII::out1D_vars  = "
   ADMBase::lapse
+  LeanBSSNMoL::trk
+  LeanBSSNMoL::conf_fac
   EMGEvolve::Ec
   EMGEvolve::Bc
-  ML_ADMConstraints::ML_Ham
-  ML_ADMConstraints::ML_mom
+  LeanBSSNMoL::ham
+  LeanBSSNMoL::mom
   EMGBase::Ei
   EMGBase::Bi
 "
@@ -628,10 +603,10 @@ IOHDF5::out3d_vars  = "
 # Checkpoints and recovery
 #-------------------------------------------------------------------------------
 
-CarpetIOHDF5::checkpoint    = no
+CarpetIOHDF5::checkpoint    = yes
 IO::checkpoint_dir          = "../checkpoints"
 IO::checkpoint_ID           = no
-IO::checkpoint_on_terminate = no
+IO::checkpoint_on_terminate = yes
 IO::out_proc_every          = 2
 IO::checkpoint_keep         = 1
 
@@ -656,4 +631,4 @@ TerminationTrigger::create_termination_file      = yes
 
 # termination condition
 Cactus::terminate       = "time"
-Cactus::cctk_final_time = 0.
+Cactus::cctk_final_time = 4000.
