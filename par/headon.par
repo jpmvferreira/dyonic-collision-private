@@ -198,7 +198,7 @@ EMGInit::T1 = 0.1
 EMGInit::T2 = 0.05
 
 EMGInit::alpha_dual1 = 0.
-EMGInit::alpha_dual2 = 1.570796327
+EMGInit::alpha_dual2 = 0.
 
 EMGInit::z0 = 8.001
 
@@ -534,7 +534,7 @@ TimerReport::output_schedule_timers     = no
 # I/O
 #------------------------------------------------------------------------------
 
-IO::out_dir = "Headon_M=1,0.5-T=0.1,0.05-alpha=0,0.5pi-x0=8.001_h=3"
+IO::out_dir = "Headon_M=1,0.5-T=0.1,0.05-alpha=0,0-x0=8.001_h=3"
 IOHDF5::output_symmetry_points = no
 
 # screen output
@@ -603,10 +603,10 @@ IOHDF5::out3d_vars  = "
 # Checkpoints and recovery
 #-------------------------------------------------------------------------------
 
-CarpetIOHDF5::checkpoint    = yes
+CarpetIOHDF5::checkpoint    = no
 IO::checkpoint_dir          = "../checkpoints"
 IO::checkpoint_ID           = no
-IO::checkpoint_on_terminate = yes
+IO::checkpoint_on_terminate = no
 IO::out_proc_every          = 2
 IO::checkpoint_keep         = 1
 
@@ -631,4 +631,4 @@ TerminationTrigger::create_termination_file      = yes
 
 # termination condition
 Cactus::terminate       = "time"
-Cactus::cctk_final_time = 4000.
+Cactus::cctk_final_time = 0.

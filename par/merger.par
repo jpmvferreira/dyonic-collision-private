@@ -201,7 +201,7 @@ TwoChargedPunctures::par_q_plus          = 0.05
 TwoChargedPunctures::par_q_minus         = 0.05
 
 TwoChargedPunctures::alpha_duality_plus  = 0.
-TwoChargedPunctures::alpha_duality_minus = 1.570796327
+TwoChargedPunctures::alpha_duality_minus = 4.71238898
 
 TwoChargedPunctures::par_b               = 8.001
 TwoChargedPunctures::center_offset[0]    = 0.0
@@ -567,7 +567,7 @@ TimerReport::output_schedule_timers     = no
 # I/O
 #------------------------------------------------------------------------------
 
-IO::out_dir = "Merger_M=0.5,0.5-T=0.05,0.05-alpha=0,0.5pi-x0=8.001_h=3"
+IO::out_dir = "Merger_M=0.5,0.5-T=0.05,0.05-alpha=0,1.5pi-x0=8.001_h=3"
 IOHDF5::output_symmetry_points = no
 
 # screen output
