@@ -1,0 +1,467 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[     18629,        459]
+NotebookOptionsPosition[     17310,        433]
+NotebookOutlinePosition[     17699,        449]
+CellTagsIndexPosition[     17656,        446]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell["Here\[CloseCurlyQuote]s the greatest function that was ever created", \
+"Text",
+ CellChangeTimes->{{3.983514706361827*^9, 
+  3.9835147254406557`*^9}},ExpressionUUID->"8a8c941a-fb09-42ce-abf7-\
+6d827ff5d4c9"],
+
+Cell[BoxData[
+ RowBox[{"\[LeftGuillemet]", ":=", 
+  RowBox[{"Out", "[", "\[IndentingNewLine]", 
+   RowBox[{"ToExpression", "[", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"StringCases", "[", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"ToString", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"PreviousCell", "[", 
+           RowBox[{"CellStyle", "->", "\"\<Output\>\""}], "]"}], "//", 
+          "NotebookRead"}], "//", "Last"}], "]"}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"\"\<Out[\>\"", "~~", 
+         RowBox[{"d", ":", 
+          RowBox[{"DigitCharacter", ".."}]}], "~~", "\"\<]\>\""}], ":>", 
+        "d"}]}], "]"}], "[", 
+     RowBox[{"[", "1", "]"}], "]"}], "\[IndentingNewLine]", "]"}], 
+   "\[IndentingNewLine]", "]"}]}]], "Input",
+ CellChangeTimes->{3.9827299211673117`*^9, 3.982729957746978*^9},
+ CellLabel->"In[1]:=",ExpressionUUID->"7c26ba81-35a8-4b25-a0f1-0c2687d15151"],
+
+Cell[TextData[{
+ "Following [Liu2020], define the relative position vector ",
+ Cell[BoxData[
+  FormBox[
+   OverscriptBox["R", "\[RightVector]"], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "7db21dea-c423-44df-985a-3d51aa8f93be"]
+}], "Text",
+ CellChangeTimes->{{3.983521914261724*^9, 
+  3.983521939238081*^9}},ExpressionUUID->"59bad06c-ae5c-43be-8af0-\
+c86db1e2cb92"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"R", "[", 
+    RowBox[{"\[Phi]_", ",", "a_", ",", "e_", ",", "\[Theta]_"}], "]"}], ":=", 
+   
+   RowBox[{
+    FractionBox[
+     RowBox[{"a", 
+      RowBox[{"(", 
+       RowBox[{"1", "-", 
+        SuperscriptBox["e", "2"]}], ")"}]}], 
+     RowBox[{"1", "+", 
+      RowBox[{"e", " ", 
+       RowBox[{"Cos", "[", 
+        RowBox[{"\[Phi]", " ", 
+         RowBox[{"Sin", "[", "\[Theta]", "]"}]}], "]"}]}]}]], 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"Sin", "[", "\[Theta]", "]"}], 
+       RowBox[{"Cos", "[", "\[Phi]", "]"}]}], ",", 
+      RowBox[{
+       RowBox[{"Sin", "[", "\[Theta]", "]"}], 
+       RowBox[{"Sin", "[", "\[Phi]", "]"}]}], ",", 
+      RowBox[{"Cos", "[", "\[Theta]", "]"}]}], "}"}]}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.983521941203258*^9, 3.983521992048101*^9}, {
+  3.983522811735387*^9, 3.983522814994232*^9}, {3.983523486949645*^9, 
+  3.9835234909269533`*^9}},
+ CellLabel->"In[2]:=",ExpressionUUID->"f1e9130a-e5ea-4ce8-af04-9556dfb2ef5a"],
+
+Cell[TextData[{
+ "Where ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"{", " ", 
+    RowBox[{"a", ",", "e", ",", "\[Theta]"}], " ", "}"}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "ccf53bc7-657e-4ca5-99c3-4526a250d249"],
+ " are parameters related to the physical characteristics of the system, and ",
+ Cell[BoxData[
+  FormBox["\[Phi]", TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "3bb7faf5-fb27-4354-8447-15eb73ad4da5"],
+ " is the angular position that is a function of time."
+}], "Text",
+ CellChangeTimes->{{3.983521996044281*^9, 
+  3.983522069292695*^9}},ExpressionUUID->"e4e94580-4903-42ba-acef-\
+433e47bebd4a"],
+
+Cell[TextData[{
+ "Assuming equal mass bodies where ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["m", "1"], "=", 
+    RowBox[{
+     SubscriptBox["m", "2"], "=", "1"}]}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "c051a789-c038-4868-936f-12f22932ef45"],
+ ", the position of each body wrt the C.M. of the system is"
+}], "Text",
+ CellChangeTimes->{{3.9835221187062883`*^9, 3.983522171791465*^9}, {
+  3.9835229204647417`*^9, 3.9835229392740593`*^9}, {3.983525113748496*^9, 
+  3.983525114039835*^9}},ExpressionUUID->"33948ef6-67d2-4a6f-a891-\
+502d8cdabeaf"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"r1", "[", 
+    RowBox[{"\[Phi]_", ",", "a_", ",", "e_", ",", "\[Theta]_"}], "]"}], "=", 
+   RowBox[{
+    RowBox[{"-", 
+     FractionBox["1", "2"]}], 
+    RowBox[{"R", "[", 
+     RowBox[{"\[Phi]", ",", "a", ",", "e", ",", "\[Theta]"}], "]"}]}]}], 
+  ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"r2", "[", 
+    RowBox[{"\[Phi]_", ",", "a_", ",", "e_", ",", "\[Theta]_"}], "]"}], "=", 
+   RowBox[{
+    FractionBox["1", "2"], 
+    RowBox[{"R", "[", 
+     RowBox[{"\[Phi]", ",", "a", ",", "e", ",", "\[Theta]"}], "]"}]}]}], 
+  ";"}]}], "Input",
+ CellChangeTimes->{{3.983522152084079*^9, 3.983522184000486*^9}, {
+  3.98352281726125*^9, 3.9835228273859663`*^9}, {3.983523496014737*^9, 
+  3.9835235179148912`*^9}},
+ CellLabel->"In[3]:=",ExpressionUUID->"69010e4c-35df-41b3-af42-7c4d3f30f9fb"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", "\n", "\t", 
+  RowBox[{
+   RowBox[{"Show", "[", "\n", "\t\t", 
+    RowBox[{
+     RowBox[{"ParametricPlot3D", "[", "\n", "\t\t\t", 
+      RowBox[{
+       RowBox[{"r1", "[", 
+        RowBox[{"\[Phi]", ",", "a", ",", "e", ",", "\[Theta]"}], "]"}], ",", 
+       "\n", "\t\t\t", 
+       RowBox[{"{", 
+        RowBox[{"\[Phi]", ",", "0", ",", "\[Phi]max"}], "}"}], ",", "\n", 
+       "\t\t\t", 
+       RowBox[{"ColorFunction", "->", 
+        RowBox[{"Function", "[", "\n", "\t\t\t\t", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"x", ",", "y", ",", "z", ",", "t"}], "}"}], ",", 
+          RowBox[{"Directive", "[", 
+           RowBox[{"Blue", ",", 
+            RowBox[{"Opacity", "[", "t", "]"}]}], "]"}]}], "\n", "\t\t\t", 
+         "]"}]}], ",", "\n", "\t\t\t", 
+       RowBox[{"ColorFunctionScaling", "->", "True"}], ",", "\n", "\t\t\t", 
+       RowBox[{"PlotStyle", "->", 
+        RowBox[{"Thickness", "[", "0.01", "]"}]}], ",", 
+       RowBox[{"PlotPoints", "->", "100"}]}], "\n", "\t\t", "]"}], ",", "\n", 
+     "\t", "\n", "\t\t", 
+     RowBox[{"ParametricPlot3D", "[", "\n", "\t\t\t", 
+      RowBox[{
+       RowBox[{"r2", "[", 
+        RowBox[{"\[Phi]", ",", "a", ",", "e", ",", "\[Theta]"}], "]"}], ",", 
+       "\n", "\t\t\t", 
+       RowBox[{"{", 
+        RowBox[{"\[Phi]", ",", "0", ",", "\[Phi]max"}], "}"}], ",", "\n", 
+       "\t\t\t", 
+       RowBox[{"ColorFunction", "->", 
+        RowBox[{"Function", "[", "\n", "\t\t\t\t", 
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"x", ",", "y", ",", "z", ",", "t"}], "}"}], ",", 
+          RowBox[{"Directive", "[", 
+           RowBox[{"Red", ",", 
+            RowBox[{"Opacity", "[", "t", "]"}]}], "]"}]}], "\n", "\t\t\t", 
+         "]"}]}], ",", "\n", "\t\t\t", 
+       RowBox[{"ColorFunctionScaling", "->", "True"}], ",", "\n", "\t\t\t", 
+       RowBox[{"PlotStyle", "->", 
+        RowBox[{"Thickness", "[", "0.01", "]"}]}], ",", "\n", "\t\t\t", 
+       RowBox[{"PlotPoints", "->", "100"}]}], "\n", "\t\t", "]"}], ",", "\n", 
+     "\n", "\t\t", 
+     RowBox[{"Graphics3D", "[", 
+      RowBox[{"{", "\n", "\t\t\t", 
+       RowBox[{
+        RowBox[{"PointSize", "[", "0.025", "]"}], ",", "\n", "\t\t\t", 
+        RowBox[{"{", 
+         RowBox[{"Blue", ",", 
+          RowBox[{"Point", "[", 
+           RowBox[{"r1", "[", 
+            RowBox[{"\[Phi]max", ",", "a", ",", "e", ",", "\[Theta]"}], "]"}],
+            "]"}]}], "}"}], ",", "\n", "\t\t\t", 
+        RowBox[{"{", 
+         RowBox[{"Red", ",", "  ", 
+          RowBox[{"Point", "[", 
+           RowBox[{"r2", "[", 
+            RowBox[{"\[Phi]max", ",", "a", ",", "e", ",", "\[Theta]"}], "]"}],
+            "]"}]}], "}"}]}], "\n", "\t\t", "}"}], "]"}], ",", "\n", "\t", 
+     "\n", "\t\t", 
+     RowBox[{"PlotRange", "->", "All"}], ",", "\n", "\t\t", 
+     RowBox[{"AxesLabel", "->", 
+      RowBox[{"{", 
+       RowBox[{"\"\<x\>\"", ",", "\"\<y\>\"", ",", "\"\<z\>\""}], "}"}]}], ",",
+      "\n", "\t\t", 
+     RowBox[{"ImageSize", "->", "550"}], ",", "\n", "\t\t", 
+     RowBox[{"Method", "->", 
+      RowBox[{"{", 
+       RowBox[{"\"\<transparency_polygon_sorting\>\"", 
+        "->", "\"\<depth_peeling\>\""}], "}"}]}]}], "\n", "\t", "]"}], ",", 
+   "\n", "\t", "\n", "\t", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"a", ",", "1"}], "}"}], ",", "                         ", "0", ",",
+      "10", ",", "    ", 
+     RowBox[{"Appearance", "->", "\"\<Labeled\>\""}]}], "}"}], ",", "\n", 
+   "\t", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"e", ",", "0"}], "}"}], ",", "                         ", "0", ",",
+      "10", ",", "     ", 
+     RowBox[{"Appearance", "->", "\"\<Labeled\>\""}]}], "}"}], ",", "\n", 
+   "\t", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\[Theta]", ",", 
+       RowBox[{"\[Pi]", "/", "4"}]}], "}"}], ",", "                   ", "0", 
+     ",", 
+     RowBox[{"\[Pi]", "/", "2"}], ",", 
+     RowBox[{"Appearance", "->", "\"\<Labeled\>\""}]}], "}"}], ",", "\n", 
+   "\t", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"\[Phi]max", ",", 
+       RowBox[{"2", "\[Pi]"}], 
+       ",", "\"\<\!\(\*SubscriptBox[\(\[Phi]\), \(max\)]\)\>\""}], "}"}], ",",
+      "0", ",", 
+     RowBox[{"8", "\[Pi]"}], ",", "  ", 
+     RowBox[{"Appearance", "->", "\"\<Labeled\>\""}]}], "}"}]}], "\n", " ", 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.9835223969726*^9, 3.98352255800564*^9}, {
+   3.98352259212598*^9, 3.983522805509811*^9}, {3.9835228569696903`*^9, 
+   3.983522887330394*^9}, {3.983522988534052*^9, 3.9835229924507*^9}, {
+   3.98352303199474*^9, 3.98352338961119*^9}, {3.983523532141067*^9, 
+   3.983523555039464*^9}, {3.983523669275231*^9, 3.9835236799795923`*^9}, {
+   3.983523715430087*^9, 3.983523728680621*^9}, {3.9835240559344797`*^9, 
+   3.983524181140952*^9}, {3.983524289836195*^9, 3.9835242959094067`*^9}, {
+   3.9835243486033373`*^9, 3.983524349540928*^9}, 3.9835243985595703`*^9, 
+   3.983525796961033*^9},
+ CellLabel->"In[23]:=",ExpressionUUID->"b594ad2a-813f-4ebe-96e6-4484ba1e92a3"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`a$$ = 0.64, $CellContext`e$$ = 
+    0.48, $CellContext`\[Theta]$$ = Rational[1, 4] 
+    Pi, $CellContext`\[Phi]max$$ = 25.132741228718345`, Typeset`show$$ = True,
+     Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`a$$], 1}, 0, 10, ControlType -> Manipulator}, {{
+       Hold[$CellContext`e$$], 0}, 0, 10, ControlType -> Manipulator}, {{
+       Hold[$CellContext`\[Theta]$$], Rational[1, 4] Pi}, 0, Rational[1, 2] 
+      Pi, ControlType -> Manipulator}, {{
+       Hold[$CellContext`\[Phi]max$$], 2 Pi, 
+       "\!\(\*SubscriptBox[\(\[Phi]\), \(max\)]\)"}, 0, 8 Pi, ControlType -> 
+      Manipulator}}, Typeset`size$$ = {
+    550., {288.6576574825328, 294.2826574825328}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = True, 
+    Typeset`keyframeActionsQ$$ = False, Typeset`keyframeList$$ = {}}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`a$$ = 1, $CellContext`e$$ = 
+        0, $CellContext`\[Theta]$$ = 
+        Rational[1, 4] Pi, $CellContext`\[Phi]max$$ = 2 Pi}, 
+      "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$, Typeset`keyframeActionsQ$$, 
+        Typeset`keyframeList$$}, "Body" :> Show[
+        ParametricPlot3D[
+         $CellContext`r1[$CellContext`\[Phi], $CellContext`a$$, \
+$CellContext`e$$, $CellContext`\[Theta]$$], {$CellContext`\[Phi], 
+          0, $CellContext`\[Phi]max$$}, ColorFunction -> 
+         Function[{$CellContext`x, $CellContext`y, $CellContext`z, \
+$CellContext`t}, 
+           Directive[Blue, 
+            Opacity[$CellContext`t]]], ColorFunctionScaling -> True, 
+         PlotStyle -> Thickness[0.01], PlotPoints -> 100], 
+        ParametricPlot3D[
+         $CellContext`r2[$CellContext`\[Phi], $CellContext`a$$, \
+$CellContext`e$$, $CellContext`\[Theta]$$], {$CellContext`\[Phi], 
+          0, $CellContext`\[Phi]max$$}, ColorFunction -> 
+         Function[{$CellContext`x, $CellContext`y, $CellContext`z, \
+$CellContext`t}, 
+           Directive[Red, 
+            Opacity[$CellContext`t]]], ColorFunctionScaling -> True, 
+         PlotStyle -> Thickness[0.01], PlotPoints -> 100], 
+        Graphics3D[{
+          PointSize[0.025], {Blue, 
+           Point[
+            $CellContext`r1[$CellContext`\[Phi]max$$, $CellContext`a$$, \
+$CellContext`e$$, $CellContext`\[Theta]$$]]}, {Red, 
+           Point[
+            $CellContext`r2[$CellContext`\[Phi]max$$, $CellContext`a$$, \
+$CellContext`e$$, $CellContext`\[Theta]$$]]}}], PlotRange -> All, 
+        AxesLabel -> {"x", "y", "z"}, ImageSize -> 550, 
+        Method -> {"transparency_polygon_sorting" -> "depth_peeling"}], 
+      "Specifications" :> {{{$CellContext`a$$, 1}, 0, 10, Appearance -> 
+         "Labeled"}, {{$CellContext`e$$, 0}, 0, 10, Appearance -> 
+         "Labeled"}, {{$CellContext`\[Theta]$$, Rational[1, 4] Pi}, 0, 
+         Rational[1, 2] Pi, Appearance -> 
+         "Labeled"}, {{$CellContext`\[Phi]max$$, 2 Pi, 
+          "\!\(\*SubscriptBox[\(\[Phi]\), \(max\)]\)"}, 0, 8 Pi, Appearance -> 
+         "Labeled"}}, "Options" :> {}, "DefaultOptions" :> {}],
+     ImageSizeCache->{
+      595.0999999999999, {366.8326574825328, 372.4576574825328}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ GeneratedCell->False,
+ CellAutoOverwrite->False,
+ CellChangeTimes->{
+  3.983522397980143*^9, {3.983522777576253*^9, 3.9835227912693787`*^9}, {
+   3.983522854595971*^9, 3.983522883506543*^9}, 3.983522992786213*^9, {
+   3.983523056051544*^9, 3.9835231279283648`*^9}, {3.983523354510722*^9, 
+   3.9835233888273497`*^9}, 3.983523555338687*^9, 3.983523730257759*^9, {
+   3.983524067374593*^9, 3.983524102442738*^9}, {3.983524144332974*^9, 
+   3.983524181547503*^9}, 3.983524296406692*^9, 3.983524350379271*^9, 
+   3.983524400478013*^9, 3.9835247340658197`*^9, 3.983525517806943*^9, 
+   3.983525592776783*^9, 3.983525798913597*^9},
+ CellLabel->"Out[23]=",ExpressionUUID->"89ac2256-ded5-42cd-aab3-6dbe6677e1a5"]
+}, Open  ]],
+
+Cell[TextData[{
+ "Notes to self:\n\t- Not sure how choosing ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    SubscriptBox["m", "1"], "=", 
+    RowBox[{
+     SubscriptBox["m", "2"], "=", "1"}]}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "c67f0b72-bd75-4f00-9c58-cc33a64a3cd7"],
+ " impacts the parameters ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"{", " ", 
+    RowBox[{"a", ",", " ", "e", ",", " ", "\[Theta]"}], " ", "}"}], 
+   TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "5ed8c545-355d-469c-9c6a-e2c0ee9d3cd4"],
+ ".\n\t- Don\[CloseCurlyQuote]t know what should be the limits of ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"{", " ", 
+    RowBox[{"a", ",", " ", "e", ",", " ", "\[Theta]"}], " ", "}"}], 
+   TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "c1f54a2b-3ff7-4a54-ac70-23527d4b9e42"],
+ ", assuming that I want closed orbits."
+}], "Text",
+ CellChangeTimes->{{3.9835251179154387`*^9, 3.983525190168922*^9}, {
+  3.983526821244378*^9, 
+  3.983526822626425*^9}},ExpressionUUID->"2003623c-1ea4-4a5e-be50-\
+725badec1363"],
+
+Cell[TextData[{
+ "Notes about the dynamics:\n\t- For \[OpenCurlyDoubleQuote]circular\
+\[CloseCurlyDoubleQuote] orbits (i.e. ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{"e", "=", "0"}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "ebbcbbc1-747a-4715-b38e-97ccbfe0b56e"],
+ "), since ",
+ Cell[BoxData[
+  FormBox[
+   RowBox[{
+    RowBox[{"de", "/", "dt"}], "=", "0"}], TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "361cb676-98c6-4e51-b16b-c69bd665bfbc"],
+ ", they will remain circular until merger.\n\t- For \
+\[OpenCurlyDoubleQuote]non-circular\[CloseCurlyDoubleQuote] orbits, ",
+ Cell[BoxData[
+  FormBox["a", TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "a04c608d-a707-4d0f-ae61-5e7824f094f0"],
+ " will decrease (making vertical variation smaller) and ",
+ Cell[BoxData[
+  FormBox["\[Theta]", TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "dfb983a6-07e2-4a9e-b27d-bc93c5b800b4"],
+ " will decrease (making the aperture of the cone smaller)."
+}], "Text",
+ CellChangeTimes->{{3.983526689668561*^9, 
+  3.983526852782474*^9}},ExpressionUUID->"b0615717-f7c3-4b96-b749-\
+4fcc085c725d"]
+},
+WindowSize->{708, 772.5},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"14.3 for Linux x86 (64-bit) (July 8, 2025)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"7ecf0249-23cb-4b20-95d4-41f4b393a6b6"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[554, 20, 213, 4, 33, "Text",ExpressionUUID->"8a8c941a-fb09-42ce-abf7-6d827ff5d4c9"],
+Cell[770, 26, 940, 21, 149, "Input",ExpressionUUID->"7c26ba81-35a8-4b25-a0f1-0c2687d15151"],
+Cell[1713, 49, 390, 10, 33, "Text",ExpressionUUID->"59bad06c-ae5c-43be-8af0-c86db1e2cb92"],
+Cell[2106, 61, 1030, 29, 56, "Input",ExpressionUUID->"f1e9130a-e5ea-4ce8-af04-9556dfb2ef5a"],
+Cell[3139, 92, 659, 17, 59, "Text",ExpressionUUID->"e4e94580-4903-42ba-acef-433e47bebd4a"],
+Cell[3801, 111, 590, 15, 55, "Text",ExpressionUUID->"33948ef6-67d2-4a6f-a891-502d8cdabeaf"],
+Cell[4394, 128, 834, 23, 78, "Input",ExpressionUUID->"69010e4c-35df-41b3-af42-7c4d3f30f9fb"],
+Cell[CellGroupData[{
+Cell[5253, 155, 5076, 119, 835, "Input",ExpressionUUID->"b594ad2a-813f-4ebe-96e6-4484ba1e92a3"],
+Cell[10332, 276, 4708, 89, 756, "Output",ExpressionUUID->"89ac2256-ded5-42cd-aab3-6dbe6677e1a5"]
+}, Open  ]],
+Cell[15055, 368, 1085, 31, 84, "Text",ExpressionUUID->"2003623c-1ea4-4a5e-be50-725badec1363"],
+Cell[16143, 401, 1163, 30, 100, "Text",ExpressionUUID->"b0615717-f7c3-4b96-b749-4fcc085c725d"]
+}
+]
+*)
+

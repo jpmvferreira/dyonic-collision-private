@@ -1,0 +1,67 @@
+#!/usr/bin/env python3
+
+# imports
+from string import Template
+import argparse
+import os
+
+def main():
+    # parse arguments
+    parser = argparse.ArgumentParser(description="Generates merger parameter file from template")
+
+    parser.add_argument("-t",   "--template",     required=True, type=str,   help="Path to template parfile")
+    parser.add_argument("-o",   "--output",       required=True, type=str,   help="Path to output parfile")
+    parser.add_argument("-d",   "--distance",     required=True, type=float, help="Distance between punctures")
+    parser.add_argument("-m",   "--mass_ratio",   required=True, type=float, help="Mass ratio")
+    parser.add_argument("-tp",  "--charge_plus",  required=True, type=float, help="Charge to mass ratio of the 'plus' BH")
+    parser.add_argument("-tm",  "--charge_minus", required=True, type=float, help="Charge to mass ratio of the 'minus' BH")
+    parser.add_argument("-am",  "--alpha_minus",  required=True, type=float, help="E.M. rotation angle for 'minus' BH")
+
+    args = parser.parse_args()
+
+    template     = os.path.abspath(args.template)
+    output       = os.path.abspath(args.output)
+    distance     = args.distance
+    mass_ratio   = args.mass_ratio
+    lambda_plus  = args.charge_plus
+    lambda_minus = args.charge_minus
+    alpha_minus  = args.alpha_minus
+
+    # open template parfile as a Python string template
+    with open(os.path(template)) as f:
+        strtemplate = Template(f.read())
+
+    # compute quantities for quasi-circular merger
+    par_b = d/2
+
+    m_plus  = 1
+    m_minus = mass_ratio
+
+    q_plus  = charge_plus  * m_plus
+    q_minus = charge_minus * m_minus
+
+    alpha_plus  = 0
+    alpha_minus = alpha_minus  # xd
+
+    x_plus  =   d * m_minus / (m_minus + m_plus)
+    x_minus = - d * m_plus  / (m_minus + m_plus)
+
+    center_offset = x_plus - par_b
+
+    rah_plus  = np.sqrt(m_plus**2  - q_plus**2)  / 2
+    rah_minus = np.sqrt(m_minus**2 - q_minus**2) / 2
+
+    # TODO: calcular quasi-circular momentum com nrpypn e aplicar correcao para incluir a carga
+    Px_plus,  Py_plus,  Pz_plus  = np.multiply(twopunctures.momenta_plus  , np.sqrt(1 - lambda_plus * lambda_minus))
+    Px_minus, Py_minus, Pz_minus = np.multiply(twopunctures.momenta_minus , np.sqrt(1 - lambda_plus * lambda_minus))
+
+    # define output directory for the simulation
+    out_dir = f"TODO"
+
+    # output to parfile
+    template_out = template.substitute(**locals())
+    with open(output, "w") as f:
+        f.write(template_out)
+
+if __name__ == "__main__":
+    main()
