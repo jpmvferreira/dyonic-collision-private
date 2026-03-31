@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       154,          7]
-NotebookDataLength[     18629,        459]
-NotebookOptionsPosition[     17310,        433]
-NotebookOutlinePosition[     17699,        449]
-CellTagsIndexPosition[     17656,        446]
+NotebookDataLength[     18398,        445]
+NotebookOptionsPosition[     17080,        419]
+NotebookOutlinePosition[     17469,        435]
+CellTagsIndexPosition[     17426,        432]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -51,8 +51,7 @@ Cell[TextData[{
  "Following [Liu2020], define the relative position vector ",
  Cell[BoxData[
   FormBox[
-   OverscriptBox["R", "\[RightVector]"], TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
+   OverscriptBox["R", "\[RightVector]"], TraditionalForm]],ExpressionUUID->
   "7db21dea-c423-44df-985a-3d51aa8f93be"]
 }], "Text",
  CellChangeTimes->{{3.983521914261724*^9, 
@@ -96,12 +95,10 @@ Cell[TextData[{
   FormBox[
    RowBox[{"{", " ", 
     RowBox[{"a", ",", "e", ",", "\[Theta]"}], " ", "}"}], TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
-  "ccf53bc7-657e-4ca5-99c3-4526a250d249"],
+  ExpressionUUID->"ccf53bc7-657e-4ca5-99c3-4526a250d249"],
  " are parameters related to the physical characteristics of the system, and ",
  Cell[BoxData[
-  FormBox["\[Phi]", TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
+  FormBox["\[Phi]", TraditionalForm]],ExpressionUUID->
   "3bb7faf5-fb27-4354-8447-15eb73ad4da5"],
  " is the angular position that is a function of time."
 }], "Text",
@@ -116,8 +113,7 @@ Cell[TextData[{
    RowBox[{
     SubscriptBox["m", "1"], "=", 
     RowBox[{
-     SubscriptBox["m", "2"], "=", "1"}]}], TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
+     SubscriptBox["m", "2"], "=", "1"}]}], TraditionalForm]],ExpressionUUID->
   "c051a789-c038-4868-936f-12f22932ef45"],
  ", the position of each body wrt the C.M. of the system is"
 }], "Text",
@@ -272,17 +268,16 @@ Cell[BoxData[
    3.983524181140952*^9}, {3.983524289836195*^9, 3.9835242959094067`*^9}, {
    3.9835243486033373`*^9, 3.983524349540928*^9}, 3.9835243985595703`*^9, 
    3.983525796961033*^9},
- CellLabel->"In[23]:=",ExpressionUUID->"b594ad2a-813f-4ebe-96e6-4484ba1e92a3"],
+ CellLabel->"In[5]:=",ExpressionUUID->"b594ad2a-813f-4ebe-96e6-4484ba1e92a3"],
 
 Cell[BoxData[
  TagBox[
   StyleBox[
-   DynamicModuleBox[{$CellContext`a$$ = 0.64, $CellContext`e$$ = 
-    0.48, $CellContext`\[Theta]$$ = Rational[1, 4] 
-    Pi, $CellContext`\[Phi]max$$ = 25.132741228718345`, Typeset`show$$ = True,
-     Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
-    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
-    "\"untitled\"", Typeset`specs$$ = {{{
+   DynamicModuleBox[{$CellContext`a$$ = 1, $CellContext`e$$ = 
+    0, $CellContext`\[Theta]$$ = Rational[1, 4] Pi, $CellContext`\[Phi]max$$ =
+     2 Pi, Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
        Hold[$CellContext`a$$], 1}, 0, 10, ControlType -> Manipulator}, {{
        Hold[$CellContext`e$$], 0}, 0, 10, ControlType -> Manipulator}, {{
        Hold[$CellContext`\[Theta]$$], Rational[1, 4] Pi}, 0, Rational[1, 2] 
@@ -362,8 +357,8 @@ $CellContext`e$$, $CellContext`\[Theta]$$]]}}], PlotRange -> All,
    3.983524067374593*^9, 3.983524102442738*^9}, {3.983524144332974*^9, 
    3.983524181547503*^9}, 3.983524296406692*^9, 3.983524350379271*^9, 
    3.983524400478013*^9, 3.9835247340658197`*^9, 3.983525517806943*^9, 
-   3.983525592776783*^9, 3.983525798913597*^9},
- CellLabel->"Out[23]=",ExpressionUUID->"89ac2256-ded5-42cd-aab3-6dbe6677e1a5"]
+   3.983525592776783*^9, 3.983525798913597*^9, 3.983868691820573*^9},
+ CellLabel->"Out[5]=",ExpressionUUID->"7215f216-1800-4cc3-9541-2332d7e4501c"]
 }, Open  ]],
 
 Cell[TextData[{
@@ -373,62 +368,53 @@ Cell[TextData[{
    RowBox[{
     SubscriptBox["m", "1"], "=", 
     RowBox[{
-     SubscriptBox["m", "2"], "=", "1"}]}], TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
+     SubscriptBox["m", "2"], "=", "1"}]}], TraditionalForm]],ExpressionUUID->
   "c67f0b72-bd75-4f00-9c58-cc33a64a3cd7"],
  " impacts the parameters ",
  Cell[BoxData[
   FormBox[
    RowBox[{"{", " ", 
     RowBox[{"a", ",", " ", "e", ",", " ", "\[Theta]"}], " ", "}"}], 
-   TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
-  "5ed8c545-355d-469c-9c6a-e2c0ee9d3cd4"],
+   TraditionalForm]],ExpressionUUID->"5ed8c545-355d-469c-9c6a-e2c0ee9d3cd4"],
  ".\n\t- Don\[CloseCurlyQuote]t know what should be the limits of ",
  Cell[BoxData[
   FormBox[
    RowBox[{"{", " ", 
     RowBox[{"a", ",", " ", "e", ",", " ", "\[Theta]"}], " ", "}"}], 
-   TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
-  "c1f54a2b-3ff7-4a54-ac70-23527d4b9e42"],
- ", assuming that I want closed orbits."
+   TraditionalForm]],ExpressionUUID->"c1f54a2b-3ff7-4a54-ac70-23527d4b9e42"],
+ " (even assuming closed orbits)."
 }], "Text",
  CellChangeTimes->{{3.9835251179154387`*^9, 3.983525190168922*^9}, {
-  3.983526821244378*^9, 
-  3.983526822626425*^9}},ExpressionUUID->"2003623c-1ea4-4a5e-be50-\
+  3.983526821244378*^9, 3.983526822626425*^9}, {3.983603417392191*^9, 
+  3.983603424436343*^9}},ExpressionUUID->"2003623c-1ea4-4a5e-be50-\
 725badec1363"],
 
 Cell[TextData[{
- "Notes about the dynamics:\n\t- For \[OpenCurlyDoubleQuote]circular\
+ "Notes about the dynamics:\n\t- \[OpenCurlyDoubleQuote]Circular\
 \[CloseCurlyDoubleQuote] orbits (i.e. ",
  Cell[BoxData[
   FormBox[
-   RowBox[{"e", "=", "0"}], TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
+   RowBox[{"e", "=", "0"}], TraditionalForm]],ExpressionUUID->
   "ebbcbbc1-747a-4715-b38e-97ccbfe0b56e"],
- "), since ",
+ ") will remain circular until merger.\n\t- For \
+\[OpenCurlyDoubleQuote]eccentrinc\[CloseCurlyDoubleQuote] orbits, ",
  Cell[BoxData[
-  FormBox[
-   RowBox[{
-    RowBox[{"de", "/", "dt"}], "=", "0"}], TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
-  "361cb676-98c6-4e51-b16b-c69bd665bfbc"],
- ", they will remain circular until merger.\n\t- For \
-\[OpenCurlyDoubleQuote]non-circular\[CloseCurlyDoubleQuote] orbits, ",
- Cell[BoxData[
-  FormBox["a", TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
+  FormBox["a", TraditionalForm]],ExpressionUUID->
   "a04c608d-a707-4d0f-ae61-5e7824f094f0"],
  " will decrease (making vertical variation smaller) and ",
  Cell[BoxData[
-  FormBox["\[Theta]", TraditionalForm]],
-  FormatType->TraditionalForm,ExpressionUUID->
+  FormBox["\[Theta]", TraditionalForm]],ExpressionUUID->
   "dfb983a6-07e2-4a9e-b27d-bc93c5b800b4"],
- " will decrease (making the aperture of the cone smaller)."
+ " will decrease (making the aperture of the cone smaller) and ",
+ Cell[BoxData[
+  FormBox["e", TraditionalForm]],
+  FormatType->TraditionalForm,ExpressionUUID->
+  "701888fc-38c3-4aeb-bbf9-8b535794be68"],
+ " will decrease (making eccentricity smaller)."
 }], "Text",
- CellChangeTimes->{{3.983526689668561*^9, 
-  3.983526852782474*^9}},ExpressionUUID->"b0615717-f7c3-4b96-b749-\
+ CellChangeTimes->{{3.983526689668561*^9, 3.983526852782474*^9}, {
+   3.983603783900262*^9, 3.9836038226270533`*^9}, 
+   3.98360435733827*^9},ExpressionUUID->"b0615717-f7c3-4b96-b749-\
 4fcc085c725d"]
 },
 WindowSize->{708, 772.5},
@@ -450,17 +436,17 @@ CellTagsIndex->{}
 Notebook[{
 Cell[554, 20, 213, 4, 33, "Text",ExpressionUUID->"8a8c941a-fb09-42ce-abf7-6d827ff5d4c9"],
 Cell[770, 26, 940, 21, 149, "Input",ExpressionUUID->"7c26ba81-35a8-4b25-a0f1-0c2687d15151"],
-Cell[1713, 49, 390, 10, 33, "Text",ExpressionUUID->"59bad06c-ae5c-43be-8af0-c86db1e2cb92"],
-Cell[2106, 61, 1030, 29, 56, "Input",ExpressionUUID->"f1e9130a-e5ea-4ce8-af04-9556dfb2ef5a"],
-Cell[3139, 92, 659, 17, 59, "Text",ExpressionUUID->"e4e94580-4903-42ba-acef-433e47bebd4a"],
-Cell[3801, 111, 590, 15, 55, "Text",ExpressionUUID->"33948ef6-67d2-4a6f-a891-502d8cdabeaf"],
-Cell[4394, 128, 834, 23, 78, "Input",ExpressionUUID->"69010e4c-35df-41b3-af42-7c4d3f30f9fb"],
+Cell[1713, 49, 359, 9, 33, "Text",ExpressionUUID->"59bad06c-ae5c-43be-8af0-c86db1e2cb92"],
+Cell[2075, 60, 1030, 29, 56, "Input",ExpressionUUID->"f1e9130a-e5ea-4ce8-af04-9556dfb2ef5a"],
+Cell[3108, 91, 597, 15, 59, "Text",ExpressionUUID->"e4e94580-4903-42ba-acef-433e47bebd4a"],
+Cell[3708, 108, 559, 14, 55, "Text",ExpressionUUID->"33948ef6-67d2-4a6f-a891-502d8cdabeaf"],
+Cell[4270, 124, 834, 23, 78, "Input",ExpressionUUID->"69010e4c-35df-41b3-af42-7c4d3f30f9fb"],
 Cell[CellGroupData[{
-Cell[5253, 155, 5076, 119, 835, "Input",ExpressionUUID->"b594ad2a-813f-4ebe-96e6-4484ba1e92a3"],
-Cell[10332, 276, 4708, 89, 756, "Output",ExpressionUUID->"89ac2256-ded5-42cd-aab3-6dbe6677e1a5"]
+Cell[5129, 151, 5075, 119, 835, "Input",ExpressionUUID->"b594ad2a-813f-4ebe-96e6-4484ba1e92a3"],
+Cell[10207, 272, 4703, 88, 756, "Output",ExpressionUUID->"7215f216-1800-4cc3-9541-2332d7e4501c"]
 }, Open  ]],
-Cell[15055, 368, 1085, 31, 84, "Text",ExpressionUUID->"2003623c-1ea4-4a5e-be50-725badec1363"],
-Cell[16143, 401, 1163, 30, 100, "Text",ExpressionUUID->"b0615717-f7c3-4b96-b749-4fcc085c725d"]
+Cell[14925, 363, 1026, 26, 84, "Text",ExpressionUUID->"2003623c-1ea4-4a5e-be50-725badec1363"],
+Cell[15954, 391, 1122, 26, 121, "Text",ExpressionUUID->"b0615717-f7c3-4b96-b749-4fcc085c725d"]
 }
 ]
 *)

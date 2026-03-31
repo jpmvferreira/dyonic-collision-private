@@ -94,15 +94,15 @@ Carpet::domain_from_coordbase        = yes
 CoordBase::domainsize                = "minmax"
 
 # make sure all (xmax - xmin)/dx are integers!
-CoordBase::xmin                      = -250.00
-CoordBase::ymin                      = -250.00
-CoordBase::zmin                      = -250.00
-CoordBase::xmax                      = +250.00
-CoordBase::ymax                      = +250.00
-CoordBase::zmax                      = +250.00
-CoordBase::dx                        =    2.5
-CoordBase::dy                        =    2.5
-CoordBase::dz                        =    2.5
+CoordBase::xmin                      = -252.00
+CoordBase::ymin                      = -252.00
+CoordBase::zmin                      = -252.00
+CoordBase::xmax                      = +252.00
+CoordBase::ymax                      = +252.00
+CoordBase::zmax                      = +252.00
+CoordBase::dx                        =    3.
+CoordBase::dy                        =    3.
+CoordBase::dz                        =    3.
 
 driver::ghost_size                   = 3
 
@@ -136,7 +136,7 @@ Carpet::max_refinement_levels          = 8
 CarpetRegrid2::num_centres             = 2
 
 CarpetRegrid2::num_levels_1            =  8
-CarpetRegrid2::position_x_1            =   8.0
+CarpetRegrid2::position_x_1            =  8
 CarpetRegrid2::radius_1[ 1]            =  64.0
 CarpetRegrid2::radius_1[ 2]            =  16.0
 CarpetRegrid2::radius_1[ 3]            =   8.0
@@ -147,7 +147,7 @@ CarpetRegrid2::radius_1[ 7]            =   0.5
 CarpetRegrid2::movement_threshold_1    =   0.16
 
 CarpetRegrid2::num_levels_2            =  8
-CarpetRegrid2::position_x_2            =  -8.0
+CarpetRegrid2::position_x_2            =  -8
 CarpetRegrid2::radius_2[ 1]            =  64.0
 CarpetRegrid2::radius_2[ 2]            =  16.0
 CarpetRegrid2::radius_2[ 3]            =   8.0
@@ -192,14 +192,14 @@ ADMBase::initial_shift   = "zero"
 ADMBase::initial_dtlapse = "zero"
 ADMBase::initial_dtshift = "zero"
 
-TwoChargedPunctures::target_M_plus       = 0.5
-TwoChargedPunctures::target_M_minus      = 0.5
+TwoChargedPunctures::target_M_plus       = 1.0
+TwoChargedPunctures::target_M_minus      = 1.0
 
-TwoChargedPunctures::par_m_plus          = 0.5
-TwoChargedPunctures::par_m_minus         = 0.5
+TwoChargedPunctures::par_m_plus          = 1.0
+TwoChargedPunctures::par_m_minus         = 1.0
 
-TwoChargedPunctures::par_q_plus          = 0.05
-TwoChargedPunctures::par_q_minus         = 0.05
+TwoChargedPunctures::par_q_plus          = 0.1
+TwoChargedPunctures::par_q_minus         = 0.1
 
 TwoChargedPunctures::alpha_duality_plus  = 0.
 TwoChargedPunctures::alpha_duality_minus = 4.71238898
@@ -207,13 +207,13 @@ TwoChargedPunctures::alpha_duality_minus = 4.71238898
 TwoChargedPunctures::par_b               = 8.001
 TwoChargedPunctures::center_offset[0]    = 0.0
 
-TwoChargedPunctures::par_P_plus[0]       = -0.000210080399420928
-TwoChargedPunctures::par_P_plus[1]       = 0.0703993321928119
-TwoChargedPunctures::par_P_plus[2]       = 0.0
+TwoChargedPunctures::par_P_plus[0]       = -0.000420160798841856
+TwoChargedPunctures::par_P_plus[1]       = 0.140798664385624
+TwoChargedPunctures::par_P_plus[2]       = 0
 
-TwoChargedPunctures::par_P_minus[0]      = 0.000210080399420928
-TwoChargedPunctures::par_P_minus[1]      = -0.0703993321928119
-TwoChargedPunctures::par_P_minus[2]      = 0.0
+TwoChargedPunctures::par_P_minus[0]      = 0.000420160798841856
+TwoChargedPunctures::par_P_minus[1]      = -0.140798664385624
+TwoChargedPunctures::par_P_minus[2]      = 0
 
 TwoChargedPunctures::par_S_plus[0]       = 0.
 TwoChargedPunctures::par_S_plus[1]       = 0.
@@ -243,16 +243,21 @@ TwoChargedPunctures::Newton_tol          = 5e-7
 # Evolution
 #------------------------------------------------------------------------------
 
-ADMBase::evolution_method         = "ML_CCZ4"
-ADMBase::lapse_evolution_method   = "ML_CCZ4"
-ADMBase::shift_evolution_method   = "ML_CCZ4"
-ADMBase::dtlapse_evolution_method = "ML_CCZ4"
-ADMBase::dtshift_evolution_method = "ML_CCZ4"
+TmunuBase::stress_energy_storage = yes
+TmunuBase::stress_energy_at_RHS  = yes
+TmunuBase::timelevels            = 1
+TmunuBase::prolongation_type     = "none"
 
 EMGBase::evolution_method              = "EMGEvolve"
 EMGEvolve::calculate_constraints       = yes
 EMGEvolve::calculate_constraints_every = 128
 EMGEvolve::excise_horizon              = yes
+
+ADMBase::evolution_method         = "ML_CCZ4"
+ADMBase::lapse_evolution_method   = "ML_CCZ4"
+ADMBase::shift_evolution_method   = "ML_CCZ4"
+ADMBase::dtlapse_evolution_method = "ML_CCZ4"
+ADMBase::dtshift_evolution_method = "ML_CCZ4"
 
 ML_CCZ4::harmonicN       = 1      # 1+log
 ML_CCZ4::harmonicF       = 2.0    # 1+log
@@ -472,7 +477,7 @@ AHFinderDirect::N_horizons                               = 6
 # AH for the BH for x positive
 AHFinderDirect::origin_x                             [1] = 8.001
 AHFinderDirect::initial_guess__coord_sphere__x_center[1] = 8.001
-AHFinderDirect::initial_guess__coord_sphere__radius  [1] = 0.5
+AHFinderDirect::initial_guess__coord_sphere__radius  [1] = 0.49749371855331
 AHFinderDirect::which_surface_to_store_info          [1] = 0
 AHFinderDirect::set_mask_for_individual_horizon      [1] = yes
 AHFinderDirect::reset_horizon_after_not_finding      [1] = no
@@ -487,7 +492,7 @@ AHFinderDirect::max_allowable_horizon_radius         [1] = 8
 # AH for the BH for x negative
 AHFinderDirect::origin_x                             [2] = -8.001
 AHFinderDirect::initial_guess__coord_sphere__x_center[2] = -8.001
-AHFinderDirect::initial_guess__coord_sphere__radius  [2] = 0.5
+AHFinderDirect::initial_guess__coord_sphere__radius  [2] = 0.49749371855331
 AHFinderDirect::which_surface_to_store_info          [2] = 1
 AHFinderDirect::set_mask_for_individual_horizon      [2] = yes
 AHFinderDirect::reset_horizon_after_not_finding      [2] = no
@@ -560,7 +565,7 @@ Carpet::check_for_poison      = no
 
 NaNChecker::check_every     = 256
 NanChecker::check_after     = 0
-NaNChecker::action_if_found = "terminate"
+NaNChecker::action_if_found = "abort"
 NaNChecker::out_NaNmask     = yes
 NaNChecker::check_vars      = "
   ADMBase::lapse
@@ -584,7 +589,7 @@ TimerReport::output_schedule_timers     = no
 # I/O
 #------------------------------------------------------------------------------
 
-IO::out_dir = "Merger_CCZ4_M=0.5,0.5-T=0.05,0.05-alpha=0,1.5pi-x0=8.001_h=2.5"
+IO::out_dir = "Merger_CCZ4_M=1,1-T=0.1,0.1-alpha=0,1.5pi-x0=8_h=3"
 IOHDF5::output_symmetry_points = no
 
 # screen output
