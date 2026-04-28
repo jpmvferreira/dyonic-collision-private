@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 # imports
-from jhuki.twochargedpunctures import prepare_quasicircular_inspiral
+from nrpypn.eval_p_t_and_p_r import eval__P_t__and__P_r as evalPtPr
 from string import Template
 from math import sqrt
 import numpy as np
@@ -15,7 +15,7 @@ def main():
     parser.add_argument("-t",   "--template",           required=True, type=str,   help="Path to template parfile")
     parser.add_argument("-o",   "--output",             required=True, type=str,   help="Path to output parfile")
     parser.add_argument("-d",   "--distance",           required=True, type=float, help="Distance between punctures")
-    parser.add_argument("-m",   "--mass_ratio",         required=True, type=float, help="Mass ratio (≤ 1)")
+    parser.add_argument("-m",   "--mass_ratio",         required=True, type=float, help="Mass ratio")
     parser.add_argument("-tp",  "--charge_ratio_plus",  required=True, type=float, help="Charge to mass ratio of the 'plus' BH")
     parser.add_argument("-tm",  "--charge_ratio_minus", required=True, type=float, help="Charge to mass ratio of the 'minus' BH")
     parser.add_argument("-am",  "--alpha_minus",        required=True, type=float, help="E.M. rotation angle for 'minus' BH")
@@ -40,39 +40,37 @@ def main():
     name = template.split("/")[-1]
     name = name[:-5]
 
-    # jhuki and nrpypn assume that the mass ratio is defined as M₊/M₋, but my definition is its inverse
-    mass_ratio = 1/mass_ratio
+    # nrpypn assumes that the mass ratio is larger than one for its computations
+    if mass_ratio < 1:
+        mass_ratio = 1/mass_ratio
 
-    # compute total mass of the system assuming that M₊ = 1
-    total_mass = (mass_ratio+1)/mass_ratio
+    m_plus     = 1
+    m_minus    = mass_ratio
+    total_mass = m_minus + m_plus
 
-    # compute quantities for a quasi-circular inspiral with zero spin
-    # note that jhuki forces that the mass ratio is bigger than 1, due to the way nrpypn is coded
-    # so if you want mass ratios larger than 1, you're going to have to switch r₊ with r₋
-    twopunctures = prepare_quasicircular_inspiral(
-        mass_ratio,
-        distance,
-        total_bare_mass=total_mass,
-        lambda_plus=charge_ratio_plus,
-        lambda_minus=charge_ratio_minus
-    )
+    # total electric and magnetic charges
+    q_plus  = charge_ratio_plus  * m_plus
+    q_minus = charge_ratio_minus * m_minus
 
-    par_b = twopunctures.par_b
+    # compute linear momentum for a quasi-circular inspiral with zero spin
+    Pt, Pr = evalPtPr(mass_ratio, distance, 0, 0, 0, 0, 0, 0)
 
-    m_plus  = twopunctures.mass_plus   # should always be one
-    m_minus = twopunctures.mass_minus  # should always be equal to `mass_ratio`
+    factor = sqrt(1 - charge_ratio_plus * charge_ratio_minus)  # correction due to charges
+    Pt = Pt * total_mass * factor
+    Pr = Pr * total_mass * factor
 
-    q_plus  = charge_ratio_plus  * m_plus   # this is the total electric and magnetic charge
-    q_minus = charge_ratio_minus * m_minus  # .
+    Px_plus,  Py_plus,  Pz_plus  = (-Pr, Pt, 0)
+    Px_minus, Py_minus, Pz_minus = (Pr, -Pt, 0)
 
-    Px_plus,  Py_plus,  Pz_plus  = twopunctures.momenta_plus
-    Px_minus, Py_minus, Pz_minus = twopunctures.momenta_minus
+    # compute distances
+    par_b = distance / 2
 
-    center_offset = twopunctures.center_offset[0]
+    x_plus  =   distance * m_minus / total_mass
+    x_minus = - distance * m_plus  / total_mass
 
-    x_plus  = twopunctures.coord_x_plus
-    x_minus = twopunctures.coord_x_minus
+    center_offset = x_plus - par_b
 
+    # compute size of AH
     rah_plus  = np.sqrt(m_plus**2  - q_plus**2)  / 2
     rah_minus = np.sqrt(m_minus**2 - q_minus**2) / 2
 
