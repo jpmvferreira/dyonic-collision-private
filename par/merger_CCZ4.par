@@ -94,15 +94,15 @@ Carpet::domain_from_coordbase        = yes
 CoordBase::domainsize                = "minmax"
 
 # make sure all (xmax - xmin)/dx are integers!
-CoordBase::xmin                      = -250.00
-CoordBase::ymin                      = -250.00
-CoordBase::zmin                      = -250.00
-CoordBase::xmax                      = +250.00
-CoordBase::ymax                      = +250.00
-CoordBase::zmax                      = +250.00
-CoordBase::dx                        =    2.5
-CoordBase::dy                        =    2.5
-CoordBase::dz                        =    2.5
+CoordBase::xmin                      = -1020.00
+CoordBase::ymin                      = -1020.00
+CoordBase::zmin                      = -1020.00
+CoordBase::xmax                      = +1020.00
+CoordBase::ymax                      = +1020.00
+CoordBase::zmax                      = +1020.00
+CoordBase::dx                        =     6.
+CoordBase::dy                        =     6.
+CoordBase::dz                        =     6.
 
 driver::ghost_size                   = 3
 
@@ -131,31 +131,33 @@ ReflectionSymmetry::avoid_origin_z   = no
 # Mesh refinement
 #------------------------------------------------------------------------------
 
-Carpet::max_refinement_levels          = 8
+Carpet::max_refinement_levels          = 9
 
 CarpetRegrid2::num_centres             = 2
 
-CarpetRegrid2::num_levels_1            =  8
-CarpetRegrid2::position_x_1            =  8
-CarpetRegrid2::radius_1[ 1]            =  64.0
-CarpetRegrid2::radius_1[ 2]            =  16.0
-CarpetRegrid2::radius_1[ 3]            =   8.0
-CarpetRegrid2::radius_1[ 4]            =   4.0
-CarpetRegrid2::radius_1[ 5]            =   2.0
-CarpetRegrid2::radius_1[ 6]            =   1.0
-CarpetRegrid2::radius_1[ 7]            =   0.5
-CarpetRegrid2::movement_threshold_1    =   0.16
+CarpetRegrid2::num_levels_1            =  9
+CarpetRegrid2::position_x_1            =    8.0
+CarpetRegrid2::radius_1[ 1]            =  128.0
+CarpetRegrid2::radius_1[ 2]            =   64.0
+CarpetRegrid2::radius_1[ 3]            =   16.0
+CarpetRegrid2::radius_1[ 4]            =    8.0
+CarpetRegrid2::radius_1[ 5]            =    4.0
+CarpetRegrid2::radius_1[ 6]            =    2.0
+CarpetRegrid2::radius_1[ 7]            =    1.0
+CarpetRegrid2::radius_1[ 8]            =    0.5
+CarpetRegrid2::movement_threshold_1    =    0.1
 
-CarpetRegrid2::num_levels_2            =  8
-CarpetRegrid2::position_x_2            =  -8
-CarpetRegrid2::radius_2[ 1]            =  64.0
-CarpetRegrid2::radius_2[ 2]            =  16.0
-CarpetRegrid2::radius_2[ 3]            =   8.0
-CarpetRegrid2::radius_2[ 4]            =   4.0
-CarpetRegrid2::radius_2[ 5]            =   2.0
-CarpetRegrid2::radius_2[ 6]            =   1.0
-CarpetRegrid2::radius_2[ 7]            =   0.5
-CarpetRegrid2::movement_threshold_2    =   0.16
+CarpetRegrid2::num_levels_2            =  9
+CarpetRegrid2::position_x_2            =   -8.0
+CarpetRegrid2::radius_2[ 1]            =  128.0
+CarpetRegrid2::radius_2[ 2]            =   64.0
+CarpetRegrid2::radius_2[ 3]            =   16.0
+CarpetRegrid2::radius_2[ 4]            =    8.0
+CarpetRegrid2::radius_2[ 5]            =    4.0
+CarpetRegrid2::radius_2[ 6]            =    2.0
+CarpetRegrid2::radius_2[ 7]            =    1.0
+CarpetRegrid2::radius_2[ 8]            =    0.5
+CarpetRegrid2::movement_threshold_2    =    0.1
 
 Carpet::use_buffer_zones               = yes
 Carpet::prolongation_order_space       = 5
@@ -250,7 +252,7 @@ TmunuBase::prolongation_type     = "none"
 
 EMGBase::evolution_method              = "EMGEvolve"
 EMGEvolve::calculate_constraints       = yes
-EMGEvolve::calculate_constraints_every = 128
+EMGEvolve::calculate_constraints_every = 256
 EMGEvolve::excise_horizon              = yes
 
 ADMBase::evolution_method         = "ML_CCZ4"
@@ -291,14 +293,15 @@ ML_CCZ4::ML_dtshift_bound    = "none"
 # Dissipation
 #------------------------------------------------------------------------------
 
-Dissipation::epsdis_for_level[0] = 8.73114913702011e-12
-Dissipation::epsdis_for_level[1] = 2.7939677238464354e-10
-Dissipation::epsdis_for_level[2] = 8.940696716308593e-09
-Dissipation::epsdis_for_level[3] = 2.86102294921875e-07
-Dissipation::epsdis_for_level[4] = 9.1552734375e-06
-Dissipation::epsdis_for_level[5] = 0.00029296875
-Dissipation::epsdis_for_level[6] = 0.009375
-Dissipation::epsdis_for_level[7] = 0.3
+Dissipation::epsdis_for_level[0] = 2.7284841053187846e-13
+Dissipation::epsdis_for_level[1] = 8.73114913702011e-12
+Dissipation::epsdis_for_level[2] = 2.7939677238464354e-10
+Dissipation::epsdis_for_level[3] = 8.940696716308593e-09
+Dissipation::epsdis_for_level[4] = 2.86102294921875e-07
+Dissipation::epsdis_for_level[5] = 9.1552734375e-06
+Dissipation::epsdis_for_level[6] = 0.00029296875
+Dissipation::epsdis_for_level[7] = 0.009375
+Dissipation::epsdis_for_level[8] = 0.3
 Dissipation::order = 5
 Dissipation::vars  = "
   ML_CCZ4::ML_log_confac
@@ -437,10 +440,10 @@ Multipole::variables = "
 "
 Multipole::integration_method = "Simpson"
 
-NPScalars::calculate_NP_every    = 128
-NPScalars_EMG::do_analysis_every = 128
+NPScalars::calculate_NP_every    = 256
+NPScalars_EMG::do_analysis_every = 256
 
-Multipole::out_every    = 128
+Multipole::out_every    = 256
 Multipole::l_max        = 4
 Multipole::output_hdf5  = yes
 Multipole::output_ascii = no
@@ -455,7 +458,7 @@ AHFinderDirect::verbose_level                      = "physics details"
 AHFinderDirect::output_BH_diagnostics              = "true"
 AHFinderDirect::run_at_CCTK_POST_RECOVER_VARIABLES = no
 
-AHFinderDirect::find_every     = 128
+AHFinderDirect::find_every     = 256
 AHFinderDirect::output_h_every = 0
 
 AHFinderDirect::move_origins            = yes
@@ -589,7 +592,7 @@ TimerReport::output_schedule_timers     = no
 # I/O
 #------------------------------------------------------------------------------
 
-IO::out_dir = "Merger_CCZ4_M=0.5,0.5-T=0.05,0.05-alpha=0,0.5pi-x0=8_h=2.5"
+IO::out_dir = "Merger_CCZ4_M=0.5,0.5-T=0.05,0.05-alpha=0,0.5pi-x0=8_h=6"
 IOHDF5::output_symmetry_points = no
 
 # screen output
@@ -601,7 +604,7 @@ IOBasic::outInfo_vars       = "
 "
 
 # reductions output
-IOScalar::outScalar_every      = 128
+IOScalar::outScalar_every      = 256
 IOScalar::outScalar_reductions = "norm2"
 IOScalar::outScalar_vars       = "
   ML_CCZ4::ML_Ham
@@ -611,7 +614,7 @@ IOScalar::outScalar_vars       = "
 "
 
 # 0D output (single point)
-IOASCII::out0D_every   = 128
+IOASCII::out0D_every   = 256
 IOASCII::out0D_point_x = 0.
 IOASCII::out0D_point_y = 0.
 IOASCII::out0D_point_z = 0.
@@ -623,7 +626,7 @@ IOASCII::out0D_vars  = "
 "
 
 # 1D ASCII output
-IOASCII::out1D_every = 128
+IOASCII::out1D_every = 256
 IOASCII::out1D_d     = no
 IOASCII::out1D_x     = yes
 IOASCII::out1D_y     = yes
@@ -639,7 +642,7 @@ IOASCII::out1D_vars  = "
 
 # 2D HDF5 output
 IOHDF5::out2D_every = 0
-IOHDF5::out2D_xy    = yes
+IOHDF5::out2D_xy    = no
 IOHDF5::out2D_xz    = no
 IOHDF5::out2D_yz    = no
 IOHDF5::out2D_vars  = "
@@ -653,7 +656,7 @@ IOHDF5::out3d_vars  = "
 
 #------------------------------------------------------------------------------
 # Checkpoints and recovery
-#-------------------------------------------------------------------------------
+#------------------------------------------------------------------------------
 
 CarpetIOHDF5::checkpoint    = yes
 IO::checkpoint_dir          = "../checkpoints"
@@ -672,7 +675,7 @@ CarpetIOHDF5::compression_level             = 9
 
 #------------------------------------------------------------------------------
 # Termination
-#-------------------------------------------------------------------------------
+#------------------------------------------------------------------------------
 
 TerminationTrigger::max_walltime                 = 72 # hours
 TerminationTrigger::on_remaining_walltime        = 90 # minutes
