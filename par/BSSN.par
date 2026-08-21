@@ -50,8 +50,7 @@ ActiveThorns = "
 
 # evolution thorns
 ActiveThorns = "
-  ML_CCZ4
-  ML_CCZ4_Helper
+  LeanBSSNMoL
 "
 
 # matter fields
@@ -94,15 +93,15 @@ Carpet::domain_from_coordbase        = yes
 CoordBase::domainsize                = "minmax"
 
 # make sure all (xmax - xmin)/dx are integers!
-CoordBase::xmin                      = -1020.00
-CoordBase::ymin                      = -1020.00
-CoordBase::zmin                      = -1020.00
-CoordBase::xmax                      = +1020.00
-CoordBase::ymax                      = +1020.00
-CoordBase::zmax                      = +1020.00
-CoordBase::dx                        =     5.
-CoordBase::dy                        =     5.
-CoordBase::dz                        =     5.
+CoordBase::xmin                      = -512.
+CoordBase::ymin                      = -512.
+CoordBase::zmin                      = -512.
+CoordBase::xmax                      = +512.
+CoordBase::ymax                      = +512.
+CoordBase::zmax                      = +512.
+CoordBase::dx                        =    8.
+CoordBase::dy                        =    8.
+CoordBase::dz                        =    8.
 
 driver::ghost_size                   = 3
 
@@ -203,18 +202,18 @@ TwoChargedPunctures::par_m_minus         = 0.5
 TwoChargedPunctures::par_q_plus          = 0.05
 TwoChargedPunctures::par_q_minus         = 0.05
 
-TwoChargedPunctures::alpha_duality_plus  = 0.
-TwoChargedPunctures::alpha_duality_minus = 1.570796327
+TwoChargedPunctures::par_g_plus          = 0.
+TwoChargedPunctures::par_g_minus         = 0.
 
 TwoChargedPunctures::par_b               = 8.001
 TwoChargedPunctures::center_offset[0]    = 0.0
 
-TwoChargedPunctures::par_P_plus[0]       = -0.000210080399420928
-TwoChargedPunctures::par_P_plus[1]       = 0.0703993321928119
-TwoChargedPunctures::par_P_plus[2]       = 0
+TwoChargedPunctures::par_P_plus[0]       = 0.
+TwoChargedPunctures::par_P_plus[1]       = 0.
+TwoChargedPunctures::par_P_plus[2]       = 0.
 
-TwoChargedPunctures::par_P_minus[0]      = 0.000210080399420928
-TwoChargedPunctures::par_P_minus[1]      = -0.0703993321928119
+TwoChargedPunctures::par_P_minus[0]      = 0.
+TwoChargedPunctures::par_P_minus[1]      = 0.
 TwoChargedPunctures::par_P_minus[2]      = 0
 
 TwoChargedPunctures::par_S_plus[0]       = 0.
@@ -255,38 +254,19 @@ EMGEvolve::calculate_constraints       = yes
 EMGEvolve::calculate_constraints_every = 256
 EMGEvolve::excise_horizon              = yes
 
-ADMBase::evolution_method         = "ML_CCZ4"
-ADMBase::lapse_evolution_method   = "ML_CCZ4"
-ADMBase::shift_evolution_method   = "ML_CCZ4"
-ADMBase::dtlapse_evolution_method = "ML_CCZ4"
-ADMBase::dtshift_evolution_method = "ML_CCZ4"
+ADMBase::evolution_method         = "LeanBSSNMoL"
+ADMBase::lapse_evolution_method   = "LeanBSSNMoL"
+ADMBase::shift_evolution_method   = "LeanBSSNMoL"
+ADMBase::dtlapse_evolution_method = "LeanBSSNMoL"
+ADMBase::dtshift_evolution_method = "LeanBSSNMoL"
 
-ML_CCZ4::harmonicN       = 1      # 1+log
-ML_CCZ4::harmonicF       = 2.0    # 1+log
-ML_CCZ4::ShiftGammaCoeff = 0.75
-ML_CCZ4::BetaDriver      = 1.0
-ML_CCZ4::advectLapse     = 1
-ML_CCZ4::advectShift     = 1
-ML_CCZ4::dampk1          = 0.04
-ML_CCZ4::dampk2          = 0.0
-
-ML_CCZ4::MinimumLapse               = 1.0e-8
-ML_CCZ4::conformalMethod            = 1 # 1 for W, 0 for phi
-ML_CCZ4::rhs_boundary_condition     = "NewRad"   # was "static"
-ML_CCZ4::initial_boundary_condition = "extrapolate-gammas"
-Boundary::radpower                  = 2
-
-ML_CCZ4::ML_log_confac_bound = "none"
-ML_CCZ4::ML_metric_bound     = "none"
-ML_CCZ4::ML_Gamma_bound      = "none"
-ML_CCZ4::ML_trace_curv_bound = "none"
-ML_CCZ4::ML_curv_bound       = "none"
-ML_CCZ4::ML_lapse_bound      = "none"
-ML_CCZ4::ML_dtlapse_bound    = "none"
-ML_CCZ4::ML_shift_bound      = "none"
-ML_CCZ4::ML_dtshift_bound    = "none"
-#ML_CCZ4::apply_dissipation   = "always"
-#ML_CCZ4::EpsDiss             = 0.1
+LeanBSSNMoL::impose_conf_fac_floor_at_initial = yes
+LeanBSSNMoL::eta_beta                         = 1.4
+LeanBSSNMoL::conf_fac_floor                   = 1.0d-04
+LeanBSSNMoL::derivs_order                     = 4
+LeanBSSNMoL::use_advection_stencils           = yes
+LeanBSSNMoL::calculate_constraints            = yes
+LeanBSSNMoL::calculate_constraints_every      = 256
 
 
 #------------------------------------------------------------------------------
@@ -304,15 +284,13 @@ Dissipation::epsdis_for_level[7] = 0.009375
 Dissipation::epsdis_for_level[8] = 0.3
 Dissipation::order = 5
 Dissipation::vars  = "
-  ML_CCZ4::ML_log_confac
-  ML_CCZ4::ML_metric
-  ML_CCZ4::ML_trace_curv
-  ML_CCZ4::ML_curv
-  ML_CCZ4::ML_Gamma
-  ML_CCZ4::ML_lapse
-  ML_CCZ4::ML_shift
-  ML_CCZ4::ML_dtlapse
-  ML_CCZ4::ML_dtshift
+  ADMBase::lapse
+  ADMBase::shift
+  LeanBSSNMoL::conf_fac
+  LeanBSSNMoL::hmetric
+  LeanBSSNMoL::hcurv
+  LeanBSSNMoL::trk
+  LeanBSSNMoL::gammat
   EMGBase::Ei
   EMGBase::Bi
   EMGBase::Omega
@@ -571,8 +549,7 @@ NanChecker::check_after     = 0
 NaNChecker::action_if_found = "abort"
 NaNChecker::out_NaNmask     = yes
 NaNChecker::check_vars      = "
-  ADMBase::lapse
-  ADMBase::shift
+  LeanBSSNMoL::conf_fac
 "
 
 
@@ -592,7 +569,7 @@ TimerReport::output_schedule_timers     = no
 # I/O
 #------------------------------------------------------------------------------
 
-IO::out_dir = "."
+IO::out_dir = "IC_L=512_M=0.5,0.5-Q=0.05,0.05-G=0,0-x0=8_h=8"
 IOHDF5::output_symmetry_points = no
 
 # screen output
@@ -600,6 +577,7 @@ IOBasic::outInfo_every      = 1
 IOBasic::outInfo_reductions = "minimum maximum"
 IOBasic::outInfo_vars       = "
   Carpet::physical_time_per_hour
+  LeanBSSNMoL::conf_fac
   SystemStatistics::maxrss_mb
 "
 
@@ -607,8 +585,8 @@ IOBasic::outInfo_vars       = "
 IOScalar::outScalar_every      = 256
 IOScalar::outScalar_reductions = "norm2"
 IOScalar::outScalar_vars       = "
-  ML_CCZ4::ML_Ham
-  ML_CCZ4::ML_mom
+  LeanBSSNMoL::ham
+  LeanBSSNMoL::mom
   EMGEvolve::Ec
   EMGEvolve::Bc
 "
@@ -632,8 +610,8 @@ IOASCII::out1D_x     = yes
 IOASCII::out1D_y     = yes
 IOASCII::out1D_z     = yes
 IOASCII::out1D_vars  = "
-  ML_CCZ4::ML_Ham
-  ML_CCZ4::ML_mom
+  LeanBSSNMoL::ham
+  LeanBSSNMoL::mom
   EMGEvolve::Ec
   EMGEvolve::Bc
   EMGBase::Ei
@@ -658,10 +636,10 @@ IOHDF5::out3d_vars  = "
 # Checkpoints and recovery
 #------------------------------------------------------------------------------
 
-CarpetIOHDF5::checkpoint    = yes
+CarpetIOHDF5::checkpoint    = no
 IO::checkpoint_dir          = "../checkpoints"
 IO::checkpoint_ID           = no
-IO::checkpoint_on_terminate = yes
+IO::checkpoint_on_terminate = no
 IO::out_proc_every          = 2
 IO::checkpoint_keep         = 1
 
@@ -686,4 +664,4 @@ TerminationTrigger::create_termination_file      = yes
 
 # termination condition
 Cactus::terminate       = "time"
-Cactus::cctk_final_time = 4000.
+Cactus::cctk_final_time = 0.
