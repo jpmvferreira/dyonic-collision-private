@@ -93,15 +93,15 @@ Carpet::domain_from_coordbase        = yes
 CoordBase::domainsize                = "minmax"
 
 # make sure all (xmax - xmin)/dx are integers!
-CoordBase::xmin                      = -512.
-CoordBase::ymin                      = -512.
-CoordBase::zmin                      = -512.
-CoordBase::xmax                      = +512.
-CoordBase::ymax                      = +512.
-CoordBase::zmax                      = +512.
-CoordBase::dx                        =    4.
-CoordBase::dy                        =    4.
-CoordBase::dz                        =    4.
+CoordBase::xmin                      = -256.00
+CoordBase::ymin                      = -256.00
+CoordBase::zmin                      = -256.00
+CoordBase::xmax                      = +256.00
+CoordBase::ymax                      = +256.00
+CoordBase::zmax                      = +256.00
+CoordBase::dx                        =    2.
+CoordBase::dy                        =    2.
+CoordBase::dz                        =    2.
 
 driver::ghost_size                   = 3
 
@@ -130,33 +130,31 @@ ReflectionSymmetry::avoid_origin_z   = no
 # Mesh refinement
 #------------------------------------------------------------------------------
 
-Carpet::max_refinement_levels          = 9
+Carpet::max_refinement_levels          = 8
 
 CarpetRegrid2::num_centres             = 2
 
-CarpetRegrid2::num_levels_1            =  9
-CarpetRegrid2::position_x_1            =    8.0
-CarpetRegrid2::radius_1[ 1]            =  128.0
-CarpetRegrid2::radius_1[ 2]            =   64.0
-CarpetRegrid2::radius_1[ 3]            =   16.0
-CarpetRegrid2::radius_1[ 4]            =    8.0
-CarpetRegrid2::radius_1[ 5]            =    4.0
-CarpetRegrid2::radius_1[ 6]            =    2.0
-CarpetRegrid2::radius_1[ 7]            =    1.0
-CarpetRegrid2::radius_1[ 8]            =    0.5
-CarpetRegrid2::movement_threshold_1    =    0.1
+CarpetRegrid2::num_levels_1            =  8
+CarpetRegrid2::position_x_1            =   8.0
+CarpetRegrid2::radius_1[ 1]            =  64.0
+CarpetRegrid2::radius_1[ 2]            =  16.0
+CarpetRegrid2::radius_1[ 3]            =   8.0
+CarpetRegrid2::radius_1[ 4]            =   4.0
+CarpetRegrid2::radius_1[ 5]            =   2.0
+CarpetRegrid2::radius_1[ 6]            =   1.0
+CarpetRegrid2::radius_1[ 7]            =   0.5
+CarpetRegrid2::movement_threshold_1    =   0.16
 
-CarpetRegrid2::num_levels_2            =  9
-CarpetRegrid2::position_x_2            =   -8.0
-CarpetRegrid2::radius_2[ 1]            =  128.0
-CarpetRegrid2::radius_2[ 2]            =   64.0
-CarpetRegrid2::radius_2[ 3]            =   16.0
-CarpetRegrid2::radius_2[ 4]            =    8.0
-CarpetRegrid2::radius_2[ 5]            =    4.0
-CarpetRegrid2::radius_2[ 6]            =    2.0
-CarpetRegrid2::radius_2[ 7]            =    1.0
-CarpetRegrid2::radius_2[ 8]            =    0.5
-CarpetRegrid2::movement_threshold_2    =    0.1
+CarpetRegrid2::num_levels_2            =  8
+CarpetRegrid2::position_x_2            =  -8.0
+CarpetRegrid2::radius_2[ 1]            =  64.0
+CarpetRegrid2::radius_2[ 2]            =  16.0
+CarpetRegrid2::radius_2[ 3]            =   8.0
+CarpetRegrid2::radius_2[ 4]            =   4.0
+CarpetRegrid2::radius_2[ 5]            =   2.0
+CarpetRegrid2::radius_2[ 6]            =   1.0
+CarpetRegrid2::radius_2[ 7]            =   0.5
+CarpetRegrid2::movement_threshold_2    =   0.16
 
 Carpet::use_buffer_zones               = yes
 Carpet::prolongation_order_space       = 5
