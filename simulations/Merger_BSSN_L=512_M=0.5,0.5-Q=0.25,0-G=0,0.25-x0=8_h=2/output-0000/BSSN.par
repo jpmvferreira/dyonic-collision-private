@@ -206,13 +206,13 @@ TwoChargedPunctures::par_g_minus         = 0.25
 TwoChargedPunctures::par_b               = 8.001
 TwoChargedPunctures::center_offset[0]    = 0.0
 
-TwoChargedPunctures::par_P_plus[0]       = 0.
-TwoChargedPunctures::par_P_plus[1]       = 0.
+TwoChargedPunctures::par_P_plus[0]       = -4.469620259506476e-05
+TwoChargedPunctures::par_P_plus[1]       = 0.061274753644855955
 TwoChargedPunctures::par_P_plus[2]       = 0.
 
-TwoChargedPunctures::par_P_minus[0]      = 0.
-TwoChargedPunctures::par_P_minus[1]      = 0.
-TwoChargedPunctures::par_P_minus[2]      = 0.
+TwoChargedPunctures::par_P_minus[0]      = 4.469620259506476e-05
+TwoChargedPunctures::par_P_minus[1]      = -0.061274753644855955
+TwoChargedPunctures::par_P_minus[2]      = 0
 
 TwoChargedPunctures::par_S_plus[0]       = 0.
 TwoChargedPunctures::par_S_plus[1]       = 0.
@@ -567,7 +567,7 @@ TimerReport::output_schedule_timers     = no
 # I/O
 #------------------------------------------------------------------------------
 
-IO::out_dir = "Headon_BSSN_L=512_M=0.5,0.5-Q=0.25,0-G=0,0.25-x0=8_h=2"
+IO::out_dir = "."
 IOHDF5::output_symmetry_points = no
 
 # screen output

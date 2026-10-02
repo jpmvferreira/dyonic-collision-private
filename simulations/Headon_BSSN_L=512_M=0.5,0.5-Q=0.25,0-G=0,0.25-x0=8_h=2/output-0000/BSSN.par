@@ -567,7 +567,7 @@ TimerReport::output_schedule_timers     = no
 # I/O
 #------------------------------------------------------------------------------
 
-IO::out_dir = "Headon_BSSN_L=512_M=0.5,0.5-Q=0.25,0-G=0,0.25-x0=8_h=2"
+IO::out_dir = "."
 IOHDF5::output_symmetry_points = no
 
 # screen output
