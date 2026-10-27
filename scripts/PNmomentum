@@ -10,35 +10,37 @@ def main():
     parser = argparse.ArgumentParser(description="Compute linear momentum for the merger of dyonic black holes using nrpypn. Assumes non-spinning black holes, M₊ = 1 and uses heuristic correction due to the charges.")
 
     parser.add_argument("-d",   "--distance",           required=True, type=float, help="Distance from puncture to origin (in units of M₊)")
-    parser.add_argument("-mm",  "--mass_minus",         required=True, type=float, help="Mass of the puncture '-' (same as mass ratio since M₊ = 1)")
+    parser.add_argument("-k",   "--mass_ratio",         required=True, type=float, help="Mass ratio M₋/M₊ (same as M₋ since M₊=1)")
     parser.add_argument("-tp",  "--charge_ratio_plus",  required=True, type=float, help="Charge-to-mass ratio of the puncture '+'")
     parser.add_argument("-tm",  "--charge_ratio_minus", required=True, type=float, help="Charge-to-mass ratio of the puncture '-'")
 
     args = parser.parse_args()
 
     distance           = 2*args.distance  # nrpypn uses distance between punctures instead of distance to origin
-    mass_minus         = args.mass_minus
+    mass_ratio         = args.mass_ratio
     charge_ratio_plus  = args.charge_ratio_plus
     charge_ratio_minus = args.charge_ratio_minus
 
     # assume non-spinning black holes
-    chi1 = (0.,0.,0.)
-    chi2 = (0.,0.,0.)
+    chi_plus  = (0.,0.,0.)
+    chi_minus = (0.,0.,0.)
 
-    # compute P_t and P_r with previous assumptions
-    # since nrpypn works with units of the total mass, we have to provide the distance with respect to total mass (M = 1 + M₋)
-    # also, since M₊ = 1, the mass ratio q is equal to M₋
-    M = 1. + mass_minus
-    pt_hat, pr_hat = evalPtPr(mass_minus, distance/M, *chi1, *chi2)
-    Pt, Pr = M * pt_hat, M * pr_hat
+    # derived parameters
+    mass_plus = 1.
+    mass_minus = mass_ratio*mass_plus
+    mass_total = mass_plus + mass_minus
+
+    # compute P_t and P_r
+    # TODO: is this check a problem if I'm concerned with fixing M₊?
+    if mass_ratio < 1:
+        mass_ratio = 1/mass_ratio
+
+    Pt, Pr = evalPtPr(mass_ratio, distance/mass_total, *chi_plus, *chi_minus)
+    Pt, Pr = mass_total * Pt, mass_total * Pr
 
     # add heuristic correction due to charges
     factor = sqrt(1 - charge_ratio_plus * charge_ratio_minus)  # correction due to charges
     Pt, Pr = factor * Pt, factor * Pr
-
-    print(f"Pr = {Pr}")
-    print(f"Pt = {Pt}")
-    print()
 
     # heuristic leading-order corrections due to the charges
     # this was suggested by claude, it wasn't tested nor did I try to understand the reasoning behind it
@@ -47,6 +49,10 @@ def main():
     #r_hat = distance / M
     #Pt *= sqrt(1 - lam_prod)
     #Pr *= (1 - lam_prod)**2 * (1 + 5/48 * dlam**2 * r_hat / (1 - lam_prod))
+
+    print(f"Pr = {Pr}")
+    print(f"Pt = {Pt}")
+    print()
 
     # horizon radius in isotropic coordinate for an isolated Reissner–Nordström black hole
     rah_plus  = 1.0        * sqrt(1 - charge_ratio_plus**2)  / 2
