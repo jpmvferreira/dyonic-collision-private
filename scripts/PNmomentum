@@ -1,67 +1,56 @@
 #!/usr/bin/env python3
 
-# TODO:
-# - allow for arbitrary mass ratios (nrpypn assumes mass ratio < 1)
-# - use parameters {k,t₋,t₊,α₋}
-
 # imports
 from nrpypn.eval_p_t_and_p_r import eval__P_t__and__P_r as evalPtPr
-from string import Template
 from math import sqrt
-import numpy as np
 import argparse
-import os
 
 def main():
     # parse arguments
-    parser = argparse.ArgumentParser(description="Computes linear momentum for the merger of dyonic black holes")
+    parser = argparse.ArgumentParser(description="Compute linear momentum for the merger of dyonic black holes using nrpypn. Assumes non-spinning black holes, M₊ = 1 and uses heuristic correction due to the charges.")
 
-    parser.add_argument("-d",   "--distance",           required=True, type=float, help="Distance from puncture to origin")
-    parser.add_argument("-m",   "--mass_ratio",         required=True, type=float, help="Mass ratio")
-    parser.add_argument("-tp",  "--charge_ratio_plus",  required=True, type=float, help="Charge to mass ratio of the 'plus' BH")
-    parser.add_argument("-tm",  "--charge_ratio_minus", required=True, type=float, help="Charge to mass ratio of the 'minus' BH")
+    parser.add_argument("-d",   "--distance",           required=True, type=float, help="Distance from puncture to origin (in units of M₊)")
+    parser.add_argument("-mm",  "--mass_minus",         required=True, type=float, help="Mass of the puncture '-' (same as mass ratio since M₊ = 1)")
+    parser.add_argument("-tp",  "--charge_ratio_plus",  required=True, type=float, help="Charge-to-mass ratio of the puncture '+'")
+    parser.add_argument("-tm",  "--charge_ratio_minus", required=True, type=float, help="Charge-to-mass ratio of the puncture '-'")
 
     args = parser.parse_args()
 
     distance           = 2*args.distance  # nrpypn uses distance between punctures instead of distance to origin
-    mass_ratio         = args.mass_ratio
+    mass_minus         = args.mass_minus
     charge_ratio_plus  = args.charge_ratio_plus
     charge_ratio_minus = args.charge_ratio_minus
 
-    # nrpypn assumes that the mass ratio is larger than one for its computations
-    if mass_ratio < 1:
-        mass_ratio = 1/mass_ratio
+    # assume non-spinning black holes
+    chi1 = (0.,0.,0.)
+    chi2 = (0.,0.,0.)
 
-    m_plus     = mass_ratio / (1 + mass_ratio)
-    m_minus    = 1 / (1 + mass_ratio)
-    total_mass = m_minus + m_plus
+    # compute P_t and P_r with previous assumptions
+    # since nrpypn works with units of the total mass, we have to provide the distance with respect to total mass (M = 1 + M₋)
+    # also, since M₊ = 1, the mass ratio q is equal to M₋
+    M = 1. + mass_minus
+    pt_hat, pr_hat = evalPtPr(mass_minus, distance/M, *chi1, *chi2)
+    Pt, Pr = M * pt_hat, M * pr_hat
 
-    print(f"m_plus  = {m_plus}")
-    print(f"m_minus = {m_minus}")
-    print()
-
-    # total electric and magnetic charges
-    t_plus  = charge_ratio_plus  * m_plus
-    t_minus = charge_ratio_minus * m_minus
-
-    print(f"t_plus  = {t_plus}")
-    print(f"t_minus = {t_minus}")
-    print()
-
-    # compute linear momentum for a quasi-circular inspiral with zero spin
-    Pt, Pr = evalPtPr(mass_ratio, distance, 0, 0, 0, 0, 0, 0)
-
+    # add heuristic correction due to charges
     factor = sqrt(1 - charge_ratio_plus * charge_ratio_minus)  # correction due to charges
-    Pt = Pt * total_mass * factor
-    Pr = Pr * total_mass * factor
+    Pt, Pr = factor * Pt, factor * Pr
 
     print(f"Pr = {Pr}")
     print(f"Pt = {Pt}")
     print()
 
-    # compute size of AH
-    rah_plus  = np.sqrt(m_plus**2  - t_plus**2)  / 2
-    rah_minus = np.sqrt(m_minus**2 - t_minus**2) / 2
+    # heuristic leading-order corrections due to the charges
+    # this was suggested by claude, it wasn't tested nor did I try to understand the reasoning behind it
+    #lam_prod = charge_ratio_plus * charge_ratio_minus
+    #dlam = charge_ratio_plus - charge_ratio_minus
+    #r_hat = distance / M
+    #Pt *= sqrt(1 - lam_prod)
+    #Pr *= (1 - lam_prod)**2 * (1 + 5/48 * dlam**2 * r_hat / (1 - lam_prod))
+
+    # horizon radius in isotropic coordinate for an isolated Reissner–Nordström black hole
+    rah_plus  = 1.0        * sqrt(1 - charge_ratio_plus**2)  / 2
+    rah_minus = mass_minus * sqrt(1 - charge_ratio_minus**2) / 2
 
     print(f"rah_plus  = {rah_plus}")
     print(f"rah_minus = {rah_minus}")
