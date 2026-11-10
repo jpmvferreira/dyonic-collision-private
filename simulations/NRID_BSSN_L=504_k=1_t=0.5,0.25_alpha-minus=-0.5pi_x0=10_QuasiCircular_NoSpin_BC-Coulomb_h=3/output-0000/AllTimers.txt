@@ -1,0 +1,746 @@
+# Clock gettimeofday
+# Unit seconds
+# Column 1 iteration
+# Column 2 simulation time
+# For all following columns:
+#    Column 3n   average of all processes
+#    Column 3n+1 minimum of all processes
+#    Column 3n+2 maximum of all processes
+# Column 3 CCTK total time
+# Column 6 IO method CarpetIOBasic
+# Column 9 IO method CarpetIOScalar
+# Column 12 IO method IOASCII_0D
+# Column 15 IO method IOASCII_1D
+# Column 18 IO method IOASCII_2D
+# Column 21 IO method IOASCII_3D
+# Column 24 IO method IOHDF5
+# Column 27 IO method IOHDF5_0D
+# Column 30 IO method IOHDF5_1D
+# Column 33 IO method IOHDF5_2D
+# Column 36 IO method IOHDF5_3D
+# Column 39 Slab/apply
+# Column 42 Slab/copy_back
+# Column 45 Slab/copy_back_flipgeneral
+# Column 48 Slab/copy_back_flipx
+# Column 51 Slab/copy_back_flipxy
+# Column 54 Slab/copy_back_flipy
+# Column 57 Slab/copy_back_general
+# Column 60 Slab/copy_back_noflip
+# Column 63 Slab/copy_in
+# Column 66 Slab/copy_in_general
+# Column 69 Slab/copy_in_noxpose
+# Column 72 Slab/copy_in_xposegeneral
+# Column 75 Slab/copy_in_xposexy
+# Column 78 Slab/init
+# Column 81 Slab/xfer
+# Column 84 [0000] Carpet: MultiModel_Startup in CCTK_STARTUP
+# Column 87 [0001] CycleClock: CycleClock_Setup in CCTK_STARTUP
+# Column 90 [0002] LoopControl: LC_setup in CCTK_STARTUP
+# Column 93 [0003] Timers: Timer_Startup in CCTK_STARTUP
+# Column 96 [0004] Carpet: Driver_Startup in CCTK_STARTUP
+# Column 99 [0005] IOUtil: IOUtil_Startup in CCTK_STARTUP
+# Column 102 [0006] CarpetIOScalar: CarpetIOScalarStartup in CCTK_STARTUP
+# Column 105 [0007] CarpetInterp: CarpetInterpStartup in CCTK_STARTUP
+# Column 108 [0008] CarpetReduce: CarpetReduceStartup in CCTK_STARTUP
+# Column 111 [0009] CartGrid3D: SymmetryStartup in CCTK_STARTUP
+# Column 114 [0010] CoordBase: CoordBase_Startup in CCTK_STARTUP
+# Column 117 [0011] AEILocalInterp: AEILocalInterp_U_Startup in CCTK_STARTUP
+# Column 120 [0012] EMGEvolve: EMG_RegisterMask in CCTK_STARTUP
+# Column 123 [0013] CarpetIOASCII: CarpetIOASCIIStartup in CCTK_STARTUP
+# Column 126 [0014] LeanBSSNMoL: LeanBSSN_RegisterSlicing in CCTK_STARTUP
+# Column 129 [0015] LocalInterp: LocalInterp_Startup in CCTK_STARTUP
+# Column 132 [0016] CarpetIOBasic: CarpetIOBasicStartup in CCTK_STARTUP
+# Column 135 [0017] MoL: MoL_Startup in CCTK_STARTUP
+# Column 138 [0018] Slab: Slab_InitMPIDatatypes in CCTK_STARTUP
+# Column 141 [0019] SymBase: SymBase_Startup in CCTK_STARTUP
+# Column 144 [0020] TerminationTrigger: TerminationTrigger_StartSignalHandler in CCTK_STARTUP
+# Column 147 [0021] CarpetIOHDF5: CarpetIOHDF5_Startup in CCTK_STARTUP
+# Column 150 [0022] Vectors: Vectors_Startup in CCTK_STARTUP
+# Column 153 [0023] hwloc: hwloc_version in CCTK_STARTUP
+# Column 156 [0024] ADMBase: Einstein_InitSymBound in CCTK_WRAGH
+# Column 159 [0025] Boundary: Boundary_RegisterBCs in CCTK_WRAGH
+# Column 162 [0026] CarpetRegrid2: CarpetRegrid2_Initialise in CCTK_WRAGH
+# Column 165 [0027] CartGrid3D: RegisterCartGrid3DCoords in CCTK_WRAGH
+# Column 168 [0028] CoordGauge: Einstein_ActivateSlicing in CCTK_WRAGH
+# Column 171 [0029] CoordGauge: Einstein_SetNextSlicing in CCTK_WRAGH
+# Column 174 [0030] MoL: MoL_SetupIndexArrays in CCTK_WRAGH
+# Column 177 [0031] MoL: MoL_SetScheduleStatus in CCTK_WRAGH
+# Column 180 [0032] TmunuBase: TmunuBase_SetStressEnergyState in CCTK_WRAGH
+# Column 183 [0033] EMGEvolve: EMG_RegisterVars in CCTK_WRAGH
+# Column 186 [0034] LeanBSSNMoL: LeanBSSN_RegisterVars in CCTK_WRAGH
+# Column 189 [0035] Slab: Slab_InitTimers in CCTK_WRAGH
+# Column 192 [0036] SpaceMask: MaskSym in CCTK_WRAGH
+# Column 195 [0037] SpaceMask: MaskSym_emask in CCTK_WRAGH
+# Column 198 [0038] CartGrid3D: CartGrid3D_RegisterSymmetryBoundaries in CCTK_WRAGH
+# Column 201 [0039] ReflectionSymmetry: ReflectionSymmetry_Register in CCTK_WRAGH
+# Column 204 [0040] SymBase: SymBase_Statistics in CCTK_WRAGH
+# Column 207 [0041] MoL: MoL_ReportNumberVariables in CCTK_WRAGH
+# Column 210 [0042] ADMBase: ADMBase_ParamCheck in CCTK_PARAMCHECK
+# Column 213 [0043] Boundary: Boundary_Check in CCTK_PARAMCHECK
+# Column 216 [0044] Carpet: CarpetParamCheck in CCTK_PARAMCHECK
+# Column 219 [0045] CarpetLib: CarpetLib_test_prolongate_3d_rf2 in CCTK_PARAMCHECK
+# Column 222 [0046] CarpetMask: CarpetSurfaceParamCheck in CCTK_PARAMCHECK
+# Column 225 [0047] CarpetRegrid2: CarpetRegrid2_ParamCheck in CCTK_PARAMCHECK
+# Column 228 [0048] CartGrid3D: ParamCheck_CartGrid3D in CCTK_PARAMCHECK
+# Column 231 [0049] Dissipation: dissipation_paramcheck in CCTK_PARAMCHECK
+# Column 234 [0050] EMGInit: EMG_Merger_ParamCheck in CCTK_PARAMCHECK
+# Column 237 [0051] Fortran: CheckFortranParameters in CCTK_PARAMCHECK
+# Column 240 [0052] LeanBSSNMoL: Lean_ParamCheck in CCTK_PARAMCHECK
+# Column 243 [0053] MoL: MoL_ParamCheck in CCTK_PARAMCHECK
+# Column 246 [0054] Multipole: Multipole_ParamCheck in CCTK_PARAMCHECK
+# Column 249 [0055] NPScalars: NPScalars_ParamCheck in CCTK_PARAMCHECK
+# Column 252 [0056] NRInitialDataVTU: NRInitialDataVTU_ParamCheck in CCTK_PARAMCHECK
+# Column 255 [0057] QuasiLocalMeasures: qlm_paramcheck in CCTK_PARAMCHECK
+# Column 258 [0058] SphericalSurface: SphericalSurface_ParamCheck in CCTK_PARAMCHECK
+# Column 261 [0059] TerminationTrigger: TerminationTrigger_ParamCheck in CCTK_PARAMCHECK
+# Column 264 [0060] TmunuBase: TmunuBase_ParamCheck in CCTK_PARAMCHECK
+# Column 267 [0061] Vectors: Vectors_Test in CCTK_PARAMCHECK
+# Column 270 [0062] ADMBase: ADMBase_SetShiftStateOn in CCTK_BASEGRID
+# Column 273 [0063] ADMBase: ADMBase_SetDtLapseStateOn in CCTK_BASEGRID
+# Column 276 [0064] ADMBase: ADMBase_SetDtShiftStateOn in CCTK_BASEGRID
+# Column 279 [0065] ADMMacros: ADMMacros_SetLocalSpatialOrder in CCTK_BASEGRID
+# Column 282 [0066] CartGrid3D: SpatialSpacings in CCTK_BASEGRID
+# Column 285 [0067] CartGrid3D: SpatialCoordinates in CCTK_BASEGRID
+# Column 288 [0068] SphericalSurface: SphericalSurface_SetupRes in CCTK_BASEGRID
+# Column 291 [0069] AHFinderDirect: AHFinderDirect_setup in CCTK_BASEGRID
+# Column 294 [0070] Dissipation: dissipation_basegrid in CCTK_BASEGRID
+# Column 297 [0071] EMGBase: emg_symmetries in CCTK_BASEGRID
+# Column 300 [0072] EMGEvolve: EMG_InitSymBound in CCTK_BASEGRID
+# Column 303 [0073] EMGEvolve: EMG_zero_rhs in CCTK_BASEGRID
+# Column 306 [0074] LeanBSSNMoL: LeanBSSN_symmetries in CCTK_BASEGRID
+# Column 309 [0075] LeanBSSNMoL: LeanBSSN_zero_rhs in CCTK_BASEGRID
+# Column 312 [0076] NPScalars: NP_symmetries in CCTK_BASEGRID
+# Column 315 [0077] NPScalars_EMG: NPEMG_symmetries in CCTK_BASEGRID
+# Column 318 [0078] NaNChecker: NaNChecker_ResetCounter in CCTK_BASEGRID
+# Column 321 [0079] SpaceMask: MaskZero in CCTK_BASEGRID
+# Column 324 [0080] SpaceMask: MaskOne in CCTK_BASEGRID
+# Column 327 [0081] SphericalSurface: SphericalSurface_Setup in CCTK_BASEGRID
+# Column 330 [0082] CarpetReduce: MaskBase_AllocateMask in CCTK_BASEGRID
+# Column 333 [0083] CarpetReduce: MaskBase_InitMask in CCTK_BASEGRID
+# Column 336 [0084] CarpetReduce: CoordBase_SetupMask in CCTK_BASEGRID
+# Column 339 [0085] CarpetReduce: CarpetMaskSetup in CCTK_BASEGRID
+# Column 342 [0086] CarpetMask: CarpetExcludedSetup in CCTK_BASEGRID
+# Column 345 [0087] CarpetMask: CarpetSurfaceSetup in CCTK_BASEGRID
+# Column 348 [0088] CarpetReduce: MaskBase_SetMask in CCTK_BASEGRID
+# Column 351 [0089] CarpetReduce: MaskBase_TestMask in CCTK_BASEGRID
+# Column 354 [0090] SphericalSurface: SphericalSurface_Set in CCTK_BASEGRID
+# Column 357 [0091] SphericalSurface: SphericalSurface_CheckState in CCTK_BASEGRID
+# Column 360 [0092] SymBase: SymBase_Check in CCTK_BASEGRID
+# Column 363 [0093] TerminationTrigger: TerminationTrigger_ResetTrigger in CCTK_BASEGRID
+# Column 366 [0094] TerminationTrigger: TerminationTrigger_StartTimer in CCTK_BASEGRID
+# Column 369 [0095] TerminationTrigger: TerminationTrigger_CreateFile in CCTK_BASEGRID
+# Column 372 [0096] Time: Time_Initialise in CCTK_BASEGRID
+# Column 375 [0097] Time: TemporalSpacings in CCTK_BASEGRID
+# Column 378 [0098] StaticConformal: StaticConformal_InitialiseState in CCTK_INITIAL
+# Column 381 [0099] ADMBase: ADMBase_ShiftZero in CCTK_INITIAL
+# Column 384 [0100] ADMBase: ADMBase_DtLapseZero in CCTK_INITIAL
+# Column 387 [0101] ADMBase: ADMBase_DtShiftZero in CCTK_INITIAL
+# Column 390 [0102] CarpetIOASCII: CarpetIOASCIIInit in CCTK_INITIAL
+# Column 393 [0103] CarpetIOBasic: CarpetIOBasicInit in CCTK_INITIAL
+# Column 396 [0104] CarpetIOHDF5: CarpetIOHDF5_Init in CCTK_INITIAL
+# Column 399 [0105] CarpetIOScalar: CarpetIOScalarInit in CCTK_INITIAL
+# Column 402 [0106] NRInitialDataVTU: NRInitialDataVTU_Open in CCTK_INITIAL
+# Column 405 [0107] NRInitialDataVTU: NRInitialDataVTU_Fill in CCTK_INITIAL
+# Column 408 [0108] EMGInit: EMG_Merger in CCTK_INITIAL
+# Column 411 [0109] LeanBSSNMoL: LeanBSSN_adm2bssn in CCTK_INITIAL
+# Column 414 [0110] LeanBSSNMoL: LeanBSSN_Boundaries in CCTK_INITIAL
+# Column 417 [0111] MoL: MoL_StartLoop in CCTK_INITIAL
+# Column 420 [0112] PunctureTracker: PunctureTracker_Init in CCTK_INITIAL
+# Column 423 [0113] QuasiLocalMeasures: qlm_init in CCTK_INITIAL
+# Column 426 [0114] Boundary: Boundary_ApplyPhysicalBCs in CCTK_INITIAL
+# Column 429 [0115] CartGrid3D: CartGrid3D_ApplyBC in CCTK_INITIAL
+# Column 432 [0116] ReflectionSymmetry: ReflectionSymmetry_Apply in CCTK_INITIAL
+# Column 435 [0117] Boundary: Boundary_ClearSelection in CCTK_INITIAL
+# Column 438 [0118] CarpetIOHDF5: CarpetIOHDF5_CloseFiles in CCTK_POSTINITIAL
+# Column 441 [0119] LeanBSSNMoL: LeanBSSN_remove_trA in CCTK_POSTINITIAL
+# Column 444 [0120] EMGEvolve: EMG_Boundaries in CCTK_POSTINITIAL
+# Column 447 [0121] Boundary: Boundary_ApplyPhysicalBCs in CCTK_POSTINITIAL
+# Column 450 [0122] CartGrid3D: CartGrid3D_ApplyBC in CCTK_POSTINITIAL
+# Column 453 [0123] ReflectionSymmetry: ReflectionSymmetry_Apply in CCTK_POSTINITIAL
+# Column 456 [0124] Boundary: Boundary_ClearSelection in CCTK_POSTINITIAL
+# Column 459 [0125] LeanBSSNMoL: LeanBSSN_impose_conf_fac_floor in CCTK_POSTINITIAL
+# Column 462 [0126] LeanBSSNMoL: LeanBSSN_Boundaries in CCTK_POSTINITIAL
+# Column 465 [0127] LeanBSSNMoL: LeanBSSN_bssn2adm in CCTK_POSTINITIAL
+# Column 468 [0128] TmunuBase: TmunuBase_ZeroTmunu in CCTK_POSTINITIAL
+# Column 471 [0129] EMGEvolve: EMG_AddToTmunu in CCTK_POSTINITIAL
+# Column 474 [0130] NPScalars: NP_calcPsiGF in CCTK_POSTINITIAL
+# Column 477 [0131] NPScalars: NPboundaries in CCTK_POSTINITIAL
+# Column 480 [0132] NPScalars_EMG: NPEMG_calcPsiGF in CCTK_POSTINITIAL
+# Column 483 [0133] NPScalars_EMG: NPEMG_Boundaries in CCTK_POSTINITIAL
+# Column 486 [0134] LeanBSSNMoL: LeanBSSN_remove_trA in CCTK_POSTRESTRICTINITIAL
+# Column 489 [0135] EMGEvolve: EMG_Boundaries in CCTK_POSTRESTRICTINITIAL
+# Column 492 [0136] Boundary: Boundary_ApplyPhysicalBCs in CCTK_POSTRESTRICTINITIAL
+# Column 495 [0137] CartGrid3D: CartGrid3D_ApplyBC in CCTK_POSTRESTRICTINITIAL
+# Column 498 [0138] ReflectionSymmetry: ReflectionSymmetry_Apply in CCTK_POSTRESTRICTINITIAL
+# Column 501 [0139] Boundary: Boundary_ClearSelection in CCTK_POSTRESTRICTINITIAL
+# Column 504 [0140] LeanBSSNMoL: LeanBSSN_impose_conf_fac_floor in CCTK_POSTRESTRICTINITIAL
+# Column 507 [0141] LeanBSSNMoL: LeanBSSN_Boundaries in CCTK_POSTRESTRICTINITIAL
+# Column 510 [0142] LeanBSSNMoL: LeanBSSN_bssn2adm in CCTK_POSTRESTRICTINITIAL
+# Column 513 [0143] TmunuBase: TmunuBase_ZeroTmunu in CCTK_POSTRESTRICTINITIAL
+# Column 516 [0144] EMGEvolve: EMG_AddToTmunu in CCTK_POSTRESTRICTINITIAL
+# Column 519 [0145] NPScalars: NPboundaries in CCTK_POSTRESTRICTINITIAL
+# Column 522 [0146] NPScalars_EMG: NPEMG_Boundaries in CCTK_POSTRESTRICTINITIAL
+# Column 525 [0147] NRInitialDataVTU: NRInitialDataVTU_Close in CCTK_POSTPOSTINITIAL
+# Column 528 [0148] AHFinderDirect: AHFinderDirect_import_mask in CCTK_POSTSTEP
+# Column 531 [0149] AHFinderDirect: AHFinderDirect_find_horizons in CCTK_POSTSTEP
+# Column 534 [0150] AHFinderDirect: AHFinderDirect_store in CCTK_POSTSTEP
+# Column 537 [0151] AHFinderDirect: AHFinderDirect_save in CCTK_POSTSTEP
+# Column 540 [0152] AHFinderDirect: AHFinderDirect_maybe_do_masks in CCTK_POSTSTEP
+# Column 543 [0153] SphericalSurface: SphericalSurface_Set in CCTK_POSTSTEP
+# Column 546 [0154] SphericalSurface: SphericalSurface_CheckState in CCTK_POSTSTEP
+# Column 549 [0155] NaNChecker: NaNChecker_NaNCheck_Prepare in CCTK_POSTSTEP
+# Column 552 [0156] NaNChecker: NaNChecker_NaNCheck_Check in CCTK_POSTSTEP
+# Column 555 [0157] NaNChecker: NaNChecker_NaNCheck_Finish in CCTK_POSTSTEP
+# Column 558 [0158] NaNChecker: NaNChecker_TakeAction in CCTK_POSTSTEP
+# Column 561 [0159] PunctureTracker: PunctureTracker_SetPositions in CCTK_POSTSTEP
+# Column 564 [0160] SpaceMask: CheckMask in CCTK_POSTSTEP
+# Column 567 [0161] Dissipation: setup_epsdis in CCTK_POSTSTEP
+# Column 570 [0162] CarpetReduce: MaskBase_AllocateMask in CCTK_POSTSTEP
+# Column 573 [0163] CarpetReduce: MaskBase_InitMask in CCTK_POSTSTEP
+# Column 576 [0164] CarpetReduce: CoordBase_SetupMask in CCTK_POSTSTEP
+# Column 579 [0165] CarpetReduce: CarpetMaskSetup in CCTK_POSTSTEP
+# Column 582 [0166] CarpetMask: CarpetExcludedSetup in CCTK_POSTSTEP
+# Column 585 [0167] CarpetMask: CarpetSurfaceSetup in CCTK_POSTSTEP
+# Column 588 [0168] CarpetReduce: MaskBase_SetMask in CCTK_POSTSTEP
+# Column 591 [0169] CarpetReduce: MaskBase_TestMask in CCTK_POSTSTEP
+# Column 594 [0170] CarpetIOHDF5: CarpetIOHDF5_InitialDataCheckpoint in CCTK_CPINITIAL
+# Column 597 [0171] CarpetLib: CarpetLib_printtimestats in CCTK_ANALYSIS
+# Column 600 [0172] CarpetLib: CarpetLib_printmemstats in CCTK_ANALYSIS
+# Column 603 [0173] EMGEvolve: EMG_constraints in CCTK_ANALYSIS
+# Column 606 [0174] EMGEvolve: EMG_constraints_boundaries in CCTK_ANALYSIS
+# Column 609 [0175] Boundary: Boundary_ApplyPhysicalBCs in CCTK_ANALYSIS
+# Column 612 [0176] CartGrid3D: CartGrid3D_ApplyBC in CCTK_ANALYSIS
+# Column 615 [0177] ReflectionSymmetry: ReflectionSymmetry_Apply in CCTK_ANALYSIS
+# Column 618 [0178] Boundary: Boundary_ClearSelection in CCTK_ANALYSIS
+# Column 621 [0179] LeanBSSNMoL: LeanBSSN_bssn_constraints in CCTK_ANALYSIS
+# Column 624 [0180] LeanBSSNMoL: LeanBSSN_Constraints_Boundaries in CCTK_ANALYSIS
+# Column 627 [0181] LoopControl: LC_statistics_analysis in CCTK_ANALYSIS
+# Column 630 [0182] Multipole: Multipole_Calc in CCTK_ANALYSIS
+# Column 633 [0183] NPScalars_EMG: NPEMG_calcPsiGF in CCTK_ANALYSIS
+# Column 636 [0184] NPScalars_EMG: NPEMG_Boundaries in CCTK_ANALYSIS
+# Column 639 [0185] SystemStatistics: SystemStatistics_Collect in CCTK_ANALYSIS
+# Column 642 [0186] TerminationTrigger: TerminationTrigger_CheckWalltime in CCTK_ANALYSIS
+# Column 645 [0187] TerminationTrigger: TerminationTrigger_CheckSignal in CCTK_ANALYSIS
+# Column 648 [0188] TerminationTrigger: TerminationTrigger_CheckFile in CCTK_ANALYSIS
+# Column 651 [0189] TimerReport: zzz_TimerReport_Output in CCTK_ANALYSIS
+# Column 654 [0190] QuasiLocalMeasures: qlm_calculate in CCTK_ANALYSIS
+# Column 657 [0191] CarpetIOHDF5: CarpetIOHDF5_TerminationCheckpoint in CCTK_TERMINATE
+# Column 660 [0192] LoopControl: LC_statistics_terminate in CCTK_TERMINATE
+# Column 663 [0193] MoL: MoL_FreeIndexArrays in CCTK_TERMINATE
+# Column 666 [0194] TimerReport: zzz_TimerReport_Output in CCTK_TERMINATE
+# Column 669 main
+# Column 672 main/CarpetStartup
+# Column 675 main/CarpetStartup/AllocateGridHierarchy
+# Column 678 main/CarpetStartup/CarpetLib::dh::recompose
+# Column 681 main/CarpetStartup/CarpetLib::dh::regrid
+# Column 684 main/CarpetStartup/CarpetLib::gh::regrid
+# Column 687 main/CarpetStartup/CarpetLib::gh::regrid/CarpetLib::dh::regrid
+# Column 690 main/CarpetStartup/CarpetLib::gh::regrid/CarpetLib::dh::regrid/bcast_boxes
+# Column 693 main/CarpetStartup/CarpetLib::gh::regrid/CarpetLib::dh::regrid/bcast_comm
+# Column 696 main/CarpetStartup/CarpetLib::gh::regrid/CarpetLib::dh::regrid/bcast_comm/old2new_ref_prol
+# Column 699 main/CarpetStartup/CarpetLib::gh::regrid/CarpetLib::dh::regrid/bcast_comm/old2new_ref_prol/CarpetLib::dh::bs1
+# Column 702 main/CarpetStartup/CarpetLib::gh::regrid/CarpetLib::dh::regrid/bcast_comm/old2new_ref_prol/CarpetLib::dh::bs2
+# Column 705 main/CarpetStartup/CarpetLib::gh::regrid/CarpetLib::dh::regrid/bcast_comm/old2new_ref_prol/CarpetLib::dh::bs3
+# Column 708 main/CarpetStartup/CarpetLib::gh::regrid/CarpetLib::dh::regrid/bcast_comm/old2new_sync
+# Column 711 main/CarpetStartup/CarpetLib::gh::regrid/CarpetLib::dh::regrid/bcast_comm/old2new_sync/CarpetLib::dh::bs1
+# Column 714 main/CarpetStartup/CarpetLib::gh::regrid/CarpetLib::dh::regrid/bcast_comm/old2new_sync/CarpetLib::dh::bs2
+# Column 717 main/CarpetStartup/CarpetLib::gh::regrid/CarpetLib::dh::regrid/bcast_comm/old2new_sync/CarpetLib::dh::bs3
+# Column 720 main/CarpetStartup/CarpetLib::gh::regrid/CarpetLib::dh::regrid/bcast_comm/ref_bnd_prol
+# Column 723 main/CarpetStartup/CarpetLib::gh::regrid/CarpetLib::dh::regrid/bcast_comm/ref_bnd_prol/CarpetLib::dh::bs1
+# Column 726 main/CarpetStartup/CarpetLib::gh::regrid/CarpetLib::dh::regrid/bcast_comm/ref_bnd_prol/CarpetLib::dh::bs2
+# Column 729 main/CarpetStartup/CarpetLib::gh::regrid/CarpetLib::dh::regrid/bcast_comm/ref_bnd_prol/CarpetLib::dh::bs3
+# Column 732 main/CarpetStartup/CarpetLib::gh::regrid/CarpetLib::dh::regrid/bcast_comm/ref_prol
+# Column 735 main/CarpetStartup/CarpetLib::gh::regrid/CarpetLib::dh::regrid/bcast_comm/ref_prol/CarpetLib::dh::bs1
+# Column 738 main/CarpetStartup/CarpetLib::gh::regrid/CarpetLib::dh::regrid/bcast_comm/ref_prol/CarpetLib::dh::bs2
+# Column 741 main/CarpetStartup/CarpetLib::gh::regrid/CarpetLib::dh::regrid/bcast_comm/ref_prol/CarpetLib::dh::bs3
+# Column 744 main/CarpetStartup/CarpetLib::gh::regrid/CarpetLib::dh::regrid/bcast_comm/ref_refl_prol
+# Column 747 main/CarpetStartup/CarpetLib::gh::regrid/CarpetLib::dh::regrid/bcast_comm/ref_refl_prol/CarpetLib::dh::bs1
+# Column 750 main/CarpetStartup/CarpetLib::gh::regrid/CarpetLib::dh::regrid/bcast_comm/ref_refl_prol/CarpetLib::dh::bs2
+# Column 753 main/CarpetStartup/CarpetLib::gh::regrid/CarpetLib::dh::regrid/bcast_comm/ref_refl_prol/CarpetLib::dh::bs3
+# Column 756 main/CarpetStartup/CarpetLib::gh::regrid/CarpetLib::dh::regrid/bcast_comm/sync
+# Column 759 main/CarpetStartup/CarpetLib::gh::regrid/CarpetLib::dh::regrid/bcast_comm/sync/CarpetLib::dh::bs1
+# Column 762 main/CarpetStartup/CarpetLib::gh::regrid/CarpetLib::dh::regrid/bcast_comm/sync/CarpetLib::dh::bs2
+# Column 765 main/CarpetStartup/CarpetLib::gh::regrid/CarpetLib::dh::regrid/bcast_comm/sync/CarpetLib::dh::bs3
+# Column 768 main/CarpetStartup/CarpetLib::gh::regrid/CarpetLib::dh::regrid/buffers
+# Column 771 main/CarpetStartup/CarpetLib::gh::regrid/CarpetLib::dh::regrid/comm
+# Column 774 main/CarpetStartup/CarpetLib::gh::regrid/CarpetLib::dh::regrid/comm/mgprol
+# Column 777 main/CarpetStartup/CarpetLib::gh::regrid/CarpetLib::dh::regrid/comm/mgrest
+# Column 780 main/CarpetStartup/CarpetLib::gh::regrid/CarpetLib::dh::regrid/comm/refbndprol
+# Column 783 main/CarpetStartup/CarpetLib::gh::regrid/CarpetLib::dh::regrid/comm/reflux
+# Column 786 main/CarpetStartup/CarpetLib::gh::regrid/CarpetLib::dh::regrid/comm/refprol
+# Column 789 main/CarpetStartup/CarpetLib::gh::regrid/CarpetLib::dh::regrid/comm/refrest
+# Column 792 main/CarpetStartup/CarpetLib::gh::regrid/CarpetLib::dh::regrid/comm/sync
+# Column 795 main/CarpetStartup/CarpetLib::gh::regrid/CarpetLib::dh::regrid/domain
+# Column 798 main/CarpetStartup/CarpetLib::gh::regrid/CarpetLib::dh::regrid/mask
+# Column 801 main/CarpetStartup/CarpetLib::gh::regrid/CarpetLib::dh::regrid/region
+# Column 804 main/CarpetStartup/CarpetLib::gh::regrid/CarpetLib::dh::regrid/test
+# Column 807 main/CarpetStartup/CarpetLib::gh::regrid/CarpetLib::dh::regrid/unusedpoints_mask
+# Column 810 main/CarpetStartup/CheckRegions
+# Column 813 main/Evolve
+# Column 816 main/Evolve/DoTerminate
+# Column 819 main/Initialise
+# Column 822 main/Initialise/CallAnalysis
+# Column 825 main/Initialise/CallAnalysis/CCTK_ANALYSIS
+# Column 828 main/Initialise/CallAnalysis/CCTK_ANALYSIS/CallFunction
+# Column 831 main/Initialise/CallAnalysis/CCTK_ANALYSIS/CallFunction/syncs
+# Column 834 main/Initialise/CallAnalysis/CCTK_ANALYSIS/CallFunction/syncs/Prolongate
+# Column 837 main/Initialise/CallAnalysis/CCTK_ANALYSIS/CallFunction/syncs/Prolongate/comm_state[0].create
+# Column 840 main/Initialise/CallAnalysis/CCTK_ANALYSIS/CallFunction/syncs/Prolongate/comm_state[1].state_get_buffer_sizes.user
+# Column 843 main/Initialise/CallAnalysis/CCTK_ANALYSIS/CallFunction/syncs/Prolongate/comm_state[2].state_get_buffer_sizes.step
+# Column 846 main/Initialise/CallAnalysis/CCTK_ANALYSIS/CallFunction/syncs/Prolongate/comm_state[3].state_fill_send_buffers.user
+# Column 849 main/Initialise/CallAnalysis/CCTK_ANALYSIS/CallFunction/syncs/Prolongate/comm_state[4].state_fill_send_buffers.step
+# Column 852 main/Initialise/CallAnalysis/CCTK_ANALYSIS/CallFunction/syncs/Prolongate/comm_state[5].state_do_some_work.user
+# Column 855 main/Initialise/CallAnalysis/CCTK_ANALYSIS/CallFunction/syncs/Prolongate/comm_state[6].state_do_some_work.step
+# Column 858 main/Initialise/CallAnalysis/CCTK_ANALYSIS/CallFunction/syncs/Prolongate/comm_state[7].state_empty_recv_buffers.user
+# Column 861 main/Initialise/CallAnalysis/CCTK_ANALYSIS/CallFunction/syncs/Prolongate/comm_state[8].state_empty_recv_buffers.step
+# Column 864 main/Initialise/CallAnalysis/CCTK_ANALYSIS/CallFunction/syncs/Sync
+# Column 867 main/Initialise/CallAnalysis/CCTK_ANALYSIS/CallFunction/syncs/Sync/comm_state[0].create
+# Column 870 main/Initialise/CallAnalysis/CCTK_ANALYSIS/CallFunction/syncs/Sync/comm_state[1].state_get_buffer_sizes.user
+# Column 873 main/Initialise/CallAnalysis/CCTK_ANALYSIS/CallFunction/syncs/Sync/comm_state[2].state_get_buffer_sizes.step
+# Column 876 main/Initialise/CallAnalysis/CCTK_ANALYSIS/CallFunction/syncs/Sync/comm_state[3].state_fill_send_buffers.user
+# Column 879 main/Initialise/CallAnalysis/CCTK_ANALYSIS/CallFunction/syncs/Sync/comm_state[4].state_fill_send_buffers.step
+# Column 882 main/Initialise/CallAnalysis/CCTK_ANALYSIS/CallFunction/syncs/Sync/comm_state[5].state_do_some_work.user
+# Column 885 main/Initialise/CallAnalysis/CCTK_ANALYSIS/CallFunction/syncs/Sync/comm_state[6].state_do_some_work.step
+# Column 888 main/Initialise/CallAnalysis/CCTK_ANALYSIS/CallFunction/syncs/Sync/comm_state[7].state_empty_recv_buffers.user
+# Column 891 main/Initialise/CallAnalysis/CCTK_ANALYSIS/CallFunction/syncs/Sync/comm_state[8].state_empty_recv_buffers.step
+# Column 894 main/Initialise/CallAnalysis/CCTK_ANALYSIS/CallFunction/thorns
+# Column 897 main/Initialise/CallAnalysis/CCTK_ANALYSIS/CallFunction/thorns/Boundary_ApplyPhysicalBCs
+# Column 900 main/Initialise/CallAnalysis/CCTK_ANALYSIS/CallFunction/thorns/Boundary_ClearSelection
+# Column 903 main/Initialise/CallAnalysis/CCTK_ANALYSIS/CallFunction/thorns/CarpetLib_printmemstats
+# Column 906 main/Initialise/CallAnalysis/CCTK_ANALYSIS/CallFunction/thorns/CarpetLib_printtimestats
+# Column 909 main/Initialise/CallAnalysis/CCTK_ANALYSIS/CallFunction/thorns/CartGrid3D_ApplyBC
+# Column 912 main/Initialise/CallAnalysis/CCTK_ANALYSIS/CallFunction/thorns/EMG_constraints
+# Column 915 main/Initialise/CallAnalysis/CCTK_ANALYSIS/CallFunction/thorns/EMG_constraints_boundaries
+# Column 918 main/Initialise/CallAnalysis/CCTK_ANALYSIS/CallFunction/thorns/LC_statistics_analysis
+# Column 921 main/Initialise/CallAnalysis/CCTK_ANALYSIS/CallFunction/thorns/LeanBSSN_Constraints_Boundaries
+# Column 924 main/Initialise/CallAnalysis/CCTK_ANALYSIS/CallFunction/thorns/LeanBSSN_bssn_constraints
+# Column 927 main/Initialise/CallAnalysis/CCTK_ANALYSIS/CallFunction/thorns/Multipole_Calc
+# Column 930 main/Initialise/CallAnalysis/CCTK_ANALYSIS/CallFunction/thorns/NPEMG_Boundaries
+# Column 933 main/Initialise/CallAnalysis/CCTK_ANALYSIS/CallFunction/thorns/NPEMG_calcPsiGF
+# Column 936 main/Initialise/CallAnalysis/CCTK_ANALYSIS/CallFunction/thorns/ReflectionSymmetry_Apply
+# Column 939 main/Initialise/CallAnalysis/CCTK_ANALYSIS/CallFunction/thorns/SystemStatistics_Collect
+# Column 942 main/Initialise/CallAnalysis/CCTK_ANALYSIS/CallFunction/thorns/TerminationTrigger_CheckFile
+# Column 945 main/Initialise/CallAnalysis/CCTK_ANALYSIS/CallFunction/thorns/TerminationTrigger_CheckSignal
+# Column 948 main/Initialise/CallAnalysis/CCTK_ANALYSIS/CallFunction/thorns/TerminationTrigger_CheckWalltime
+# Column 951 main/Initialise/CallAnalysis/CCTK_ANALYSIS/CallFunction/thorns/qlm_calculate
+# Column 954 main/Initialise/CallAnalysis/CCTK_ANALYSIS/CallFunction/thorns/zzz_TimerReport_Output
+# Column 957 main/Initialise/CallAnalysis/CCTK_CPINITIAL
+# Column 960 main/Initialise/CallAnalysis/CCTK_CPINITIAL/CallFunction
+# Column 963 main/Initialise/CallAnalysis/CCTK_CPINITIAL/CallFunction/thorns
+# Column 966 main/Initialise/CallAnalysis/CCTK_CPINITIAL/CallFunction/thorns/CarpetIOHDF5_InitialDataCheckpoint
+# Column 969 main/Initialise/CallAnalysis/OutputGH
+# Column 972 main/Initialise/CallAnalysis/OutputGH/OutputGH
+# Column 975 main/Initialise/CallAnalysis/OutputGH/OutputGH/IOASCII::IOASCII_0D [1]
+# Column 978 main/Initialise/CallAnalysis/OutputGH/OutputGH/IOASCII::IOASCII_0D [1]/OutputGH<0>
+# Column 981 main/Initialise/CallAnalysis/OutputGH/OutputGH/IOASCII::IOASCII_1D [2]
+# Column 984 main/Initialise/CallAnalysis/OutputGH/OutputGH/IOASCII::IOASCII_1D [2]/OutputGH<1>
+# Column 987 main/Initialise/CallAnalysis/OutputGH/OutputGH/IOASCII::IOASCII_2D [3]
+# Column 990 main/Initialise/CallAnalysis/OutputGH/OutputGH/IOASCII::IOASCII_2D [3]/OutputGH<2>
+# Column 993 main/Initialise/CallAnalysis/OutputGH/OutputGH/IOASCII::IOASCII_3D [4]
+# Column 996 main/Initialise/CallAnalysis/OutputGH/OutputGH/IOASCII::IOASCII_3D [4]/OutputGH<3>
+# Column 999 main/Initialise/CallAnalysis/OutputGH/OutputGH/IOBasic::CarpetIOBasic [5]
+# Column 1002 main/Initialise/CallAnalysis/OutputGH/OutputGH/IOBasic::CarpetIOBasic [5]/OutputGH
+# Column 1005 main/Initialise/CallAnalysis/OutputGH/OutputGH/IOHDF5::IOHDF5 [10]
+# Column 1008 main/Initialise/CallAnalysis/OutputGH/OutputGH/IOHDF5::IOHDF5 [10]/OutputGH
+# Column 1011 main/Initialise/CallAnalysis/OutputGH/OutputGH/IOHDF5::IOHDF5_0D [6]
+# Column 1014 main/Initialise/CallAnalysis/OutputGH/OutputGH/IOHDF5::IOHDF5_0D [6]/OutputGH<0>
+# Column 1017 main/Initialise/CallAnalysis/OutputGH/OutputGH/IOHDF5::IOHDF5_1D [7]
+# Column 1020 main/Initialise/CallAnalysis/OutputGH/OutputGH/IOHDF5::IOHDF5_1D [7]/OutputGH<1>
+# Column 1023 main/Initialise/CallAnalysis/OutputGH/OutputGH/IOHDF5::IOHDF5_2D [8]
+# Column 1026 main/Initialise/CallAnalysis/OutputGH/OutputGH/IOHDF5::IOHDF5_2D [8]/OutputGH<2>
+# Column 1029 main/Initialise/CallAnalysis/OutputGH/OutputGH/IOHDF5::IOHDF5_3D [9]
+# Column 1032 main/Initialise/CallAnalysis/OutputGH/OutputGH/IOHDF5::IOHDF5_3D [9]/OutputGH<3>
+# Column 1035 main/Initialise/CallAnalysis/OutputGH/OutputGH/IOScalar::CarpetIOScalar [0]
+# Column 1038 main/Initialise/CallAnalysis/OutputGH/OutputGH/IOScalar::CarpetIOScalar [0]/OutputGH
+# Column 1041 main/Initialise/CallInitial
+# Column 1044 main/Initialise/CallInitial/CCTK_BASEGRID
+# Column 1047 main/Initialise/CallInitial/CCTK_BASEGRID/CallFunction
+# Column 1050 main/Initialise/CallInitial/CCTK_BASEGRID/CallFunction/thorns
+# Column 1053 main/Initialise/CallInitial/CCTK_BASEGRID/CallFunction/thorns/ADMBase_SetDtLapseStateOn
+# Column 1056 main/Initialise/CallInitial/CCTK_BASEGRID/CallFunction/thorns/ADMBase_SetDtShiftStateOn
+# Column 1059 main/Initialise/CallInitial/CCTK_BASEGRID/CallFunction/thorns/ADMBase_SetShiftStateOn
+# Column 1062 main/Initialise/CallInitial/CCTK_BASEGRID/CallFunction/thorns/ADMMacros_SetLocalSpatialOrder
+# Column 1065 main/Initialise/CallInitial/CCTK_BASEGRID/CallFunction/thorns/AHFinderDirect_setup
+# Column 1068 main/Initialise/CallInitial/CCTK_BASEGRID/CallFunction/thorns/CarpetExcludedSetup
+# Column 1071 main/Initialise/CallInitial/CCTK_BASEGRID/CallFunction/thorns/CarpetMaskSetup
+# Column 1074 main/Initialise/CallInitial/CCTK_BASEGRID/CallFunction/thorns/CarpetSurfaceSetup
+# Column 1077 main/Initialise/CallInitial/CCTK_BASEGRID/CallFunction/thorns/CoordBase_SetupMask
+# Column 1080 main/Initialise/CallInitial/CCTK_BASEGRID/CallFunction/thorns/EMG_InitSymBound
+# Column 1083 main/Initialise/CallInitial/CCTK_BASEGRID/CallFunction/thorns/EMG_zero_rhs
+# Column 1086 main/Initialise/CallInitial/CCTK_BASEGRID/CallFunction/thorns/LeanBSSN_symmetries
+# Column 1089 main/Initialise/CallInitial/CCTK_BASEGRID/CallFunction/thorns/LeanBSSN_zero_rhs
+# Column 1092 main/Initialise/CallInitial/CCTK_BASEGRID/CallFunction/thorns/MaskBase_AllocateMask
+# Column 1095 main/Initialise/CallInitial/CCTK_BASEGRID/CallFunction/thorns/MaskBase_AllocateMask/CarpetLib::ggf::recompose_allocate
+# Column 1098 main/Initialise/CallInitial/CCTK_BASEGRID/CallFunction/thorns/MaskBase_AllocateMask/CarpetLib::ggf::recompose_crop
+# Column 1101 main/Initialise/CallInitial/CCTK_BASEGRID/CallFunction/thorns/MaskBase_AllocateMask/dh::recompose_free_old
+# Column 1104 main/Initialise/CallInitial/CCTK_BASEGRID/CallFunction/thorns/MaskBase_InitMask
+# Column 1107 main/Initialise/CallInitial/CCTK_BASEGRID/CallFunction/thorns/MaskBase_SetMask
+# Column 1110 main/Initialise/CallInitial/CCTK_BASEGRID/CallFunction/thorns/MaskBase_TestMask
+# Column 1113 main/Initialise/CallInitial/CCTK_BASEGRID/CallFunction/thorns/MaskOne
+# Column 1116 main/Initialise/CallInitial/CCTK_BASEGRID/CallFunction/thorns/MaskZero
+# Column 1119 main/Initialise/CallInitial/CCTK_BASEGRID/CallFunction/thorns/NPEMG_symmetries
+# Column 1122 main/Initialise/CallInitial/CCTK_BASEGRID/CallFunction/thorns/NP_symmetries
+# Column 1125 main/Initialise/CallInitial/CCTK_BASEGRID/CallFunction/thorns/NaNChecker_ResetCounter
+# Column 1128 main/Initialise/CallInitial/CCTK_BASEGRID/CallFunction/thorns/SpatialCoordinates
+# Column 1131 main/Initialise/CallInitial/CCTK_BASEGRID/CallFunction/thorns/SpatialSpacings
+# Column 1134 main/Initialise/CallInitial/CCTK_BASEGRID/CallFunction/thorns/SphericalSurface_CheckState
+# Column 1137 main/Initialise/CallInitial/CCTK_BASEGRID/CallFunction/thorns/SphericalSurface_Set
+# Column 1140 main/Initialise/CallInitial/CCTK_BASEGRID/CallFunction/thorns/SphericalSurface_Setup
+# Column 1143 main/Initialise/CallInitial/CCTK_BASEGRID/CallFunction/thorns/SphericalSurface_SetupRes
+# Column 1146 main/Initialise/CallInitial/CCTK_BASEGRID/CallFunction/thorns/SymBase_Check
+# Column 1149 main/Initialise/CallInitial/CCTK_BASEGRID/CallFunction/thorns/TemporalSpacings
+# Column 1152 main/Initialise/CallInitial/CCTK_BASEGRID/CallFunction/thorns/TerminationTrigger_CreateFile
+# Column 1155 main/Initialise/CallInitial/CCTK_BASEGRID/CallFunction/thorns/TerminationTrigger_ResetTrigger
+# Column 1158 main/Initialise/CallInitial/CCTK_BASEGRID/CallFunction/thorns/TerminationTrigger_StartTimer
+# Column 1161 main/Initialise/CallInitial/CCTK_BASEGRID/CallFunction/thorns/Time_Initialise
+# Column 1164 main/Initialise/CallInitial/CCTK_BASEGRID/CallFunction/thorns/dissipation_basegrid
+# Column 1167 main/Initialise/CallInitial/CCTK_BASEGRID/CallFunction/thorns/emg_symmetries
+# Column 1170 main/Initialise/CallInitial/CCTK_INITIAL
+# Column 1173 main/Initialise/CallInitial/CCTK_INITIAL/CallFunction
+# Column 1176 main/Initialise/CallInitial/CCTK_INITIAL/CallFunction/syncs
+# Column 1179 main/Initialise/CallInitial/CCTK_INITIAL/CallFunction/syncs/Prolongate
+# Column 1182 main/Initialise/CallInitial/CCTK_INITIAL/CallFunction/syncs/Prolongate/comm_state[0].create
+# Column 1185 main/Initialise/CallInitial/CCTK_INITIAL/CallFunction/syncs/Prolongate/comm_state[1].state_get_buffer_sizes.user
+# Column 1188 main/Initialise/CallInitial/CCTK_INITIAL/CallFunction/syncs/Prolongate/comm_state[2].state_get_buffer_sizes.step
+# Column 1191 main/Initialise/CallInitial/CCTK_INITIAL/CallFunction/syncs/Prolongate/comm_state[3].state_fill_send_buffers.user
+# Column 1194 main/Initialise/CallInitial/CCTK_INITIAL/CallFunction/syncs/Prolongate/comm_state[4].state_fill_send_buffers.step
+# Column 1197 main/Initialise/CallInitial/CCTK_INITIAL/CallFunction/syncs/Prolongate/comm_state[5].state_do_some_work.user
+# Column 1200 main/Initialise/CallInitial/CCTK_INITIAL/CallFunction/syncs/Prolongate/comm_state[6].state_do_some_work.step
+# Column 1203 main/Initialise/CallInitial/CCTK_INITIAL/CallFunction/syncs/Prolongate/comm_state[7].state_empty_recv_buffers.user
+# Column 1206 main/Initialise/CallInitial/CCTK_INITIAL/CallFunction/syncs/Prolongate/comm_state[8].state_empty_recv_buffers.step
+# Column 1209 main/Initialise/CallInitial/CCTK_INITIAL/CallFunction/syncs/Sync
+# Column 1212 main/Initialise/CallInitial/CCTK_INITIAL/CallFunction/syncs/Sync/comm_state[0].create
+# Column 1215 main/Initialise/CallInitial/CCTK_INITIAL/CallFunction/syncs/Sync/comm_state[1].state_get_buffer_sizes.user
+# Column 1218 main/Initialise/CallInitial/CCTK_INITIAL/CallFunction/syncs/Sync/comm_state[2].state_get_buffer_sizes.step
+# Column 1221 main/Initialise/CallInitial/CCTK_INITIAL/CallFunction/syncs/Sync/comm_state[3].state_fill_send_buffers.user
+# Column 1224 main/Initialise/CallInitial/CCTK_INITIAL/CallFunction/syncs/Sync/comm_state[4].state_fill_send_buffers.step
+# Column 1227 main/Initialise/CallInitial/CCTK_INITIAL/CallFunction/syncs/Sync/comm_state[5].state_do_some_work.user
+# Column 1230 main/Initialise/CallInitial/CCTK_INITIAL/CallFunction/syncs/Sync/comm_state[6].state_do_some_work.step
+# Column 1233 main/Initialise/CallInitial/CCTK_INITIAL/CallFunction/syncs/Sync/comm_state[7].state_empty_recv_buffers.user
+# Column 1236 main/Initialise/CallInitial/CCTK_INITIAL/CallFunction/syncs/Sync/comm_state[8].state_empty_recv_buffers.step
+# Column 1239 main/Initialise/CallInitial/CCTK_INITIAL/CallFunction/thorns
+# Column 1242 main/Initialise/CallInitial/CCTK_INITIAL/CallFunction/thorns/ADMBase_DtLapseZero
+# Column 1245 main/Initialise/CallInitial/CCTK_INITIAL/CallFunction/thorns/ADMBase_DtShiftZero
+# Column 1248 main/Initialise/CallInitial/CCTK_INITIAL/CallFunction/thorns/ADMBase_ShiftZero
+# Column 1251 main/Initialise/CallInitial/CCTK_INITIAL/CallFunction/thorns/Boundary_ApplyPhysicalBCs
+# Column 1254 main/Initialise/CallInitial/CCTK_INITIAL/CallFunction/thorns/Boundary_ClearSelection
+# Column 1257 main/Initialise/CallInitial/CCTK_INITIAL/CallFunction/thorns/CarpetIOASCIIInit
+# Column 1260 main/Initialise/CallInitial/CCTK_INITIAL/CallFunction/thorns/CarpetIOBasicInit
+# Column 1263 main/Initialise/CallInitial/CCTK_INITIAL/CallFunction/thorns/CarpetIOHDF5_Init
+# Column 1266 main/Initialise/CallInitial/CCTK_INITIAL/CallFunction/thorns/CarpetIOScalarInit
+# Column 1269 main/Initialise/CallInitial/CCTK_INITIAL/CallFunction/thorns/CartGrid3D_ApplyBC
+# Column 1272 main/Initialise/CallInitial/CCTK_INITIAL/CallFunction/thorns/EMG_Merger
+# Column 1275 main/Initialise/CallInitial/CCTK_INITIAL/CallFunction/thorns/LeanBSSN_Boundaries
+# Column 1278 main/Initialise/CallInitial/CCTK_INITIAL/CallFunction/thorns/LeanBSSN_adm2bssn
+# Column 1281 main/Initialise/CallInitial/CCTK_INITIAL/CallFunction/thorns/MoL_StartLoop
+# Column 1284 main/Initialise/CallInitial/CCTK_INITIAL/CallFunction/thorns/NRInitialDataVTU_Fill
+# Column 1287 main/Initialise/CallInitial/CCTK_INITIAL/CallFunction/thorns/NRInitialDataVTU_Open
+# Column 1290 main/Initialise/CallInitial/CCTK_INITIAL/CallFunction/thorns/PunctureTracker_Init
+# Column 1293 main/Initialise/CallInitial/CCTK_INITIAL/CallFunction/thorns/ReflectionSymmetry_Apply
+# Column 1296 main/Initialise/CallInitial/CCTK_INITIAL/CallFunction/thorns/StaticConformal_InitialiseState
+# Column 1299 main/Initialise/CallInitial/CCTK_INITIAL/CallFunction/thorns/qlm_init
+# Column 1302 main/Initialise/CallInitial/CCTK_POSTINITIAL
+# Column 1305 main/Initialise/CallInitial/CCTK_POSTINITIAL/CallFunction
+# Column 1308 main/Initialise/CallInitial/CCTK_POSTINITIAL/CallFunction/syncs
+# Column 1311 main/Initialise/CallInitial/CCTK_POSTINITIAL/CallFunction/syncs/Prolongate
+# Column 1314 main/Initialise/CallInitial/CCTK_POSTINITIAL/CallFunction/syncs/Prolongate/comm_state[0].create
+# Column 1317 main/Initialise/CallInitial/CCTK_POSTINITIAL/CallFunction/syncs/Prolongate/comm_state[1].state_get_buffer_sizes.user
+# Column 1320 main/Initialise/CallInitial/CCTK_POSTINITIAL/CallFunction/syncs/Prolongate/comm_state[2].state_get_buffer_sizes.step
+# Column 1323 main/Initialise/CallInitial/CCTK_POSTINITIAL/CallFunction/syncs/Prolongate/comm_state[3].state_fill_send_buffers.user
+# Column 1326 main/Initialise/CallInitial/CCTK_POSTINITIAL/CallFunction/syncs/Prolongate/comm_state[4].state_fill_send_buffers.step
+# Column 1329 main/Initialise/CallInitial/CCTK_POSTINITIAL/CallFunction/syncs/Prolongate/comm_state[5].state_do_some_work.user
+# Column 1332 main/Initialise/CallInitial/CCTK_POSTINITIAL/CallFunction/syncs/Prolongate/comm_state[6].state_do_some_work.step
+# Column 1335 main/Initialise/CallInitial/CCTK_POSTINITIAL/CallFunction/syncs/Prolongate/comm_state[7].state_empty_recv_buffers.user
+# Column 1338 main/Initialise/CallInitial/CCTK_POSTINITIAL/CallFunction/syncs/Prolongate/comm_state[8].state_empty_recv_buffers.step
+# Column 1341 main/Initialise/CallInitial/CCTK_POSTINITIAL/CallFunction/syncs/Sync
+# Column 1344 main/Initialise/CallInitial/CCTK_POSTINITIAL/CallFunction/syncs/Sync/comm_state[0].create
+# Column 1347 main/Initialise/CallInitial/CCTK_POSTINITIAL/CallFunction/syncs/Sync/comm_state[1].state_get_buffer_sizes.user
+# Column 1350 main/Initialise/CallInitial/CCTK_POSTINITIAL/CallFunction/syncs/Sync/comm_state[2].state_get_buffer_sizes.step
+# Column 1353 main/Initialise/CallInitial/CCTK_POSTINITIAL/CallFunction/syncs/Sync/comm_state[3].state_fill_send_buffers.user
+# Column 1356 main/Initialise/CallInitial/CCTK_POSTINITIAL/CallFunction/syncs/Sync/comm_state[4].state_fill_send_buffers.step
+# Column 1359 main/Initialise/CallInitial/CCTK_POSTINITIAL/CallFunction/syncs/Sync/comm_state[5].state_do_some_work.user
+# Column 1362 main/Initialise/CallInitial/CCTK_POSTINITIAL/CallFunction/syncs/Sync/comm_state[6].state_do_some_work.step
+# Column 1365 main/Initialise/CallInitial/CCTK_POSTINITIAL/CallFunction/syncs/Sync/comm_state[7].state_empty_recv_buffers.user
+# Column 1368 main/Initialise/CallInitial/CCTK_POSTINITIAL/CallFunction/syncs/Sync/comm_state[8].state_empty_recv_buffers.step
+# Column 1371 main/Initialise/CallInitial/CCTK_POSTINITIAL/CallFunction/thorns
+# Column 1374 main/Initialise/CallInitial/CCTK_POSTINITIAL/CallFunction/thorns/Boundary_ApplyPhysicalBCs
+# Column 1377 main/Initialise/CallInitial/CCTK_POSTINITIAL/CallFunction/thorns/Boundary_ClearSelection
+# Column 1380 main/Initialise/CallInitial/CCTK_POSTINITIAL/CallFunction/thorns/CarpetIOHDF5_CloseFiles
+# Column 1383 main/Initialise/CallInitial/CCTK_POSTINITIAL/CallFunction/thorns/CartGrid3D_ApplyBC
+# Column 1386 main/Initialise/CallInitial/CCTK_POSTINITIAL/CallFunction/thorns/EMG_AddToTmunu
+# Column 1389 main/Initialise/CallInitial/CCTK_POSTINITIAL/CallFunction/thorns/EMG_Boundaries
+# Column 1392 main/Initialise/CallInitial/CCTK_POSTINITIAL/CallFunction/thorns/LeanBSSN_Boundaries
+# Column 1395 main/Initialise/CallInitial/CCTK_POSTINITIAL/CallFunction/thorns/LeanBSSN_bssn2adm
+# Column 1398 main/Initialise/CallInitial/CCTK_POSTINITIAL/CallFunction/thorns/LeanBSSN_impose_conf_fac_floor
+# Column 1401 main/Initialise/CallInitial/CCTK_POSTINITIAL/CallFunction/thorns/LeanBSSN_remove_trA
+# Column 1404 main/Initialise/CallInitial/CCTK_POSTINITIAL/CallFunction/thorns/NPEMG_Boundaries
+# Column 1407 main/Initialise/CallInitial/CCTK_POSTINITIAL/CallFunction/thorns/NPEMG_calcPsiGF
+# Column 1410 main/Initialise/CallInitial/CCTK_POSTINITIAL/CallFunction/thorns/NP_calcPsiGF
+# Column 1413 main/Initialise/CallInitial/CCTK_POSTINITIAL/CallFunction/thorns/NPboundaries
+# Column 1416 main/Initialise/CallInitial/CCTK_POSTINITIAL/CallFunction/thorns/ReflectionSymmetry_Apply
+# Column 1419 main/Initialise/CallInitial/CCTK_POSTINITIAL/CallFunction/thorns/TmunuBase_ZeroTmunu
+# Column 1422 main/Initialise/CallInitial/CallRegridInitialMeta
+# Column 1425 main/Initialise/CallInitial/CallRegridInitialMeta/CCTK_PREREGRIDINITIAL
+# Column 1428 main/Initialise/CallInitial/CallRegridInitialMeta/Recompose
+# Column 1431 main/Initialise/CallInitial/CallRegridInitialMeta/Recompose/CarpetLib::dh::recompose
+# Column 1434 main/Initialise/CallInitial/CallRegridInitialMeta/Recompose/CarpetLib::dh::recompose/CarpetLib::ggf::recompose_allocate
+# Column 1437 main/Initialise/CallInitial/CallRegridInitialMeta/Recompose/CarpetLib::dh::recompose/CarpetLib::ggf::recompose_crop
+# Column 1440 main/Initialise/CallInitial/CallRegridInitialMeta/Recompose/CarpetLib::dh::recompose/dh::recompose_free_old
+# Column 1443 main/Initialise/CallInitial/CallRegridInitialMeta/Regrid
+# Column 1446 main/Initialise/CallInitial/CallRegridInitialMeta/Regrid/CarpetRegrid2::RegridMaps
+# Column 1449 main/Initialise/CallInitial/CallRegridInitialMeta/Regrid/PostRegrid
+# Column 1452 main/Initialise/CallInitial/CallRegridInitialMeta/Regrid/RegridMap
+# Column 1455 main/Initialise/CallInitial/CallRegridInitialMeta/Regrid/RegridMap/CarpetLib::gh::regrid
+# Column 1458 main/Initialise/CallInitial/CallRegridInitialMeta/Regrid/RegridMap/CarpetLib::gh::regrid/CarpetLib::dh::regrid
+# Column 1461 main/Initialise/CallInitial/CallRegridInitialMeta/Regrid/RegridMap/CarpetLib::gh::regrid/CarpetLib::dh::regrid/bcast_boxes
+# Column 1464 main/Initialise/CallInitial/CallRegridInitialMeta/Regrid/RegridMap/CarpetLib::gh::regrid/CarpetLib::dh::regrid/bcast_comm
+# Column 1467 main/Initialise/CallInitial/CallRegridInitialMeta/Regrid/RegridMap/CarpetLib::gh::regrid/CarpetLib::dh::regrid/bcast_comm/old2new_ref_prol
+# Column 1470 main/Initialise/CallInitial/CallRegridInitialMeta/Regrid/RegridMap/CarpetLib::gh::regrid/CarpetLib::dh::regrid/bcast_comm/old2new_ref_prol/CarpetLib::dh::bs1
+# Column 1473 main/Initialise/CallInitial/CallRegridInitialMeta/Regrid/RegridMap/CarpetLib::gh::regrid/CarpetLib::dh::regrid/bcast_comm/old2new_ref_prol/CarpetLib::dh::bs2
+# Column 1476 main/Initialise/CallInitial/CallRegridInitialMeta/Regrid/RegridMap/CarpetLib::gh::regrid/CarpetLib::dh::regrid/bcast_comm/old2new_ref_prol/CarpetLib::dh::bs3
+# Column 1479 main/Initialise/CallInitial/CallRegridInitialMeta/Regrid/RegridMap/CarpetLib::gh::regrid/CarpetLib::dh::regrid/bcast_comm/old2new_sync
+# Column 1482 main/Initialise/CallInitial/CallRegridInitialMeta/Regrid/RegridMap/CarpetLib::gh::regrid/CarpetLib::dh::regrid/bcast_comm/old2new_sync/CarpetLib::dh::bs1
+# Column 1485 main/Initialise/CallInitial/CallRegridInitialMeta/Regrid/RegridMap/CarpetLib::gh::regrid/CarpetLib::dh::regrid/bcast_comm/old2new_sync/CarpetLib::dh::bs2
+# Column 1488 main/Initialise/CallInitial/CallRegridInitialMeta/Regrid/RegridMap/CarpetLib::gh::regrid/CarpetLib::dh::regrid/bcast_comm/old2new_sync/CarpetLib::dh::bs3
+# Column 1491 main/Initialise/CallInitial/CallRegridInitialMeta/Regrid/RegridMap/CarpetLib::gh::regrid/CarpetLib::dh::regrid/bcast_comm/ref_bnd_prol
+# Column 1494 main/Initialise/CallInitial/CallRegridInitialMeta/Regrid/RegridMap/CarpetLib::gh::regrid/CarpetLib::dh::regrid/bcast_comm/ref_bnd_prol/CarpetLib::dh::bs1
+# Column 1497 main/Initialise/CallInitial/CallRegridInitialMeta/Regrid/RegridMap/CarpetLib::gh::regrid/CarpetLib::dh::regrid/bcast_comm/ref_bnd_prol/CarpetLib::dh::bs2
+# Column 1500 main/Initialise/CallInitial/CallRegridInitialMeta/Regrid/RegridMap/CarpetLib::gh::regrid/CarpetLib::dh::regrid/bcast_comm/ref_bnd_prol/CarpetLib::dh::bs3
+# Column 1503 main/Initialise/CallInitial/CallRegridInitialMeta/Regrid/RegridMap/CarpetLib::gh::regrid/CarpetLib::dh::regrid/bcast_comm/ref_prol
+# Column 1506 main/Initialise/CallInitial/CallRegridInitialMeta/Regrid/RegridMap/CarpetLib::gh::regrid/CarpetLib::dh::regrid/bcast_comm/ref_prol/CarpetLib::dh::bs1
+# Column 1509 main/Initialise/CallInitial/CallRegridInitialMeta/Regrid/RegridMap/CarpetLib::gh::regrid/CarpetLib::dh::regrid/bcast_comm/ref_prol/CarpetLib::dh::bs2
+# Column 1512 main/Initialise/CallInitial/CallRegridInitialMeta/Regrid/RegridMap/CarpetLib::gh::regrid/CarpetLib::dh::regrid/bcast_comm/ref_prol/CarpetLib::dh::bs3
+# Column 1515 main/Initialise/CallInitial/CallRegridInitialMeta/Regrid/RegridMap/CarpetLib::gh::regrid/CarpetLib::dh::regrid/bcast_comm/ref_refl
+# Column 1518 main/Initialise/CallInitial/CallRegridInitialMeta/Regrid/RegridMap/CarpetLib::gh::regrid/CarpetLib::dh::regrid/bcast_comm/ref_refl/CarpetLib::dh::bs1
+# Column 1521 main/Initialise/CallInitial/CallRegridInitialMeta/Regrid/RegridMap/CarpetLib::gh::regrid/CarpetLib::dh::regrid/bcast_comm/ref_refl/CarpetLib::dh::bs2
+# Column 1524 main/Initialise/CallInitial/CallRegridInitialMeta/Regrid/RegridMap/CarpetLib::gh::regrid/CarpetLib::dh::regrid/bcast_comm/ref_refl/CarpetLib::dh::bs3
+# Column 1527 main/Initialise/CallInitial/CallRegridInitialMeta/Regrid/RegridMap/CarpetLib::gh::regrid/CarpetLib::dh::regrid/bcast_comm/ref_refl_prol
+# Column 1530 main/Initialise/CallInitial/CallRegridInitialMeta/Regrid/RegridMap/CarpetLib::gh::regrid/CarpetLib::dh::regrid/bcast_comm/ref_refl_prol/CarpetLib::dh::bs1
+# Column 1533 main/Initialise/CallInitial/CallRegridInitialMeta/Regrid/RegridMap/CarpetLib::gh::regrid/CarpetLib::dh::regrid/bcast_comm/ref_refl_prol/CarpetLib::dh::bs2
+# Column 1536 main/Initialise/CallInitial/CallRegridInitialMeta/Regrid/RegridMap/CarpetLib::gh::regrid/CarpetLib::dh::regrid/bcast_comm/ref_refl_prol/CarpetLib::dh::bs3
+# Column 1539 main/Initialise/CallInitial/CallRegridInitialMeta/Regrid/RegridMap/CarpetLib::gh::regrid/CarpetLib::dh::regrid/bcast_comm/ref_rest
+# Column 1542 main/Initialise/CallInitial/CallRegridInitialMeta/Regrid/RegridMap/CarpetLib::gh::regrid/CarpetLib::dh::regrid/bcast_comm/ref_rest/CarpetLib::dh::bs1
+# Column 1545 main/Initialise/CallInitial/CallRegridInitialMeta/Regrid/RegridMap/CarpetLib::gh::regrid/CarpetLib::dh::regrid/bcast_comm/ref_rest/CarpetLib::dh::bs2
+# Column 1548 main/Initialise/CallInitial/CallRegridInitialMeta/Regrid/RegridMap/CarpetLib::gh::regrid/CarpetLib::dh::regrid/bcast_comm/ref_rest/CarpetLib::dh::bs3
+# Column 1551 main/Initialise/CallInitial/CallRegridInitialMeta/Regrid/RegridMap/CarpetLib::gh::regrid/CarpetLib::dh::regrid/bcast_comm/sync
+# Column 1554 main/Initialise/CallInitial/CallRegridInitialMeta/Regrid/RegridMap/CarpetLib::gh::regrid/CarpetLib::dh::regrid/bcast_comm/sync/CarpetLib::dh::bs1
+# Column 1557 main/Initialise/CallInitial/CallRegridInitialMeta/Regrid/RegridMap/CarpetLib::gh::regrid/CarpetLib::dh::regrid/bcast_comm/sync/CarpetLib::dh::bs2
+# Column 1560 main/Initialise/CallInitial/CallRegridInitialMeta/Regrid/RegridMap/CarpetLib::gh::regrid/CarpetLib::dh::regrid/bcast_comm/sync/CarpetLib::dh::bs3
+# Column 1563 main/Initialise/CallInitial/CallRegridInitialMeta/Regrid/RegridMap/CarpetLib::gh::regrid/CarpetLib::dh::regrid/buffers
+# Column 1566 main/Initialise/CallInitial/CallRegridInitialMeta/Regrid/RegridMap/CarpetLib::gh::regrid/CarpetLib::dh::regrid/comm
+# Column 1569 main/Initialise/CallInitial/CallRegridInitialMeta/Regrid/RegridMap/CarpetLib::gh::regrid/CarpetLib::dh::regrid/comm/mgprol
+# Column 1572 main/Initialise/CallInitial/CallRegridInitialMeta/Regrid/RegridMap/CarpetLib::gh::regrid/CarpetLib::dh::regrid/comm/mgrest
+# Column 1575 main/Initialise/CallInitial/CallRegridInitialMeta/Regrid/RegridMap/CarpetLib::gh::regrid/CarpetLib::dh::regrid/comm/refbndprol
+# Column 1578 main/Initialise/CallInitial/CallRegridInitialMeta/Regrid/RegridMap/CarpetLib::gh::regrid/CarpetLib::dh::regrid/comm/reflux
+# Column 1581 main/Initialise/CallInitial/CallRegridInitialMeta/Regrid/RegridMap/CarpetLib::gh::regrid/CarpetLib::dh::regrid/comm/refprol
+# Column 1584 main/Initialise/CallInitial/CallRegridInitialMeta/Regrid/RegridMap/CarpetLib::gh::regrid/CarpetLib::dh::regrid/comm/refrest
+# Column 1587 main/Initialise/CallInitial/CallRegridInitialMeta/Regrid/RegridMap/CarpetLib::gh::regrid/CarpetLib::dh::regrid/comm/sync
+# Column 1590 main/Initialise/CallInitial/CallRegridInitialMeta/Regrid/RegridMap/CarpetLib::gh::regrid/CarpetLib::dh::regrid/domain
+# Column 1593 main/Initialise/CallInitial/CallRegridInitialMeta/Regrid/RegridMap/CarpetLib::gh::regrid/CarpetLib::dh::regrid/mask
+# Column 1596 main/Initialise/CallInitial/CallRegridInitialMeta/Regrid/RegridMap/CarpetLib::gh::regrid/CarpetLib::dh::regrid/region
+# Column 1599 main/Initialise/CallInitial/CallRegridInitialMeta/Regrid/RegridMap/CarpetLib::gh::regrid/CarpetLib::dh::regrid/test
+# Column 1602 main/Initialise/CallInitial/CallRegridInitialMeta/Regrid/RegridMap/CarpetLib::gh::regrid/CarpetLib::dh::regrid/unusedpoints_mask
+# Column 1605 main/Initialise/CallInitial/CallRegridInitialMeta/Regrid/RegridMap/CheckRegions
+# Column 1608 main/Initialise/CallInitial/CallRegridInitialMeta/RegridFree
+# Column 1611 main/Initialise/CallPostInitial
+# Column 1614 main/Initialise/CallPostInitial/CCTK_POSTPOSTINITIAL
+# Column 1617 main/Initialise/CallPostInitial/CCTK_POSTPOSTINITIAL/CallFunction
+# Column 1620 main/Initialise/CallPostInitial/CCTK_POSTPOSTINITIAL/CallFunction/thorns
+# Column 1623 main/Initialise/CallPostInitial/CCTK_POSTPOSTINITIAL/CallFunction/thorns/NRInitialDataVTU_Close
+# Column 1626 main/Initialise/CallPostInitial/CCTK_POSTSTEP
+# Column 1629 main/Initialise/CallPostInitial/CCTK_POSTSTEP/CallFunction
+# Column 1632 main/Initialise/CallPostInitial/CCTK_POSTSTEP/CallFunction/syncs
+# Column 1635 main/Initialise/CallPostInitial/CCTK_POSTSTEP/CallFunction/syncs/Prolongate
+# Column 1638 main/Initialise/CallPostInitial/CCTK_POSTSTEP/CallFunction/syncs/Prolongate/comm_state[0].create
+# Column 1641 main/Initialise/CallPostInitial/CCTK_POSTSTEP/CallFunction/syncs/Prolongate/comm_state[1].state_get_buffer_sizes.user
+# Column 1644 main/Initialise/CallPostInitial/CCTK_POSTSTEP/CallFunction/syncs/Prolongate/comm_state[2].state_get_buffer_sizes.step
+# Column 1647 main/Initialise/CallPostInitial/CCTK_POSTSTEP/CallFunction/syncs/Prolongate/comm_state[3].state_fill_send_buffers.user
+# Column 1650 main/Initialise/CallPostInitial/CCTK_POSTSTEP/CallFunction/syncs/Prolongate/comm_state[4].state_fill_send_buffers.step
+# Column 1653 main/Initialise/CallPostInitial/CCTK_POSTSTEP/CallFunction/syncs/Prolongate/comm_state[5].state_do_some_work.user
+# Column 1656 main/Initialise/CallPostInitial/CCTK_POSTSTEP/CallFunction/syncs/Prolongate/comm_state[6].state_do_some_work.step
+# Column 1659 main/Initialise/CallPostInitial/CCTK_POSTSTEP/CallFunction/syncs/Prolongate/comm_state[7].state_empty_recv_buffers.user
+# Column 1662 main/Initialise/CallPostInitial/CCTK_POSTSTEP/CallFunction/syncs/Prolongate/comm_state[8].state_empty_recv_buffers.step
+# Column 1665 main/Initialise/CallPostInitial/CCTK_POSTSTEP/CallFunction/syncs/Sync
+# Column 1668 main/Initialise/CallPostInitial/CCTK_POSTSTEP/CallFunction/syncs/Sync/comm_state[0].create
+# Column 1671 main/Initialise/CallPostInitial/CCTK_POSTSTEP/CallFunction/syncs/Sync/comm_state[1].state_get_buffer_sizes.user
+# Column 1674 main/Initialise/CallPostInitial/CCTK_POSTSTEP/CallFunction/syncs/Sync/comm_state[2].state_get_buffer_sizes.step
+# Column 1677 main/Initialise/CallPostInitial/CCTK_POSTSTEP/CallFunction/syncs/Sync/comm_state[3].state_fill_send_buffers.user
+# Column 1680 main/Initialise/CallPostInitial/CCTK_POSTSTEP/CallFunction/syncs/Sync/comm_state[4].state_fill_send_buffers.step
+# Column 1683 main/Initialise/CallPostInitial/CCTK_POSTSTEP/CallFunction/syncs/Sync/comm_state[5].state_do_some_work.user
+# Column 1686 main/Initialise/CallPostInitial/CCTK_POSTSTEP/CallFunction/syncs/Sync/comm_state[6].state_do_some_work.step
+# Column 1689 main/Initialise/CallPostInitial/CCTK_POSTSTEP/CallFunction/syncs/Sync/comm_state[7].state_empty_recv_buffers.user
+# Column 1692 main/Initialise/CallPostInitial/CCTK_POSTSTEP/CallFunction/syncs/Sync/comm_state[8].state_empty_recv_buffers.step
+# Column 1695 main/Initialise/CallPostInitial/CCTK_POSTSTEP/CallFunction/thorns
+# Column 1698 main/Initialise/CallPostInitial/CCTK_POSTSTEP/CallFunction/thorns/AHFinderDirect_find_horizons
+# Column 1701 main/Initialise/CallPostInitial/CCTK_POSTSTEP/CallFunction/thorns/AHFinderDirect_import_mask
+# Column 1704 main/Initialise/CallPostInitial/CCTK_POSTSTEP/CallFunction/thorns/AHFinderDirect_maybe_do_masks
+# Column 1707 main/Initialise/CallPostInitial/CCTK_POSTSTEP/CallFunction/thorns/AHFinderDirect_save
+# Column 1710 main/Initialise/CallPostInitial/CCTK_POSTSTEP/CallFunction/thorns/AHFinderDirect_store
+# Column 1713 main/Initialise/CallPostInitial/CCTK_POSTSTEP/CallFunction/thorns/CarpetExcludedSetup
+# Column 1716 main/Initialise/CallPostInitial/CCTK_POSTSTEP/CallFunction/thorns/CarpetMaskSetup
+# Column 1719 main/Initialise/CallPostInitial/CCTK_POSTSTEP/CallFunction/thorns/CarpetSurfaceSetup
+# Column 1722 main/Initialise/CallPostInitial/CCTK_POSTSTEP/CallFunction/thorns/CheckMask
+# Column 1725 main/Initialise/CallPostInitial/CCTK_POSTSTEP/CallFunction/thorns/CoordBase_SetupMask
+# Column 1728 main/Initialise/CallPostInitial/CCTK_POSTSTEP/CallFunction/thorns/MaskBase_AllocateMask
+# Column 1731 main/Initialise/CallPostInitial/CCTK_POSTSTEP/CallFunction/thorns/MaskBase_InitMask
+# Column 1734 main/Initialise/CallPostInitial/CCTK_POSTSTEP/CallFunction/thorns/MaskBase_SetMask
+# Column 1737 main/Initialise/CallPostInitial/CCTK_POSTSTEP/CallFunction/thorns/MaskBase_TestMask
+# Column 1740 main/Initialise/CallPostInitial/CCTK_POSTSTEP/CallFunction/thorns/NaNChecker_NaNCheck_Check
+# Column 1743 main/Initialise/CallPostInitial/CCTK_POSTSTEP/CallFunction/thorns/NaNChecker_NaNCheck_Finish
+# Column 1746 main/Initialise/CallPostInitial/CCTK_POSTSTEP/CallFunction/thorns/NaNChecker_NaNCheck_Prepare
+# Column 1749 main/Initialise/CallPostInitial/CCTK_POSTSTEP/CallFunction/thorns/NaNChecker_TakeAction
+# Column 1752 main/Initialise/CallPostInitial/CCTK_POSTSTEP/CallFunction/thorns/PunctureTracker_SetPositions
+# Column 1755 main/Initialise/CallPostInitial/CCTK_POSTSTEP/CallFunction/thorns/SphericalSurface_CheckState
+# Column 1758 main/Initialise/CallPostInitial/CCTK_POSTSTEP/CallFunction/thorns/SphericalSurface_Set
+# Column 1761 main/Initialise/CallPostInitial/CCTK_POSTSTEP/CallFunction/thorns/setup_epsdis
+# Column 1764 main/Initialise/CallRestrict
+# Column 1767 main/Initialise/CallRestrict/CCTK_POSTRESTRICTINITIAL
+# Column 1770 main/Initialise/CallRestrict/CCTK_POSTRESTRICTINITIAL/CallFunction
+# Column 1773 main/Initialise/CallRestrict/CCTK_POSTRESTRICTINITIAL/CallFunction/syncs
+# Column 1776 main/Initialise/CallRestrict/CCTK_POSTRESTRICTINITIAL/CallFunction/syncs/Prolongate
+# Column 1779 main/Initialise/CallRestrict/CCTK_POSTRESTRICTINITIAL/CallFunction/syncs/Prolongate/comm_state[0].create
+# Column 1782 main/Initialise/CallRestrict/CCTK_POSTRESTRICTINITIAL/CallFunction/syncs/Prolongate/comm_state[1].state_get_buffer_sizes.user
+# Column 1785 main/Initialise/CallRestrict/CCTK_POSTRESTRICTINITIAL/CallFunction/syncs/Prolongate/comm_state[2].state_get_buffer_sizes.step
+# Column 1788 main/Initialise/CallRestrict/CCTK_POSTRESTRICTINITIAL/CallFunction/syncs/Prolongate/comm_state[3].state_fill_send_buffers.user
+# Column 1791 main/Initialise/CallRestrict/CCTK_POSTRESTRICTINITIAL/CallFunction/syncs/Prolongate/comm_state[4].state_fill_send_buffers.step
+# Column 1794 main/Initialise/CallRestrict/CCTK_POSTRESTRICTINITIAL/CallFunction/syncs/Prolongate/comm_state[5].state_do_some_work.user
+# Column 1797 main/Initialise/CallRestrict/CCTK_POSTRESTRICTINITIAL/CallFunction/syncs/Prolongate/comm_state[6].state_do_some_work.step
+# Column 1800 main/Initialise/CallRestrict/CCTK_POSTRESTRICTINITIAL/CallFunction/syncs/Prolongate/comm_state[7].state_empty_recv_buffers.user
+# Column 1803 main/Initialise/CallRestrict/CCTK_POSTRESTRICTINITIAL/CallFunction/syncs/Prolongate/comm_state[8].state_empty_recv_buffers.step
+# Column 1806 main/Initialise/CallRestrict/CCTK_POSTRESTRICTINITIAL/CallFunction/syncs/Sync
+# Column 1809 main/Initialise/CallRestrict/CCTK_POSTRESTRICTINITIAL/CallFunction/syncs/Sync/comm_state[0].create
+# Column 1812 main/Initialise/CallRestrict/CCTK_POSTRESTRICTINITIAL/CallFunction/syncs/Sync/comm_state[1].state_get_buffer_sizes.user
+# Column 1815 main/Initialise/CallRestrict/CCTK_POSTRESTRICTINITIAL/CallFunction/syncs/Sync/comm_state[2].state_get_buffer_sizes.step
+# Column 1818 main/Initialise/CallRestrict/CCTK_POSTRESTRICTINITIAL/CallFunction/syncs/Sync/comm_state[3].state_fill_send_buffers.user
+# Column 1821 main/Initialise/CallRestrict/CCTK_POSTRESTRICTINITIAL/CallFunction/syncs/Sync/comm_state[4].state_fill_send_buffers.step
+# Column 1824 main/Initialise/CallRestrict/CCTK_POSTRESTRICTINITIAL/CallFunction/syncs/Sync/comm_state[5].state_do_some_work.user
+# Column 1827 main/Initialise/CallRestrict/CCTK_POSTRESTRICTINITIAL/CallFunction/syncs/Sync/comm_state[6].state_do_some_work.step
+# Column 1830 main/Initialise/CallRestrict/CCTK_POSTRESTRICTINITIAL/CallFunction/syncs/Sync/comm_state[7].state_empty_recv_buffers.user
+# Column 1833 main/Initialise/CallRestrict/CCTK_POSTRESTRICTINITIAL/CallFunction/syncs/Sync/comm_state[8].state_empty_recv_buffers.step
+# Column 1836 main/Initialise/CallRestrict/CCTK_POSTRESTRICTINITIAL/CallFunction/thorns
+# Column 1839 main/Initialise/CallRestrict/CCTK_POSTRESTRICTINITIAL/CallFunction/thorns/Boundary_ApplyPhysicalBCs
+# Column 1842 main/Initialise/CallRestrict/CCTK_POSTRESTRICTINITIAL/CallFunction/thorns/Boundary_ClearSelection
+# Column 1845 main/Initialise/CallRestrict/CCTK_POSTRESTRICTINITIAL/CallFunction/thorns/CartGrid3D_ApplyBC
+# Column 1848 main/Initialise/CallRestrict/CCTK_POSTRESTRICTINITIAL/CallFunction/thorns/EMG_AddToTmunu
+# Column 1851 main/Initialise/CallRestrict/CCTK_POSTRESTRICTINITIAL/CallFunction/thorns/EMG_Boundaries
+# Column 1854 main/Initialise/CallRestrict/CCTK_POSTRESTRICTINITIAL/CallFunction/thorns/LeanBSSN_Boundaries
+# Column 1857 main/Initialise/CallRestrict/CCTK_POSTRESTRICTINITIAL/CallFunction/thorns/LeanBSSN_bssn2adm
+# Column 1860 main/Initialise/CallRestrict/CCTK_POSTRESTRICTINITIAL/CallFunction/thorns/LeanBSSN_impose_conf_fac_floor
+# Column 1863 main/Initialise/CallRestrict/CCTK_POSTRESTRICTINITIAL/CallFunction/thorns/LeanBSSN_remove_trA
+# Column 1866 main/Initialise/CallRestrict/CCTK_POSTRESTRICTINITIAL/CallFunction/thorns/NPEMG_Boundaries
+# Column 1869 main/Initialise/CallRestrict/CCTK_POSTRESTRICTINITIAL/CallFunction/thorns/NPboundaries
+# Column 1872 main/Initialise/CallRestrict/CCTK_POSTRESTRICTINITIAL/CallFunction/thorns/ReflectionSymmetry_Apply
+# Column 1875 main/Initialise/CallRestrict/CCTK_POSTRESTRICTINITIAL/CallFunction/thorns/TmunuBase_ZeroTmunu
+# Column 1878 main/Initialise/CallRestrict/Restrict
+# Column 1881 main/Initialise/CallRestrict/Restrict/comm_state[0].create
+# Column 1884 main/Initialise/CallRestrict/Restrict/comm_state[1].state_get_buffer_sizes.user
+# Column 1887 main/Initialise/CallRestrict/Restrict/comm_state[2].state_get_buffer_sizes.step
+# Column 1890 main/Initialise/CallRestrict/Restrict/comm_state[3].state_fill_send_buffers.user
+# Column 1893 main/Initialise/CallRestrict/Restrict/comm_state[4].state_fill_send_buffers.step
+# Column 1896 main/Initialise/CallRestrict/Restrict/comm_state[5].state_do_some_work.user
+# Column 1899 main/Initialise/CallRestrict/Restrict/comm_state[6].state_do_some_work.step
+# Column 1902 main/Initialise/CallRestrict/Restrict/comm_state[7].state_empty_recv_buffers.user
+# Column 1905 main/Initialise/CallRestrict/Restrict/comm_state[8].state_empty_recv_buffers.step
+# Column 1908 main/Initialise/CallSetup
+# Column 1911 main/Initialise/CallSetup/CCTK_PARAMCHECK
+# Column 1914 main/Initialise/CallSetup/CCTK_PARAMCHECK/CallFunction
+# Column 1917 main/Initialise/CallSetup/CCTK_PARAMCHECK/CallFunction/thorns
+# Column 1920 main/Initialise/CallSetup/CCTK_PARAMCHECK/CallFunction/thorns/ADMBase_ParamCheck
+# Column 1923 main/Initialise/CallSetup/CCTK_PARAMCHECK/CallFunction/thorns/Boundary_Check
+# Column 1926 main/Initialise/CallSetup/CCTK_PARAMCHECK/CallFunction/thorns/CarpetLib_test_prolongate_3d_rf2
+# Column 1929 main/Initialise/CallSetup/CCTK_PARAMCHECK/CallFunction/thorns/CarpetParamCheck
+# Column 1932 main/Initialise/CallSetup/CCTK_PARAMCHECK/CallFunction/thorns/CarpetRegrid2_ParamCheck
+# Column 1935 main/Initialise/CallSetup/CCTK_PARAMCHECK/CallFunction/thorns/CarpetSurfaceParamCheck
+# Column 1938 main/Initialise/CallSetup/CCTK_PARAMCHECK/CallFunction/thorns/CheckFortranParameters
+# Column 1941 main/Initialise/CallSetup/CCTK_PARAMCHECK/CallFunction/thorns/EMG_Merger_ParamCheck
+# Column 1944 main/Initialise/CallSetup/CCTK_PARAMCHECK/CallFunction/thorns/Lean_ParamCheck
+# Column 1947 main/Initialise/CallSetup/CCTK_PARAMCHECK/CallFunction/thorns/MoL_ParamCheck
+# Column 1950 main/Initialise/CallSetup/CCTK_PARAMCHECK/CallFunction/thorns/Multipole_ParamCheck
+# Column 1953 main/Initialise/CallSetup/CCTK_PARAMCHECK/CallFunction/thorns/NPScalars_ParamCheck
+# Column 1956 main/Initialise/CallSetup/CCTK_PARAMCHECK/CallFunction/thorns/NRInitialDataVTU_ParamCheck
+# Column 1959 main/Initialise/CallSetup/CCTK_PARAMCHECK/CallFunction/thorns/ParamCheck_CartGrid3D
+# Column 1962 main/Initialise/CallSetup/CCTK_PARAMCHECK/CallFunction/thorns/SphericalSurface_ParamCheck
+# Column 1965 main/Initialise/CallSetup/CCTK_PARAMCHECK/CallFunction/thorns/TerminationTrigger_ParamCheck
+# Column 1968 main/Initialise/CallSetup/CCTK_PARAMCHECK/CallFunction/thorns/TmunuBase_ParamCheck
+# Column 1971 main/Initialise/CallSetup/CCTK_PARAMCHECK/CallFunction/thorns/Vectors_Test
+# Column 1974 main/Initialise/CallSetup/CCTK_PARAMCHECK/CallFunction/thorns/dissipation_paramcheck
+# Column 1977 main/Initialise/CallSetup/CCTK_PARAMCHECK/CallFunction/thorns/qlm_paramcheck
+# Column 1980 main/Initialise/CallSetup/CCTK_WRAGH
+# Column 1983 main/Initialise/CallSetup/CCTK_WRAGH/CallFunction
+# Column 1986 main/Initialise/CallSetup/CCTK_WRAGH/CallFunction/thorns
+# Column 1989 main/Initialise/CallSetup/CCTK_WRAGH/CallFunction/thorns/Boundary_RegisterBCs
+# Column 1992 main/Initialise/CallSetup/CCTK_WRAGH/CallFunction/thorns/CarpetRegrid2_Initialise
+# Column 1995 main/Initialise/CallSetup/CCTK_WRAGH/CallFunction/thorns/CartGrid3D_RegisterSymmetryBoundaries
+# Column 1998 main/Initialise/CallSetup/CCTK_WRAGH/CallFunction/thorns/EMG_RegisterVars
+# Column 2001 main/Initialise/CallSetup/CCTK_WRAGH/CallFunction/thorns/Einstein_ActivateSlicing
+# Column 2004 main/Initialise/CallSetup/CCTK_WRAGH/CallFunction/thorns/Einstein_InitSymBound
+# Column 2007 main/Initialise/CallSetup/CCTK_WRAGH/CallFunction/thorns/Einstein_SetNextSlicing
+# Column 2010 main/Initialise/CallSetup/CCTK_WRAGH/CallFunction/thorns/LeanBSSN_RegisterVars
+# Column 2013 main/Initialise/CallSetup/CCTK_WRAGH/CallFunction/thorns/MaskSym
+# Column 2016 main/Initialise/CallSetup/CCTK_WRAGH/CallFunction/thorns/MaskSym_emask
+# Column 2019 main/Initialise/CallSetup/CCTK_WRAGH/CallFunction/thorns/MoL_ReportNumberVariables
+# Column 2022 main/Initialise/CallSetup/CCTK_WRAGH/CallFunction/thorns/MoL_SetScheduleStatus
+# Column 2025 main/Initialise/CallSetup/CCTK_WRAGH/CallFunction/thorns/MoL_SetupIndexArrays
+# Column 2028 main/Initialise/CallSetup/CCTK_WRAGH/CallFunction/thorns/ReflectionSymmetry_Register
+# Column 2031 main/Initialise/CallSetup/CCTK_WRAGH/CallFunction/thorns/RegisterCartGrid3DCoords
+# Column 2034 main/Initialise/CallSetup/CCTK_WRAGH/CallFunction/thorns/Slab_InitTimers
+# Column 2037 main/Initialise/CallSetup/CCTK_WRAGH/CallFunction/thorns/SymBase_Statistics
+# Column 2040 main/Initialise/CallSetup/CCTK_WRAGH/CallFunction/thorns/TmunuBase_SetStressEnergyState
+# Column 2043 main/Initialise/CarpetLib::ggf::recompose_allocate
+# Column 2046 main/Initialise/CarpetLib::ggf::recompose_crop
+# Column 2049 main/Initialise/dh::recompose_free_old
+# Column 2052 main/Shutdown
+# Column 2055 main/Shutdown/CallFunction
+# Column 2058 main/Shutdown/CallFunction/thorns
+# Column 2061 main/Shutdown/CallFunction/thorns/CarpetIOHDF5_TerminationCheckpoint
+# Column 2064 main/Shutdown/CallFunction/thorns/LC_statistics_terminate
+# Column 2067 main/Shutdown/CallFunction/thorns/MoL_FreeIndexArrays
+# Column 2070 main/Shutdown/CallFunction/thorns/zzz_TimerReport_Output
+# Column 2073 meta mode
+# Column 2076 meta mode/meta mode
+# Column 2079 meta mode/meta mode/enter_global_mode
+# Column 2082 meta mode/meta mode/global mode
+# Column 2085 meta mode/meta mode/global mode/enter_level_mode
+# Column 2088 meta mode/meta mode/global mode/leave_level_mode
+# Column 2091 meta mode/meta mode/global mode/level(0)
+# Column 2094 meta mode/meta mode/global mode/level(0)/enter_local_mode
+# Column 2097 meta mode/meta mode/global mode/level(0)/enter_singlemap_mode
+# Column 2100 meta mode/meta mode/global mode/level(0)/leave_local_mode
+# Column 2103 meta mode/meta mode/global mode/level(0)/leave_singlemap_mode
+# Column 2106 meta mode/meta mode/global mode/level(1)
+# Column 2109 meta mode/meta mode/global mode/level(1)/enter_local_mode
+# Column 2112 meta mode/meta mode/global mode/level(1)/enter_singlemap_mode
+# Column 2115 meta mode/meta mode/global mode/level(1)/leave_local_mode
+# Column 2118 meta mode/meta mode/global mode/level(1)/leave_singlemap_mode
+# Column 2121 meta mode/meta mode/global mode/level(2)
+# Column 2124 meta mode/meta mode/global mode/level(2)/enter_local_mode
+# Column 2127 meta mode/meta mode/global mode/level(2)/enter_singlemap_mode
+# Column 2130 meta mode/meta mode/global mode/level(2)/leave_local_mode
+# Column 2133 meta mode/meta mode/global mode/level(2)/leave_singlemap_mode
+# Column 2136 meta mode/meta mode/global mode/level(3)
+# Column 2139 meta mode/meta mode/global mode/level(3)/enter_local_mode
+# Column 2142 meta mode/meta mode/global mode/level(3)/enter_singlemap_mode
+# Column 2145 meta mode/meta mode/global mode/level(3)/leave_local_mode
+# Column 2148 meta mode/meta mode/global mode/level(3)/leave_singlemap_mode
+# Column 2151 meta mode/meta mode/global mode/level(4)
+# Column 2154 meta mode/meta mode/global mode/level(4)/enter_local_mode
+# Column 2157 meta mode/meta mode/global mode/level(4)/enter_singlemap_mode
+# Column 2160 meta mode/meta mode/global mode/level(4)/leave_local_mode
+# Column 2163 meta mode/meta mode/global mode/level(4)/leave_singlemap_mode
+# Column 2166 meta mode/meta mode/global mode/level(5)
+# Column 2169 meta mode/meta mode/global mode/level(5)/enter_local_mode
+# Column 2172 meta mode/meta mode/global mode/level(5)/enter_singlemap_mode
+# Column 2175 meta mode/meta mode/global mode/level(5)/leave_local_mode
+# Column 2178 meta mode/meta mode/global mode/level(5)/leave_singlemap_mode
+# Column 2181 meta mode/meta mode/global mode/level(6)
+# Column 2184 meta mode/meta mode/global mode/level(6)/enter_local_mode
+# Column 2187 meta mode/meta mode/global mode/level(6)/enter_singlemap_mode
+# Column 2190 meta mode/meta mode/global mode/level(6)/leave_local_mode
+# Column 2193 meta mode/meta mode/global mode/level(6)/leave_singlemap_mode
+# Column 2196 meta mode/meta mode/global mode/level(7)
+# Column 2199 meta mode/meta mode/global mode/level(7)/enter_local_mode
+# Column 2202 meta mode/meta mode/global mode/level(7)/enter_singlemap_mode
+# Column 2205 meta mode/meta mode/global mode/level(7)/leave_local_mode
+# Column 2208 meta mode/meta mode/global mode/level(7)/leave_singlemap_mode
+# Column 2211 meta mode/meta mode/leave_global_mode
+0	0	0 0 0	0 0 0	0 0 0	0 0 0	0 0 0	0 0 0	0 0 0	0 0 0	0 0 0	0 0 0	0 0 0	0 0 0	0 0 0	0 0 0	0 0 0	0 0 0	0 0 0	0 0 0	0 0 0	0 0 0	0 0 0	0 0 0	0 0 0	0 0 0	0 0 0	0 0 0	0 0 0	0.134334 0.116232 0.157268	0.10172078125 0.100015 0.109931	0.0006478671875 3e-06 0.006573	0.000736453125 6e-06 0.002733	7.47109375e-05 2e-06 0.007433	0.000398859375 3e-06 0.001855	0.00044328125 6e-06 0.001699	0.000213171875 1e-06 0.002277	0.00043890625 2.3e-05 0.001924	9.37499999999998e-07 0 1.4e-05	8.12499999999998e-07 0 2e-06	2.3984375e-06 1e-06 1.3e-05	4.9609375e-06 3e-06 1.1e-05	0.001142625 2.5e-05 0.006564	0.0001631171875 3e-06 0.000839	8.98437499999998e-07 0 2e-06	0.00022321875 4e-06 0.001122	0.0002464296875 3e-06 0.000989	0.000133 4e-06 0.000558	0.0001398203125 3e-06 0.000704	0.0002588046875 2e-05 0.000998	0.0006816328125 2.2e-05 0.002731	0.0001730234375 2e-06 0.010532	8.1671875e-05 4e-06 0.000362	6.596875e-05 3.4e-05 0.000167	2.02421875e-05 1e-05 9e-05	7.56718750000001e-05 2.4e-05 0.000169	0.0001449765625 0.000103 0.000283	1.209375e-05 9e-06 2.7e-05	6.29687500000001e-06 5e-06 1.9e-05	6.07734375000003e-05 2.5e-05 0.000176	1.36484375e-05 6e-06 9.5e-05	9.82890625e-05 7.8e-05 0.000246	0.0001168125 8.6e-05 0.000191	0.0001431484375 0.000119 0.000208	4.1203125e-05 3.1e-05 0.00012	8.91406249999999e-06 7e-06 2.8e-05	7.08593749999999e-06 6e-06 1.3e-05	9.74453124999998e-05 7.7e-05 0.000215	1.96171875000003e-05 9e-06 0.000154	6.3515625e-06 5e-06 9e-06	0.0001087890625 8.3e-05 0.000289	1.00703125000003e-05 8e-06 2.1e-05	5.24218750000001e-06 4e-06 7e-06	4.53203124999997e-05 2.4e-05 0.00031	6.54765625e-05 1.8e-05 0.000204	1.35234375e-05 7e-06 5.1e-05	4.3e-05 2.9e-05 0.000198	1.14296875000001e-05 8e-06 3.3e-05	1.409375e-05 6e-06 9.7e-05	2.73828125e-05 1.1e-05 0.000103	6.44531250000001e-06 5e-06 9e-06	6.30468750000001e-06 5e-06 1.6e-05	2.14296875e-05 7e-06 0.000147	8.07031249999999e-06 6e-06 3.2e-05	6.0546875e-06 5e-06 8e-06	8.94531250000028e-06 7e-06 2.2e-05	0.0013819453125 0.001167 0.009181	6.4765625e-06 5e-06 1.6e-05	6.14062500000001e-06 5e-06 1.8e-05	5.75000000000001e-06 5e-06 8e-06	6.23359375e-05 3.2e-05 0.000168	0.0016570859375 0.001013 0.004688	0.0001981328125 0.000184 0.000229	0.000179109375 0.000169 0.000218	0.0001867890625 0.000175 0.000214	0.000331703125 0.000255 0.000577	0.0201226484375 0.016229 0.057273	0.000892578125000002 0.000511 0.001434	0.0103301953125 0.00899499999999998 0.02335	0.0034924765625 0.001779 0.017423	7.7671875e-05 4.8e-05 0.000156	0.00115271875 0.000489 0.014662	0.029904390625 0.02311 0.059847	0.00032703125 0.000259 0.000507	0.081403421875 0.063061 0.130272	0.001187546875 0.000741 0.001532	0.0002018984375 0.000156 0.000321	3.9484375e-05 2.4e-05 0.000138	0.00374515625 0.002443 0.015663	0.00326265625 0.001935 0.004682	5.1796875e-05 3.1e-05 9.3e-05	0.0003032265625 0.000163 0.001699	0.0040073046875 0.002434 0.005032	0.001371328125 0.000906 0.002587	0.001093015625 0.000611 0.014351	0.000241375 0.000219 0.000401	0.0002296015625 0.000212 0.00031	0.0124328515625 0.005094 0.016622	0.012750703125 0.001376 0.094188	5.1078125e-05 2.6e-05 0.000109	2.53125e-05 2.1e-05 3.5e-05	0.00048025 0.00026 0.013421	0.0002025703125 0.00019 0.000289	0.00020059375 0.000183 0.00041	0.0004751875 0.000174 0.037485	2.4890625e-05 2.1e-05 3.9e-05	0.00023953125 0.000168 0.000331	0.000244140625 0.000217 0.000917	0.0270781171875 0.014569 0.045718	0.0098798984375 0.005292 0.025721	0.0254629921875 0.013793 0.045035	5.0875e-05 3e-05 0.000109	2.56171875e-05 2.1e-05 3.5e-05	0.00012721875 2.1e-05 0.013064	2.47578125e-05 2e-05 8.2e-05	30.5125783203125 28.736437 32.003641	17.6602542578125 12.187935 26.895077	0.846148375 0.764413 1.021249	0.137219046875 0.121231 0.213391	14.403051390625 6.012512 23.527368	8.83359375e-05 6.3e-05 0.000138	8.146875e-05 4.9e-05 0.000196	0.0001989609375 0.000138 0.000345	0.0013815390625 0.000864 0.002408	0.000266734375 0.000248 0.000301	0.000376875 0.000344 0.000445	4.5015625e-05 3.7e-05 6.3e-05	9.584375e-05 6.9e-05 0.000143	0.0232928828125 0.02096 0.036312	2.852442921875 0.143681 8.393166	0.0082733515625 0.00574 0.026715	0.0012099453125 0.001101 0.001501	0.00138103125 0.001291 0.001528	0.000226921875 0.000196 0.000859	0.00202321875 0.001327 0.003529	0.7222629609375 0.228761 2.239211	0.1155170390625 0.055525 0.183094	0.0356257890625 0.017335 0.050901	0.0464024453125 0.035428 0.093015	1.579401625 1.442885 1.918284	0.616957 0.30529 0.817202	0.8142069375 0.74176 0.990783	0.3814783125 0.201338 0.592354	0.0345468046875 0.024783 0.063045	0.2708108203125 0.139417 0.497057	0.0082492578125 0.005543 0.022494	0.0010098203125 0.000893 0.001343	0.0012606953125 0.001067 0.014274	0.0002028203125 0.000167 0.000234	0.002275078125 0.001508 0.00374	0.316166015625 0.251993 0.388597	0.096884796875 0.026937 0.158196	0.0251471875 0.013143 0.04172	0.0438458515625 0.034117 0.07728	0.1599907578125 0.06639 0.366537	0.2034811328125 0.132969 0.298745	2.2390562734375 0.030191 2.393028	0.00652156250000001 0.002309 0.021173	4.985139625 4.963088 5.007645	0.007335953125 0.006479 0.015822	0.000113171875 8.3e-05 0.000227	0.0078898515625 0.002061 0.099661	5.56171875e-05 3.8e-05 0.000102	2.4015625e-05 1.9e-05 3.4e-05	4.30625e-05 3.6e-05 7.6e-05	0.006099046875 0.005616 0.007656	0.1898469375 0.03834 2.40559	0.0001056640625 9.1e-05 0.000198	0.0020941015625 5.4e-05 0.002728	0.0028888203125 0.002029 0.004502	0.011990046875 0.007319 0.021279	8.21171875e-05 5.9e-05 0.000143	0.0025606171875 0.002045 0.00343	0.000971203125 0.000852 0.001323	0.0008129375 0.000491 0.001423	0.0002521796875 0.000233 0.000285	0.100505890625 0.090358 0.197961	0.0097999609375 0.006021 0.016972	0.008895 0.0016 0.108199	0.0002001640625 0.000161 0.000391	4.19140625e-05 3.5e-05 7.1e-05	2.871875e-05 2.4e-05 0.000105	0.1619580078125 0.142704 0.214983	0.1695243125 0.024314 0.342761	0.004562421875 0.003075 0.007519	0.0006968515625 0.000659 0.000812	0.00074240625 0.000697 0.000855	0.0001156875 0.000103 0.000133	0.6663300546875 0.59709 0.888924	0.2475865078125 0.120843 0.426805	0.00046725 0.000373 0.000624	3.28362753125 3.255007 3.485751	0.802016296875 0.737269 0.908228	0.357676265625 0.212384 0.682383	0.0003887734375 0.000233 0.001667	0.00048815625 0.000336 0.009706	0.0002275546875 0.000207 0.000412	0.000435234375 0.000179 0.031651	3.11640625e-05 2.4e-05 0.000162	0.9272375859375 0.78863 0.98082	0.0005104375 0.00011 0.001523	0.0001292734375 9.6e-05 0.000208	0.0005580859375 0.000342 0.000749	9.2421875e-06 7e-06 1.4e-05	0 0 0	23.0009798515625 22.998128 23.011602	0.0002626328125 6e-06 0.00107	5.0078125e-05 3.7e-05 6.2e-05	0.000990734374999999 0.000189 0.002789	22.96974934375 22.952771 22.979754	22.9686579765625 22.951705 22.978355	4.4946967890625 4.115818 4.664019	15.43113596875 15.342538 15.521094	1.4614659140625 1.35249 1.534628	8.89140625000001e-05 7.8e-05 0.000138	1.4611056640625 1.352139 1.534262	4.56484375e-05 3.6e-05 5.9e-05	1.3452511640625 1.208483 1.455868	9.17890625e-05 7.5e-05 0.000149	1.344890484375 1.208113 1.455516	4.5671875e-05 3.2e-05 5.8e-05	1.4925935390625 1.330363 1.664521	9.1796875e-05 8e-05 0.000115	1.4922323984375 1.330014 1.664167	4.58671875e-05 2.7e-05 6.7e-05	1.2906231484375 1.178175 1.388155	0.000129421875 0.000103 0.000244	1.2901888828125 1.177764 1.387745	4.69375e-05 3.3e-05 5.9e-05	8.3555287734375 8.211534 8.520856	0.0005514296875 0.000496 0.000629	8.35365840625 8.209645 8.518932	0.00027103125 0.000228 0.000314	1.4841898125 1.308882 1.564504	9.72109375e-05 8.4e-05 0.000135	1.48381759375 1.308523 1.56413	4.67734375e-05 3.4e-05 6.1e-05	0.59468615625 0.579186 0.633616	0.007225359375 0.002355 0.016425	3.690625e-05 2.8e-05 4.6e-05	3.86328125e-05 2.5e-05 5.4e-05	3.7640625e-05 2.6e-05 5e-05	0.0001392578125 2.3e-05 0.013043	3.621875e-05 2.2e-05 4.9e-05	3.65703125e-05 2.5e-05 5.1e-05	0.0064704375 0.00171 0.010972	0.00195528125 0.001779 0.002758	0.00043403125 0.000372 0.001517	0.6339558125 0.617731 0.701219	1.7885929453125 1.703581 2.14921	5.0953125e-05 3.8e-05 6.3e-05	5.03359375e-05 8e-06 0.000392	0.014051921875 3.2e-05 0.022955	0.01404203125 2.4e-05 0.022943	105.778073367187 105.766739 105.793211	16.8550038515625 16.771884 16.878842	6.6490448515625 6.382558 6.833958	6.62392228125 6.359755 6.813339	0.7740777109375 0.434728 1.110129	0.2109363125 0.059916 0.562304	2.31953125e-05 1.7e-05 3.1e-05	0.000357703125 0.000218 0.000556	0.001687546875 0.000676 0.00647	0.0075193046875 9.5e-05 0.028546	2.5203125e-05 7e-06 0.000174	0.0009538515625 8.7e-05 0.0049	0.1507206015625 0.010059 0.35532	0.01610653125 0.00193 0.05544	0.0331949921875 2.8e-05 0.279909	0.56295184375 0.308017 0.92983	1.69140625e-05 8e-06 2.8e-05	0.000438296875 0.000268 0.001303	0.00465946875 0.002338 0.015855	0.01006046875 0.004941 0.02333	2.615625e-05 1.5e-05 7.6e-05	0.0003235859375 0.000164 0.000458	0.537933078125 0.282307 0.893181	0.00763525 0.004145 0.024201	0.0014592421875 7.6e-05 0.017633	5.8421302265625 5.639763 6.179524	0.0014940546875 0.000251 0.003457	3.82421875e-05 2.7e-05 5.5e-05	4.109375e-06 2e-06 7.7e-05	1.0234375e-06 0 1.4e-05	9.18671875e-05 7.4e-05 0.000136	0.16068209375 0.141493 0.214011	0.000120890625 9.5e-05 0.000169	3.578125e-06 1e-06 3.3e-05	0.00016603125 0.000141 0.000216	0.6658824921875 0.596654 0.888254	3.283545546875 3.254935 3.485684	0.0002013515625 0.000182 0.00024	0.8013854765625 0.736717 0.907655	0.0001906484375 0.00015 0.000274	0.000236984375 0.000137 0.000515	0.0002520859375 3e-06 0.031354	3.815625e-05 2.3e-05 0.000114	1.99296875e-05 1.1e-05 0.000125	0.9271558984375 0.788526 0.980761	1.0078125e-06 0 3e-06	0.0002958828125 0.000231 0.000543	0.0001778515625 0.00014 0.000345	2.1703125e-05 1.4e-05 8.5e-05	1.2984375e-05 6e-06 7.6e-05	10.19814575 9.955093 10.446953	10.19811771875 9.955062 10.44692	0.01514971875 0.011177 0.305376	0.0150853125 0.011119 0.305301	10.1435755 9.595406 10.400458	10.1435153671875 9.595333 10.400397	4.6140625e-05 3.3e-05 6.5e-05	9.30468749999999e-06 4e-06 1.9e-05	4.21953125e-05 2.9e-05 7.6e-05	8.1640625e-06 3e-06 3.8e-05	0.00905571875 0.006184 0.022975	0.00903636718749999 0.006156 0.02296	3.415625e-05 2.7e-05 5.6e-05	1.7203125e-05 1e-05 3.8e-05	4.665625e-05 2.9e-05 8.9e-05	2.39375e-05 8e-06 6.5e-05	2.86328125e-05 2.2e-05 4.3e-05	9.484375e-06 3e-06 2.2e-05	0.001431875 0.001391 0.001507	0.0014106171875 0.001367 0.001489	0.0014230625 0.00139 0.001478	0.0014003984375 0.001367 0.00145	0.02703540625 0.015903 0.361165	0.02701534375 0.015884 0.361149	76.47994609375 73.630816 79.33106	0.193955171875 0.158982 0.300726	0.1925582578125 0.157709 0.299126	0.1806151875 0.147018 0.286916	8.84375e-06 6e-06 1.3e-05	7.3671875e-06 3e-06 2.2e-05	1.8296875e-05 1.1e-05 3e-05	1.36484375e-05 9e-06 2.4e-05	0.010279078125 0.008969 0.023267	2.46328125e-05 1.8e-05 4.2e-05	0.000992578125 0.000519 0.014233	2.2765625e-05 1.8e-05 3.3e-05	0.0010074453125 0.000644 0.00197	0.0002454453125 0.000119 0.013276	0.029365625 0.022703 0.059343	0.0002639921875 0.000215 0.000426	0.0805029375 0.062363 0.12909	0.000278046875 0.00014 0.00166	1.084375e-05 6e-06 2.6e-05	1.90625e-06 0 4e-06	6.671875e-06 2e-06 2.6e-05	0.00318290625 0.002031 0.004058	0.0113938984375 0.004795 0.015059	0.0127066015625 0.001351 0.094141	0.002966890625 0.001598 0.004324	0.00279128125 0.001914 0.014914	6.65859375e-05 5.9e-05 0.000191	8.12578125e-05 5.2e-05 0.000221	1.5359375e-05 2e-06 0.000112	0.0198056875 0.015909 0.056886	0.00015 7.6e-05 0.000382	1.359375e-06 0 1.2e-05	1.45703125e-05 4e-06 5.4e-05	1.959375e-05 1e-05 3.9e-05	6.63671874999998e-05 1.5e-05 0.000327	0.00014934375 3.1e-05 0.013065	0.0001711484375 0.000102 0.000266	0.000298812500000001 6e-06 0.037024	1.48359375e-05 1e-05 3.3e-05	2.29375e-05 1.2e-05 0.000237	1.921875e-06 1e-06 3e-06	0.002982078125 0.001511 0.016665	4.6625e-05 2.6e-05 0.000125	63.6254582734375 58.513082 69.706991	63.6243918046875 58.511879 69.705855	14.4027298359375 6.012207 23.527061	6.789547265625 0.542804 13.632704	1.08984375e-05 7e-06 1.8e-05	0.00010103125 6e-05 0.000205	0.000310765625 0.000163 0.001336	0.001834953125 1.9e-05 0.011204	6.015625e-06 1e-06 5.3e-05	0.0001725 1.7e-05 0.000906	5.467187125 0.000577 12.355139	0.0030211875 0.000387 0.006177	1.3166887109375 1.2e-05 9.150631	7.61308784375 1.406831 16.581563	2.01484375e-05 1.2e-05 4.5e-05	0.0001335390625 7.7e-05 0.000884	0.0010258671875 0.00048 0.002009	0.0029961640625 0.001536 0.016195	8.55468749999999e-06 3e-06 2e-05	6.38203125e-05 3.5e-05 9.5e-05	7.605838078125 1.402496 16.573984	0.0016302265625 0.0009 0.005537	0.0011094609375 2.6e-05 0.02477	49.2092717734375 41.863892 59.438007	0.009148484375 0.004873 0.024795	0.024868484375 0.013455 0.044335	0.026725296875 0.014283 0.045357	9.0890625e-05 7.6e-05 0.000167	1.54921875e-05 1e-05 3.1e-05	3.375e-06 1e-06 8e-06	1.8984375e-06 1e-06 4e-06	2.8203125e-06 1e-06 8e-06	1.765625e-06 1e-06 5e-06	5.14375e-05 4.1e-05 6.5e-05	0.8446509609375 0.76305 1.019352	0.000249359375 0.000208 0.000341	0.136439390625 0.120329 0.212701	3.2765625e-05 1.8e-05 6.9e-05	17.653703984375 12.147071 26.894034	30.5123803984375 28.736236 32.003499	2.36796875e-05 5e-06 6.3e-05	0.00018240625 0.000152 0.000246	1.25390625e-05 8e-06 2.5e-05	0.00017409375 0.000114 0.000322	7.2020229375 4.018958 12.273383	7.2004597734375 4.017454 12.271695	4.5720444140625 1.20577 9.735731	2.4738808125 0.130911 8.375988	3.0890625e-05 2e-05 4.3e-05	0.000813765625 0.000455 0.013683	0.0067305546875 0.002712 0.023521	0.0222305859375 0.000245 0.09138	3.471875e-05 1.5e-05 9.2e-05	0.0027905625 0.000213 0.023896	2.3257627265625 0.024033 8.269701	0.045065015625 0.005984 0.095328	0.06987859375 5.9e-05 1.329694	2.0978267890625 0.877835 5.328923	2.7109375e-05 1.9e-05 4e-05	0.001146703125 0.000673 0.001533	0.0232264375 0.00963000000000003 0.045507	0.04071225 0.021065 0.077949	4.959375e-05 3.2e-05 0.0001	0.00089878125 0.000489 0.001302	1.9809862890625 0.780825 5.243792	0.04492578125 0.022134 0.072296	0.00505065625 0.000202 0.044793	2.6156102734375 2.355319 3.02612	0.0019343515625 0.000524 0.004877	8.5796875e-05 6.8e-05 0.000112	5.9609375e-05 3.3e-05 0.000104	0.0001708828125 0.000143 0.000212	0.045469328125 0.034484 0.09206	0.0001968203125 0.000157 0.00028	0.0001880703125 0.000161 0.000227	0.11489753125 0.054973 0.182474	0.0018042578125 0.001125 0.003299	0.0229813203125 0.020693 0.036034	0.0002006015625 0.000168 0.000261	0.81375778125 0.741341 0.990279	1.578254828125 1.44182 1.91729	0.00018565625 0.000155 0.000239	0.000480609375 0.000407 0.000634	0.034179828125 0.016523 0.049453	4.957328140625 4.941321 4.984913	5.0078125e-06 3e-06 2.1e-05	0.0235404140625 0.018268 0.048095	0.016894265625 0.007975 0.042184	0.013550578125 0.005915 0.026474	0.0004919921875 0.000337 0.001073	0.0003324296875 0.000293 0.000774	4.932901203125 4.920391 4.940883	0.06801075 0.059751 0.161037	0.1181083046875 0.001363 0.129191	4.728293515625 4.651972 4.871593	4.727163390625 4.651791 4.757762	4.7269954609375 4.651615 4.757614	0.9272145859375 0.602526 1.162554	1.9347642734375 1.892022 1.960582	0.1030200703125 0.070158 0.126069	9.203125e-06 6e-06 1.7e-05	0.10297609375 0.070118 0.126019	3.671875e-06 1e-06 9e-06	0.1031369296875 0.071108 0.13098	9.953125e-06 7e-06 1.6e-05	0.1030932421875 0.071066 0.130942	4.0078125e-06 1e-06 7e-06	0.1180208125 0.069608 0.165574	1.35390625e-05 9e-06 2.6e-05	0.1179673359375 0.06956 0.165521	5.390625e-06 1e-06 1e-05	0.1106565078125 0.058965 0.158105	1.71328125e-05 1.3e-05 2.4e-05	0.110593921875 0.058907 0.158046	6.8203125e-06 2e-06 4.5e-05	0.549989328125 0.50825 0.587729	4.89609375e-05 3.8e-05 8.5e-05	0.5498300234375 0.508098 0.587566	1.93828125e-05 1.1e-05 2.7e-05	0.6137026953125 0.584124 0.642005	5.6640625e-05 4.5e-05 8.2e-05	0.6135263359375 0.583945 0.641823	2.25625e-05 1.3e-05 3.3e-05	0.1571516875 0.120116 0.214134	8.52343749999999e-06 6e-06 6.3e-05	0.157102328125 0.120069 0.214086	5.640625e-06 1e-06 1.9e-05	0.17899 0.138064 0.21454	1.28359375e-05 9e-06 2e-05	0.1789252421875 0.138002 0.214481	8.7734375e-06 6e-06 2.4e-05	0.2847199609375 0.277937 0.336815	0.36727478125 0.19931 0.591186	3.1015625e-06 0 6e-06	3.4765625e-06 1e-06 7e-06	0.143669625 0.036981 0.286911	3.3984375e-06 0 6e-06	0.134089703125 0.059207 0.204687	0.00844410937499999 0.004044 0.021749	0.080976796875 0.051378 0.101981	0.000418609375 0.0004 0.000447	0.4168088125 0.403224 0.509291	0.33759728125 0.325345 0.39939	0.38286471875 0.371992 0.457834	0.064994859375 0.06198 0.090454	5.521875e-05 5.3e-05 6.3e-05	1.034375e-05 3e-06 4e-05	7.5862828984375 7.55547 7.686137	2.239126359375 0.03026 2.393108	2.2390396328125 0.030172 2.393015	2.2389749140625 0.030092 2.392952	2.238963171875 0.030077 2.392941	5.3444408125 5.199234 7.531665	5.343873 5.198684 7.531162	0.0090593984375 0.003979 0.018488	0.0002552734375 0.000142 0.009208	5.796875e-06 2e-06 2.4e-05	5.1875e-06 1e-06 1.6e-05	1.9140625e-05 1.3e-05 3.3e-05	3.5703125e-06 1e-06 7e-06	7.45546875e-05 1e-06 0.009038	3.2265625e-06 0 7e-06	4.53125e-06 1e-06 1.1e-05	3.3125e-06 0 6e-06	6.3515625e-06 4e-06 9e-06	0.008757390625 0.003705 0.018288	5.9609375e-06 2e-06 1.4e-05	6.853125e-05 4.1e-05 0.000164	0.0007551171875 0.000409 0.001317	0.0013286796875 0.00067 0.00305	7.21875e-06 3e-06 4.3e-05	2.5109375e-05 1.4e-05 4.9e-05	0.0057326796875 0.001129 0.015434	0.0003919609375 0.00021 0.001096	0.0002596015625 1.4e-05 0.000942	5.32937246875 5.182866 7.519453	4.985066125 4.962954 5.00752	0.0054456328125 0.001744 0.019744	0.0070257421875 0.001331 0.098708	8.71796875e-05 5.9e-05 0.000187	0.0072988359375 0.006442 0.015776	1.84140625e-05 1.2e-05 3.3e-05	0.000706140625 0.000393 0.001318	0.0998816875 0.089813 0.196429	0.0024638125 0.001642 0.004024	0.0006855859375 0.000591 0.000921	5.07421875e-05 3.3e-05 7.5e-05	0.00204559375 0.001565 0.002748	0.008921984375 0.005405 0.015656	0.00882599999999999 0.00155 0.108133	0.005876 0.005386 0.007309	0.18981646875 0.038313 2.405556	1.465625e-05 9e-06 3.4e-05	5.1875e-06 3e-06 8e-06	0.002068703125 2.7e-05 0.002701	9.99999999999998e-07 0 7e-06	6.0078125e-06 3e-06 2e-05	0.002613515625 0.001534 0.007789	4.7887485390625 1.924979 7.638327	1.1649790390625 1.02877 1.357879	1.1635901953125 1.027343 1.356595	0.9493915 0.763889 1.170513	0.383552578125 0.143747 0.699777	2.91875e-05 1.9e-05 4.2e-05	0.000684390625 0.000384 0.001171	0.006526859375 0.002941 0.021098	0.0213986640625 0.000231 0.080929	3.2546875e-05 1.2e-05 0.000134	0.003031203125 0.000207 0.021713	0.28333496875 0.038442 0.626739	0.0474024296875 0.006167 0.125179	0.0205200546875 6.2e-05 0.158939	0.565506765625 0.328126 0.813819	2.3453125e-05 1.5e-05 3.5e-05	0.0010790703125 0.000724 0.001426	0.0223022421875 0.009615 0.059022	0.0468097578125 0.024243 0.083447	4.58984375e-05 2.6e-05 0.000118	0.000863046875 0.000444 0.001241	0.441399953125 0.189046 0.673249	0.0477083046875 0.021428 0.078258	0.0044192265625 0.000207 0.062905	0.202068203125 0.114514 0.299591	0.002195421875 0.000453 0.014034	8.75703125e-05 6.7e-05 0.000109	0.0001518203125 0.000122 0.000187	0.0430776328125 0.0333 0.076393	0.0002459453125 0.000174 0.000314	0.0001855703125 0.000165 0.000228	0.096317046875 0.026395 0.157677	0.002070015625 0.001313 0.003442	0.032567203125 0.023069 0.060824	0.0001904296875 0.000161 0.000241	0.000143859375 0.00011 0.000245	0.0004485859375 0.000371 0.00054	0.023823859375 0.012278 0.040473	2.987195296875 0.128422 5.930633	6.1640625e-06 2e-06 1.1e-05	0.000715 0.000416 0.001433	0.00411271875 0.000578 0.02827	0.010743515625 0.005538 0.032501	6.9296875e-06 3e-06 3e-05	0.0010084765625 0.000178 0.006123	0.1891594453125 2e-06 5.70008	0.00704078125 0.000167 0.097497	2.77420634375 0.029891 5.820321	0.0330069609375 0.010909 0.049708	0.0018318359375 0.001521 0.00969	0.0017369921875 0.001431 0.009578	0.0017119296875 0.001409 0.009552	1.0546875e-06 0 1.1e-05	4.92187499999999e-07 0 1e-06	6.01953125e-05 1.3e-05 0.000198	3.79140625000001e-05 1.8e-05 0.000299	3.7765625e-05 2.4e-05 0.000191	8.4921875e-06 2e-06 4.7e-05	1.3828125e-06 1e-06 3e-06	2.2125e-05 6e-06 9.8e-05	8.20312499999999e-07 0 2e-06	1.61953125e-05 2e-06 0.00014	2.7890625e-06 1e-06 2.7e-05	9.92187499999998e-07 0 2e-06	3.4609375e-06 2e-06 1.5e-05	3.546875e-06 2e-06 9e-06	7.18749999999999e-07 0 1e-06	1.0703125e-06 0 3e-06	5.93749999999999e-07 0 1e-06	5.071875e-05 2.4e-05 0.00016	8.8515625e-06 2e-06 9.3e-05	0.00137625 0.001163 0.009172	0.001175171875 0.000904 0.001822	0.00101534375 0.0008 0.001403	0.00057559375 0.000383 0.000955	1.33671875e-05 5e-06 8.4e-05	7.06953124999996e-05 1.8e-05 0.000164	9.0625e-06 4e-06 5.6e-05	2.71796875e-05 1.4e-05 7.1e-05	6.93750000000001e-06 4e-06 2.2e-05	3.89453125e-05 2e-05 0.000116	1.40625e-06 1e-06 2e-06	5.97265625e-05 4.6e-05 0.00011	3.7421875e-06 2e-06 1.6e-05	2.1015625e-06 1e-06 3e-06	2.40234375e-05 9e-06 0.000203	8.8828125e-06 1e-06 9e-05	5.40937499999996e-05 1.8e-05 0.00017	1.43671875000001e-05 5e-06 0.000148	4.57421874999996e-05 2.7e-05 0.000189	3.59375e-05 2.6e-05 0.000113	1.4375e-06 1e-06 4e-06	9.36406250000001e-05 7.3e-05 0.000241	0.0012438984375 0.001049 0.002426	0.0012291015625 0.000929 0.002157	0.0007827890625 0.000667 0.000867	0 0 0	0.001173546875 0.000586 0.00219	0.00042828125 4.9e-05 0.001415	0.0003477109375 4e-06 0.001351	1.890625e-06 1e-06 1.1e-05	3.53046875e-05 1e-05 0.000111	0 0 0	0 0 0	0 0 0	0.0272125859375 0.021749 0.047235	105.685603648437 105.657075 105.703354	0.0011627578125 0.000861000000000001 0.014394	0.0006017890625 0.00054 0.000666	21.38944578125 19.595513 23.154689	0.0161237578125 0.007043 0.081906	0.0004838203125 0.000337 0.001028	0.0020401328125 0.00162 0.002826	0.0003971484375 0.000305 0.000785	6.3854370625 5.233279 11.344928	0.0066556875 0.004851 0.019612	0.0003503046875 0.000284 0.000475	0.001226703125 0.000837 0.002041	0.0002571875 0.000217 0.000341	4.7931025625 3.449097 9.217436	0.0051869296875 0.004329 0.018592	0.0002808359375 0.000231 0.000517	0.0006548984375 0.000511 0.000858	0.0001957890625 0.000169 0.000243	5.2369987734375 4.601875 10.370724	0.0048965859375 0.004067 0.011398	0.000278171875 0.000228 0.000363	0.0006686640625 0.000562 0.000941	0.0001937109375 0.000171 0.000232	6.5373728359375 6.463866 6.607548	0.004873875 0.003971 0.018213	0.0002904921875 0.000234 0.000857	0.0007720078125 0.000578 0.000983	0.00020125 0.000178 0.000235	6.3096876875 5.500237 7.147954	0.0044619609375 0.003202 0.017171	0.000268109375 0.000199 0.000379	0.000679671875 0.000549 0.000911	0.0001911953125 0.000169 0.000241	6.10759496875 5.23773 6.973479	0.003993734375 0.003276 0.005816	0.0002635390625 0.000219 0.000367	0.000654953125 0.000533 0.000874	0.0001883984375 0.000166 0.000214	6.9296745546875 5.27241 10.398454	0.00443740625 0.003401 0.013546	0.000293796875 0.000235 0.000651	0.000672625 0.000525 0.00102	0.0001906953125 0.000169 0.000247	0.0044268125 0.003006 0.018204

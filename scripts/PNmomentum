@@ -2,24 +2,32 @@
 
 # imports
 from nrpypn.eval_p_t_and_p_r import eval__P_t__and__P_r as evalPtPr
-from math import sqrt
+from math import sqrt, cos, sin, atan, degrees
 import argparse
 
 def main():
     # parse arguments
-    parser = argparse.ArgumentParser(description="Compute linear momentum for the merger of dyonic black holes using nrpypn. Assumes non-spinning black holes, M₊ = 1 and uses heuristic correction due to the charges.")
+    parser = argparse.ArgumentParser(description="Compute linear momentum for the quasicircular inspiral of dyonic black holes using nrpypn. Assumes non-spinning black holes, M₊ = 1 and applies leading-order corrections due to the charges.")
 
-    parser.add_argument("-d",   "--distance",           required=True, type=float, help="Distance from puncture to origin (in units of M₊)")
+    parser.add_argument("-d",   "--distance",           required=True, type=float, help="Distance from each puncture to the origin (in units of M₊)")
     parser.add_argument("-k",   "--mass_ratio",         required=True, type=float, help="Mass ratio M₋/M₊ (same as M₋ since M₊=1)")
     parser.add_argument("-tp",  "--charge_ratio_plus",  required=True, type=float, help="Charge-to-mass ratio of the puncture '+'")
     parser.add_argument("-tm",  "--charge_ratio_minus", required=True, type=float, help="Charge-to-mass ratio of the puncture '-'")
+    parser.add_argument("-am",   "--alpha_minus",       required=True, type=float, help="Duality angle of the puncture '-'")
 
     args = parser.parse_args()
 
-    distance           = 2*args.distance  # nrpypn uses distance between punctures instead of distance to origin
+    distance           = 2*args.distance  # nrpypn uses the separation between punctures
     mass_ratio         = args.mass_ratio
     charge_ratio_plus  = args.charge_ratio_plus
     charge_ratio_minus = args.charge_ratio_minus
+    alpha              = args.alpha_minus
+
+    if abs(charge_ratio_plus) > 1 or abs(charge_ratio_minus) > 1:
+        parser.error("charge-to-mass ratios must satisfy |t| <= 1")
+
+    if charge_ratio_minus < 0:
+        parser.error("charge-to-mass ratio of the '-' puncture must be positive")
 
     # assume non-spinning black holes
     chi_plus  = (0.,0.,0.)
@@ -29,29 +37,44 @@ def main():
     mass_plus = 1.
     mass_minus = mass_ratio*mass_plus
     mass_total = mass_plus + mass_minus
+    r_hat = distance/mass_total
 
-    # compute P_t and P_r
-    # TODO: is this check a problem if I'm concerned with fixing M₊?
-    if mass_ratio < 1:
-        mass_ratio = 1/mass_ratio
+    # compute P_t and P_r without charges
+    # nrpypn requires a mass ratio >= 1
+    # For non-spinning black holes the momenta only depend on the symmetric mass ratio,
+    # so swapping the labels of the punctures does not change them
+    q = max(mass_ratio, 1/mass_ratio)
 
-    Pt, Pr = evalPtPr(mass_ratio, distance/mass_total, *chi_plus, *chi_minus)
+    Pt, Pr = evalPtPr(q, r_hat, *chi_plus, *chi_minus)
     Pt, Pr = mass_total * Pt, mass_total * Pr
 
-    # add heuristic correction due to charges
-    factor = sqrt(1 - charge_ratio_plus * charge_ratio_minus)  # correction due to charges
-    Pt, Pr = factor * Pt, factor * Pr
+    # leading-order corrections due to the charges
+    # The charge of '+' is purely electric and the charge of '-' is rotated by the duality angle alpha,
+    # so the static coupling depends on cos(alpha), and the velocity-dependent (dyonic) force on sin(alpha).
+    lam_prod = charge_ratio_plus * charge_ratio_minus * cos(alpha)  # static coupling, M_eff = M (1 - lam_prod)
+    if lam_prod >= 1:
+        parser.error("no bound orbit: charge_ratio_plus * charge_ratio_minus * cos(alpha) must be < 1")
 
-    # heuristic leading-order corrections due to the charges
-    # this was suggested by claude, it wasn't tested nor did I try to understand the reasoning behind it
-    #lam_prod = charge_ratio_plus * charge_ratio_minus
-    #dlam = charge_ratio_plus - charge_ratio_minus
-    #r_hat = distance / M
-    #Pt *= sqrt(1 - lam_prod)
-    #Pr *= (1 - lam_prod)**2 * (1 + 5/48 * dlam**2 * r_hat / (1 - lam_prod))
+    # squared charge-to-mass of the electric + magnetic dipole and quadrupole moments
+    dlam2 = charge_ratio_plus**2 + charge_ratio_minus**2 - 2*charge_ratio_plus*charge_ratio_minus*cos(alpha)
+    lamQ2 = (charge_ratio_plus**2 * mass_minus**2 + charge_ratio_minus**2 * mass_plus**2
+             + 2*charge_ratio_plus*charge_ratio_minus*mass_plus*mass_minus*cos(alpha)) / mass_total**2
+
+    # P_t: circular speed with the effective coupling M_eff
+    # P_r: inspiral rate from the energy flux of the GW quadrupole, the EM quadrupole and the EM dipole
+    Pt *= sqrt(1 - lam_prod)
+    Pr *= (1 - lam_prod)**2 * (1 + lamQ2/4 + 5/48 * dlam2 * r_hat / (1 - lam_prod))
+
+    # the dyonic force makes the orbit precess on a cone around the total angular momentum J, which is
+    # tilted from the z axis towards the x axis; the separation then reaches max |z| once per orbit
+    tilt = atan(abs(charge_ratio_plus * charge_ratio_minus * sin(alpha)) / sqrt(r_hat * (1 - lam_prod)))
 
     print(f"Pr = {Pr}")
     print(f"Pt = {Pt}")
+    print()
+
+    print(f"tilt of J from z axis = {degrees(tilt)} degrees")
+    print(f"max |z| of separation = {distance * sin(2*tilt)}")
     print()
 
     # horizon radius in isotropic coordinate for an isolated Reissner–Nordström black hole

@@ -188,24 +188,11 @@ InitBase::initial_data_setup_method = "init_some_levels"
 Carpet::init_fill_timelevels        = yes
 Carpet::init_3_timelevels           = no
 
-NRInitialDataVTU::toggle = "yes"
-
 ADMBase::initial_data    = "EMG_Merger"
 ADMBase::initial_lapse   = "psi^n"
 ADMBase::initial_shift   = "zero"
 ADMBase::initial_dtlapse = "zero"
 ADMBase::initial_dtshift = "zero"
-
-NRInitialDataVTU::vtu_file = "$ENV{CACTUS_ROOT}/repos/EMG/EMGInit/etc/k=1_t=0.5,0.25_alpha-minus=-0.5pi_x0=10_QuasiCircular_NoSpin.pvtu"
-NRInitialDataVTU::mapping_count       = 1
-NRInitialDataVTU::vtu_fields[0]       = "u"
-NRInitialDataVTU::cactus_variables[0] = "EMGInit::u"
-
-EMGInit::k           = 1.    # M₋ = k, M₊ = 1
-EMGInit::t_plus      = 0.5   # Q₊ = t₊, P₊ = 0
-EMGInit::t_minus     = 0.25  # Q₋ = k t₋ cos(α₋), P₋ = - k t₋ sin(α₋)
-
-EMGInit::alpha_minus = -1.5707963267948966  # -π/2
 
 EMGInit::xplus_0     = 10.001
 EMGInit::yplus_0     = 0.
@@ -215,12 +202,19 @@ EMGInit::xminus_0    = -10.001
 EMGInit::yminus_0    = 0.
 EMGInit::zminus_0    = 0.
 
-EMGinit::P_plus[0]   = -0.0017450722137418687
-EMGinit::P_plus[1]   = 0.16671188743202237
+EMGInit::k           = 1.    # M₋ = k, M₊ = 1
+
+EMGInit::t_plus      = 0.5   # Q₊ = t₊, P₊ = 0
+EMGInit::t_minus     = 0.25  # Q₋ = k t₋ cos(α₋), P₋ = - k t₋ sin(α₋)
+
+EMGInit::alpha_minus = -1.5707963267948966  # -π/2
+
+EMGinit::P_plus[0]   = -0.0027103937276428828
+EMGinit::P_plus[1]   = 0.19250230617197742
 EMGinit::P_plus[2]   = 0.
 
-EMGinit::P_minus[0]  = 0.0017450722137418687
-EMGinit::P_minus[1]  = -0.16671188743202237
+EMGinit::P_minus[0]  = 0.0027103937276428828
+EMGinit::P_minus[1]  = -0.19250230617197742
 EMGinit::P_minus[2]  = 0.
 
 EMGinit::S_plus[0]   = 0.
@@ -230,6 +224,13 @@ EMGinit::S_plus[2]   = 0.
 EMGinit::S_minus[0]  = 0.
 EMGinit::S_minus[1]  = 0.
 EMGinit::S_minus[2]  = 0.
+
+NRInitialDataVTU::toggle   = "yes"
+NRInitialDataVTU::vtu_file = "$ENV{CACTUS_ROOT}/repos/EMG/EMGInit/etc/k=1_t=0.5,0.25_alpha-minus=-0.5pi_x0=10_QuasiCircular_NoSpin.pvtu"
+
+NRInitialDataVTU::mapping_count       = 1
+NRInitialDataVTU::vtu_fields[0]       = "u"
+NRInitialDataVTU::cactus_variables[0] = "EMGInit::u"
 
 
 #------------------------------------------------------------------------------

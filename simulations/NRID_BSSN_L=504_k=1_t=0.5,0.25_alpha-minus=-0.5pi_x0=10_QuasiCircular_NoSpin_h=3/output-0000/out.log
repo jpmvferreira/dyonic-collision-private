@@ -12,9 +12,9 @@
 --------------------------------------------------------------------------------
 
 Cactus version:    4.16.0
-Compile date:      Nov 02 2026 (16:32:42)
-Run date:          Nov 02 2026 (17:41:38+0000)
-Run host:          cnx007.deucalion.macc.fccn.pt (pid=394829)
+Compile date:      Nov 04 2026 (22:43:12)
+Run date:          Nov 05 2026 (10:19:14+0000)
+Run host:          cnx002.deucalion.macc.fccn.pt (pid=314902)
 Working directory: /projects/F202509655CPCAA2/jpmferreira/dyonic-collision/simulations/NRID_BSSN_L=504_k=1_t=0.5,0.25_alpha-minus=-0.5pi_x0=10_QuasiCircular_NoSpin_h=3/output-0000
 Executable:        /projects/F202509655CPCAA2/jpmferreira/projects/cactus/exe/cactus_base
 Parameter file:    NRID.par
@@ -896,15 +896,15 @@ Activating thorn zlib...Success -> active implementation zlib
 INFO (Carpet): Multi-Model listing:
    model 0: "world"
 INFO (Carpet): Multi-Model process distribution:
-   processes 0-63: model 0 "world"
+   processes 0-127: model 0 "world"
 INFO (Carpet): Multi-Model: This is process 0, model 0 "world"
-INFO (CarpetLib): Process startup time was 8.08 seconds
+INFO (CarpetLib): Process startup time was 14.3 seconds
 Current core file size limit: hard=[unlimited], soft=0 MB
 Current addres space size limit: hard=[unlimited], soft=[unlimited]
 Current data segment size limit: hard=[unlimited], soft=[unlimited]
 Current resident set size limit: hard=247808 MB, soft=247808 MB
 INFO (CycleClock): Measuring CycleClock tick via OpenMP...
-INFO (CycleClock): Calibrated CycleClock: 0.444431 ns per clock tick (2.25007 GHz)
+INFO (CycleClock): Calibrated CycleClock: 0.444433 ns per clock tick (2.25006 GHz)
 INFO (Vectors): Using vector size 1 for architecture scalar (no vectorisation, 64-bit precision)
 INFO (hwloc): library version 2.10.0, API version 0x20800
 --------------------------------------------------------------------------------
@@ -936,16 +936,15 @@ AMR 3D HDF5 I/O provided by CarpetIOHDF5
 --------------------------------------------------------------------------------
 
 INFO (Carpet): MPI is enabled
-INFO (Carpet): Carpet is running on 64 processes
+INFO (Carpet): Carpet is running on 128 processes
 INFO (Carpet): This is process 0
 INFO (Carpet): OpenMP is enabled
-INFO (Carpet): This process contains 2 threads, this is thread 0
+INFO (Carpet): This process contains 1 threads, this is thread 0
 INFO (Carpet): There are 128 threads in total
-INFO (Carpet): There are 2 threads per process
-INFO (Carpet): This process runs on host cnx007.deucalion.macc.fccn.pt, pid=394829
+INFO (Carpet): There are 1 threads per process
+INFO (Carpet): This process runs on host cnx002.deucalion.macc.fccn.pt, pid=314902
 INFO (Carpet): This process runs on 128 cores: 0-127
 INFO (Carpet): Thread 0 runs on 128 cores: 0-127
-INFO (Carpet): Thread 1 runs on 128 cores: 0-127
 INFO (Carpet): This simulation is running in 3 dimensions
 INFO (Carpet): Boundary specification for map 0:
    nboundaryzones: [[3,3,3],[3,3,3]]
@@ -1193,6 +1192,7 @@ INFO (CarpetIOASCII): Periodic 0D AMR output requested for:
    QUASILOCALMEASURES::qlm_adm_energy[4]
    QUASILOCALMEASURES::qlm_adm_energy[5]
    QUASILOCALMEASURES::qlm_adm_momentum_x[0]
+WARNING[L1,P0] (Cactus): Attempt to create a directory with an empty or NULL string
    QUASILOCALMEASURES::qlm_adm_momentum_x[1]
    QUASILOCALMEASURES::qlm_adm_momentum_x[2]
    QUASILOCALMEASURES::qlm_adm_momentum_x[3]
@@ -1396,73 +1396,66 @@ INFO (CarpetIOASCII): Periodic 1D AMR output requested for:
    EMGEVOLVE::Bc
    LEANBSSNMOL::hc
    LEANBSSNMOL::mcx
-WARNING[L1,P0] (Cactus): Attempt to create a directory with an empty or NULL string
+   LEANBSSNMOL::mcy
+   LEANBSSNMOL::mcz
 WARNING[L1,P0] (Cactus): Attempt to create a directory with an empty or NULL string
 WARNING[L1,P0] (CarpetIOHDF5): Problem creating HDF5 output directory ''
-WARNING[L1,P51] (Cactus): Attempt to create a directory with an empty or NULL string
-WARNING[L1,P51] (CarpetIOHDF5): Problem creating HDF5 output directory ''
-WARNING[L1,P6] (Cactus): Attempt to create a directory with an empty or NULL string
-WARNING[L1,P6] (CarpetIOHDF5): Problem creating HDF5 output directory ''
-WARNING[L1,P14] (Cactus): Attempt to create a directory with an empty or NULL string
-WARNING[L1,P14] (CarpetIOHDF5): Problem creating HDF5 output directory ''
-WARNING[L1,P16] (Cactus): Attempt to create a directory with an empty or NULL string
-WARNING[L1,P22] (Cactus): Attempt to create a directory with an empty or NULL string
-WARNING[L1,P22] (CarpetIOHDF5): Problem creating HDF5 output directory ''
-WARNING[L1,P29] (Cactus): Attempt to create a directory with an empty or NULL string
-WARNING[L1,P29] (CarpetIOHDF5): Problem creating HDF5 output directory ''
-WARNING[L1,P31] (Cactus): Attempt to create a directory with an empty or NULL string
-WARNING[L1,P31] (CarpetIOHDF5): Problem creating HDF5 output directory ''
-WARNING[L1,P33] (Cactus): Attempt to create a directory with an empty or NULL string
-WARNING[L1,P33] (CarpetIOHDF5): Problem creating HDF5 output directory ''
-WARNING[L1,P36] (Cactus): Attempt to create a directory with an empty or NULL string
-WARNING[L1,P36] (CarpetIOHDF5): Problem creating HDF5 output directory ''
-WARNING[L1,P37] (Cactus): Attempt to create a directory with an empty or NULL string
-WARNING[L1,P37] (CarpetIOHDF5): Problem creating HDF5 output directory ''
-WARNING[L1,P38] (Cactus): Attempt to create a directory with an empty or NULL string
-WARNING[L1,P38] (CarpetIOHDF5): Problem creating HDF5 output directory ''
-WARNING[L1,P39] (Cactus): Attempt to create a directory with an empty or NULL string
-WARNING[L1,P39] (CarpetIOHDF5): Problem creating HDF5 output directory ''
-WARNING[L1,P41] (Cactus): Attempt to create a directory with an empty or NULL string
-WARNING[L1,P41] (CarpetIOHDF5): Problem creating HDF5 output directory ''
-WARNING[L1,P44] (Cactus): Attempt to create a directory with an empty or NULL string
-WARNING[L1,P44] (CarpetIOHDF5): Problem creating HDF5 output directory ''
-WARNING[L1,P45] (Cactus): Attempt to create a directory with an empty or NULL string
-WARNING[L1,P45] (CarpetIOHDF5): Problem creating HDF5 output directory ''
-WARNING[L1,P53] (Cactus): Attempt to create a directory with an empty or NULL string
-WARNING[L1,P53] (CarpetIOHDF5): Problem creating HDF5 output directory ''
-WARNING[L1,P55] (Cactus): Attempt to create a directory with an empty or NULL string
-WARNING[L1,P55] (CarpetIOHDF5): Problem creating HDF5 output directory ''
-WARNING[L1,P56] (Cactus): Attempt to create a directory with an empty or NULL string
-WARNING[L1,P56] (CarpetIOHDF5): Problem creating HDF5 output directory ''
-WARNING[L1,P57] (Cactus): Attempt to create a directory with an empty or NULL string
-WARNING[L1,P58] (Cactus): Attempt to create a directory with an empty or NULL string
-WARNING[L1,P58] (CarpetIOHDF5): Problem creating HDF5 output directory ''
-WARNING[L1,P59] (Cactus): Attempt to create a directory with an empty or NULL string
-WARNING[L1,P59] (CarpetIOHDF5): Problem creating HDF5 output directory ''
-WARNING[L1,P60] (Cactus): Attempt to create a directory with an empty or NULL string
-WARNING[L1,P60] (CarpetIOHDF5): Problem creating HDF5 output directory ''
-WARNING[L1,P61] (Cactus): Attempt to create a directory with an empty or NULL string
-WARNING[L1,P61] (CarpetIOHDF5): Problem creating HDF5 output directory ''
-WARNING[L1,P62] (Cactus): Attempt to create a directory with an empty or NULL string
-WARNING[L1,P62] (CarpetIOHDF5): Problem creating HDF5 output directory ''
-WARNING[L1,P63] (Cactus): Attempt to create a directory with an empty or NULL string
-WARNING[L1,P63] (CarpetIOHDF5): Problem creating HDF5 output directory ''
-WARNING[L1,P1] (Cactus): Attempt to create a directory with an empty or NULL string
-WARNING[L1,P1] (CarpetIOHDF5): Problem creating HDF5 output directory ''
-WARNING[L1,P2] (Cactus): Attempt to create a directory with an empty or NULL string
-WARNING[L1,P2] (CarpetIOHDF5): Problem creating HDF5 output directory ''
-WARNING[L1,P3] (Cactus): Attempt to create a directory with an empty or NULL string
-WARNING[L1,P3] (CarpetIOHDF5): Problem creating HDF5 output directory ''
-WARNING[L1,P4] (Cactus): Attempt to create a directory with an empty or NULL string
-WARNING[L1,P4] (CarpetIOHDF5): Problem creating HDF5 output directory ''
 WARNING[L1,P5] (Cactus): Attempt to create a directory with an empty or NULL string
 WARNING[L1,P5] (CarpetIOHDF5): Problem creating HDF5 output directory ''
-WARNING[L1,P7] (Cactus): Attempt to create a directory with an empty or NULL string
-WARNING[L1,P7] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P20] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P20] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P21] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P21] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P32] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P32] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P36] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P36] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P57] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P57] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P62] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P62] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P68] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P68] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P76] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P76] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P78] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P78] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P80] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P80] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P92] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P92] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P101] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P101] (CarpetIOHDF5): Problem creating HDF5 output directory ''
 WARNING[L1,P8] (Cactus): Attempt to create a directory with an empty or NULL string
 WARNING[L1,P8] (CarpetIOHDF5): Problem creating HDF5 output directory ''
-WARNING[L1,P9] (Cactus): Attempt to create a directory with an empty or NULL string
-WARNING[L1,P9] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P64] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P64] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P100] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P100] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P14] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P14] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P31] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P31] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P45] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P45] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P81] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P81] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P89] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P89] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P95] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P95] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P110] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P110] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P118] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P118] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P1] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P1] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P3] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P3] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P6] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P6] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P7] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P7] (CarpetIOHDF5): Problem creating HDF5 output directory ''
 WARNING[L1,P10] (Cactus): Attempt to create a directory with an empty or NULL string
 WARNING[L1,P10] (CarpetIOHDF5): Problem creating HDF5 output directory ''
 WARNING[L1,P11] (Cactus): Attempt to create a directory with an empty or NULL string
@@ -1473,6 +1466,7 @@ WARNING[L1,P13] (Cactus): Attempt to create a directory with an empty or NULL st
 WARNING[L1,P13] (CarpetIOHDF5): Problem creating HDF5 output directory ''
 WARNING[L1,P15] (Cactus): Attempt to create a directory with an empty or NULL string
 WARNING[L1,P15] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P16] (Cactus): Attempt to create a directory with an empty or NULL string
 WARNING[L1,P16] (CarpetIOHDF5): Problem creating HDF5 output directory ''
 WARNING[L1,P17] (Cactus): Attempt to create a directory with an empty or NULL string
 WARNING[L1,P17] (CarpetIOHDF5): Problem creating HDF5 output directory ''
@@ -1480,14 +1474,10 @@ WARNING[L1,P18] (Cactus): Attempt to create a directory with an empty or NULL st
 WARNING[L1,P18] (CarpetIOHDF5): Problem creating HDF5 output directory ''
 WARNING[L1,P19] (Cactus): Attempt to create a directory with an empty or NULL string
 WARNING[L1,P19] (CarpetIOHDF5): Problem creating HDF5 output directory ''
-WARNING[L1,P20] (Cactus): Attempt to create a directory with an empty or NULL string
-WARNING[L1,P20] (CarpetIOHDF5): Problem creating HDF5 output directory ''
-WARNING[L1,P21] (Cactus): Attempt to create a directory with an empty or NULL string
-WARNING[L1,P21] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P22] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P22] (CarpetIOHDF5): Problem creating HDF5 output directory ''
 WARNING[L1,P23] (Cactus): Attempt to create a directory with an empty or NULL string
 WARNING[L1,P23] (CarpetIOHDF5): Problem creating HDF5 output directory ''
-WARNING[L1,P24] (Cactus): Attempt to create a directory with an empty or NULL string
-WARNING[L1,P24] (CarpetIOHDF5): Problem creating HDF5 output directory ''
 WARNING[L1,P25] (Cactus): Attempt to create a directory with an empty or NULL string
 WARNING[L1,P25] (CarpetIOHDF5): Problem creating HDF5 output directory ''
 WARNING[L1,P26] (Cactus): Attempt to create a directory with an empty or NULL string
@@ -1498,35 +1488,172 @@ WARNING[L1,P28] (Cactus): Attempt to create a directory with an empty or NULL st
 WARNING[L1,P28] (CarpetIOHDF5): Problem creating HDF5 output directory ''
 WARNING[L1,P30] (Cactus): Attempt to create a directory with an empty or NULL string
 WARNING[L1,P30] (CarpetIOHDF5): Problem creating HDF5 output directory ''
-WARNING[L1,P32] (Cactus): Attempt to create a directory with an empty or NULL string
-WARNING[L1,P32] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P33] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P33] (CarpetIOHDF5): Problem creating HDF5 output directory ''
 WARNING[L1,P34] (Cactus): Attempt to create a directory with an empty or NULL string
 WARNING[L1,P34] (CarpetIOHDF5): Problem creating HDF5 output directory ''
 WARNING[L1,P35] (Cactus): Attempt to create a directory with an empty or NULL string
 WARNING[L1,P35] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P37] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P37] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P38] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P38] (CarpetIOHDF5): Problem creating HDF5 output directory ''
 WARNING[L1,P40] (Cactus): Attempt to create a directory with an empty or NULL string
 WARNING[L1,P40] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P41] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P41] (CarpetIOHDF5): Problem creating HDF5 output directory ''
 WARNING[L1,P42] (Cactus): Attempt to create a directory with an empty or NULL string
 WARNING[L1,P42] (CarpetIOHDF5): Problem creating HDF5 output directory ''
 WARNING[L1,P43] (Cactus): Attempt to create a directory with an empty or NULL string
 WARNING[L1,P43] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P44] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P44] (CarpetIOHDF5): Problem creating HDF5 output directory ''
 WARNING[L1,P46] (Cactus): Attempt to create a directory with an empty or NULL string
 WARNING[L1,P46] (CarpetIOHDF5): Problem creating HDF5 output directory ''
-WARNING[L1,P47] (Cactus): Attempt to create a directory with an empty or NULL string
-WARNING[L1,P47] (CarpetIOHDF5): Problem creating HDF5 output directory ''
 WARNING[L1,P48] (Cactus): Attempt to create a directory with an empty or NULL string
 WARNING[L1,P48] (CarpetIOHDF5): Problem creating HDF5 output directory ''
-WARNING[L1,P49] (Cactus): Attempt to create a directory with an empty or NULL string
-WARNING[L1,P49] (CarpetIOHDF5): Problem creating HDF5 output directory ''
 WARNING[L1,P50] (Cactus): Attempt to create a directory with an empty or NULL string
 WARNING[L1,P50] (CarpetIOHDF5): Problem creating HDF5 output directory ''
-WARNING[L1,P52] (Cactus): Attempt to create a directory with an empty or NULL string
-WARNING[L1,P52] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P51] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P51] (CarpetIOHDF5): Problem creating HDF5 output directory ''
 WARNING[L1,P54] (Cactus): Attempt to create a directory with an empty or NULL string
 WARNING[L1,P54] (CarpetIOHDF5): Problem creating HDF5 output directory ''
-WARNING[L1,P57] (CarpetIOHDF5): Problem creating HDF5 output directory ''
-   LEANBSSNMOL::mcy
-   LEANBSSNMOL::mcz
+WARNING[L1,P58] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P58] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P59] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P59] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P61] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P61] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P63] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P63] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P65] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P65] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P66] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P66] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P67] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P67] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P69] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P69] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P70] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P70] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P73] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P73] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P74] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P74] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P75] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P75] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P77] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P77] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P79] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P79] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P82] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P82] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P84] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P84] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P85] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P85] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P88] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P88] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P90] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P90] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P91] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P91] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P93] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P93] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P94] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P94] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P96] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P96] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P97] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P97] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P98] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P98] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P99] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P99] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P102] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P102] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P103] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P103] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P104] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P104] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P105] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P105] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P106] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P106] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P107] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P107] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P108] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P108] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P109] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P109] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P111] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P111] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P112] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P112] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P113] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P113] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P114] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P114] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P115] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P115] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P116] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P116] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P119] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P119] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P120] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P120] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P121] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P121] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P122] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P122] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P123] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P123] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P124] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P124] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P125] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P125] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P126] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P126] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P2] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P2] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P4] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P4] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P9] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P9] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P24] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P24] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P29] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P29] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P39] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P39] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P47] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P47] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P49] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P49] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P52] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P52] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P53] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P53] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P55] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P55] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P56] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P56] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P60] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P60] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P71] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P71] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P72] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P72] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P83] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P83] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P86] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P86] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P87] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P87] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P117] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P117] (CarpetIOHDF5): Problem creating HDF5 output directory ''
+WARNING[L1,P127] (Cactus): Attempt to create a directory with an empty or NULL string
+WARNING[L1,P127] (CarpetIOHDF5): Problem creating HDF5 output directory ''
 INFO (CarpetIOASCII): I/O Method 'IOASCII_2D' registered: 2D AMR output of grid variables to ASCII files
 INFO (CarpetIOASCII): I/O Method 'IOASCII_3D' registered: 3D AMR output of grid variables to ASCII files
 INFO (CarpetIOHDF5): I/O Method 'IOHDF5' registered: AMR output of grid variables to HDF5 files
@@ -1585,19 +1712,19 @@ INFO (Carpet): Grid structure (superregions, coordinates):
    [7][0][1]   exterior: [8.7890625,-1.21875,-1.21875] : [11.203125,1.21875,1.21875] : [0.0234375,0.0234375,0.0234375]
 INFO (Carpet): There are not enough time levels for the desired temporal prolongation order in the grid function group "EMGINIT::U".  With Carpet::prolongation_order_time=2, you need at least 3 time levels.
 INFO (Carpet): Global grid structure statistics:
-INFO (Carpet): GF: rhs: 1613k active, 2579k owned (+60%), 4164k total (+61%), 128 steps/time
-INFO (Carpet): GF: vars: 247, pts: 12419M active, 14135M owned (+14%), 19158M total (+36%), 1.0 comp/proc
-INFO (Carpet): GA: vars: 1656, pts: 218M active, 218M total (+0%)
-INFO (Carpet): Total required memory: 155.012 GByte (for GAs and currently active GFs)
+INFO (Carpet): GF: rhs: 1613k active, 2579k owned (+60%), 4655k total (+80%), 128 steps/time
+INFO (Carpet): GF: vars: 247, pts: 12419M active, 14135M owned (+14%), 20674M total (+46%), 1.0 comp/proc
+INFO (Carpet): GA: vars: 1656, pts: 436M active, 436M total (+0%)
+INFO (Carpet): Total required memory: 169.467 GByte (for GAs and currently active GFs)
 INFO (Carpet): Load balance:  min     avg     max     sdv     max/avg-1
-INFO (Carpet): Level  0:     136M    145M    157M      5M owned      8%
-INFO (Carpet): Level  1:      27M     28M     29M      0M owned      3%
-INFO (Carpet): Level  2:       5M      6M      6M      0M owned      5%
-INFO (Carpet): Level  3:       6M      7M      7M      0M owned      4%
-INFO (Carpet): Level  4:       9M      9M      9M      0M owned      5%
-INFO (Carpet): Level  5:       9M      9M      9M      0M owned      5%
-INFO (Carpet): Level  6:       9M      9M      9M      0M owned      5%
-INFO (Carpet): Level  7:       9M      9M      9M      0M owned      5%
+INFO (Carpet): Level  0:      65M     73M     78M      3M owned      7%
+INFO (Carpet): Level  1:      14M     14M     15M      0M owned      4%
+INFO (Carpet): Level  2:       3M      3M      3M      0M owned      5%
+INFO (Carpet): Level  3:       3M      3M      4M      0M owned     10%
+INFO (Carpet): Level  4:       4M      4M      5M      0M owned      4%
+INFO (Carpet): Level  5:       4M      4M      5M      0M owned      7%
+INFO (Carpet): Level  6:       4M      4M      5M      0M owned      7%
+INFO (Carpet): Level  7:       4M      4M      5M      0M owned      7%
 INFO (CartGrid3D): Grid Spacings:
 INFO (CartGrid3D): dx=>3.0000000e+00  dy=>3.0000000e+00  dz=>3.0000000e+00
 INFO (CartGrid3D): Computational Coordinates:
@@ -1605,7 +1732,7 @@ INFO (CartGrid3D): x=>[-510.000,510.000]  y=>[-510.000,510.000]  z=>[-510.000,51
 INFO (CartGrid3D): Indices of Physical Coordinates:
 INFO (CartGrid3D): x=>[0,340]  y=>[0,340]  z=>[0,340]
 INFO (AHFinderDirect): setting up AHFinderDirect data structures
-INFO (AHFinderDirect):            to search for 6 horizons on 64 processors
+INFO (AHFinderDirect):            to search for 6 horizons on 128 processors
 INFO (AHFinderDirect):       constructing full sphere patch system
 INFO (AHFinderDirect):                    at origin (10.001,0,0)
 INFO (AHFinderDirect):                    with 18 angular zones per right angle
@@ -1633,6 +1760,7 @@ INFO (AHFinderDirect):       ==> 2166 nominal, 3174 ghosted angular grid points
 INFO (TerminationTrigger): Reminding you every 0 minutes about remaining walltime
 INFO (Time): Timestep set to 0.75 (courant_static)
 INFO (VTUInterp): read '/home/jpmferreira/projects/cactus/repos/EMG/EMGInit/etc/k=1_t=0.5,0.25_alpha-minus=-0.5pi_x0=10_QuasiCircular_NoSpin.pvtu' from disk (481300 cells, 30803200 points)
+INFO (VTUInterp): keeping '/home/jpmferreira/projects/cactus/repos/EMG/EMGInit/etc/k=1_t=0.5,0.25_alpha-minus=-0.5pi_x0=10_QuasiCircular_NoSpin.pvtu' in memory shared by the processes of each node (1179.2 MB per node)
 INFO (NRInitialDataVTU): filled 'EMGInit::u' (1 component(s)) from field 'u'
 INFO (QuasiLocalMeasures): Initialising Quasi-Local Measure calculations
 INFO (TerminationTrigger): Reminding you every 0 minutes about remaining walltime
@@ -1657,345 +1785,345 @@ INFO (TerminationTrigger): Reminding you every 0 minutes about remaining walltim
 INFO (Time): Timestep set to 0.0117188 (courant_static)
 INFO (NRInitialDataVTU): filled 'EMGInit::u' (1 component(s)) from field 'u'
 INFO (AHFinderDirect): proc 0: searching for horizon 1/6
-INFO (AHFinderDirect): AH 5/6: r=357.989 at (-0.022439,0.000043,0.000018)
-INFO (AHFinderDirect): AH 5/6: area=1628695.425 m_irreducible=180.0051831
-INFO (AHFinderDirect): AH 6/6: r=477.987 at (-0.022113,-0.000009,0.000032)
-INFO (AHFinderDirect): AH 6/6: area=2895382.79 m_irreducible=240.0037716
-INFO (AHFinderDirect): AH 3/6: r=157.976 at (-0.024257,0.000000,0.000000)
-INFO (AHFinderDirect): AH 3/6: area=321700.2901 m_irreducible=80.00014951
-INFO (AHFinderDirect): AH 4/6: r=197.977 at (-0.023472,-0.000000,0.000000)
-INFO (AHFinderDirect): AH 4/6: area=502655.7678 m_irreducible=100.0000938
-INFO (AHFinderDirect): AH 2/6: r=0.470951 at (-10.000944,0.003031,-0.000000)
-INFO (AHFinderDirect): AH 2/6: area=51.3776679 m_irreducible=1.011002585
-INFO (AHFinderDirect): AH 1/6: r=0.421032 at (10.000963,-0.002757,0.000000)
-INFO (AHFinderDirect): AH 1/6: area=45.9608187 m_irreducible=0.9562224822
+INFO (AHFinderDirect): AH 5/6: r=357.981 at (-0.022337,0.000010,0.000038)
+INFO (AHFinderDirect): AH 5/6: area=1628696.259 m_irreducible=180.0052293
+INFO (AHFinderDirect): AH 6/6: r=477.979 at (-0.021987,-0.000059,-0.000070)
+INFO (AHFinderDirect): AH 6/6: area=2895383.614 m_irreducible=240.0038058
+INFO (AHFinderDirect): AH 3/6: r=157.967 at (-0.024143,0.000000,0.000001)
+INFO (AHFinderDirect): AH 3/6: area=321700.3059 m_irreducible=80.00015147
+INFO (AHFinderDirect): AH 4/6: r=197.968 at (-0.023361,0.000000,0.000000)
+INFO (AHFinderDirect): AH 4/6: area=502655.7803 m_irreducible=100.0000951
+INFO (AHFinderDirect): AH 2/6: r=0.470474 at (-10.000961,0.003486,-0.000000)
+INFO (AHFinderDirect): AH 2/6: area=51.48672073 m_irreducible=1.012074979
+INFO (AHFinderDirect): AH 1/6: r=0.420566 at (10.000979,-0.003170,0.000000)
+INFO (AHFinderDirect): AH 1/6: area=46.05642289 m_irreducible=0.9572164962
 INFO (QuasiLocalMeasures): Calculating quasi-local quantities for surface    0
 INFO (QuasiLocalMeasures): Importing from spherical surface    0
 INFO (QuasiLocalMeasures): Geometric quantities for surface    0:
-INFO (QuasiLocalMeasures):    Area A:                            45.9607
-INFO (QuasiLocalMeasures):    Irreducible mass M = R/2:         0.956222
-INFO (QuasiLocalMeasures):    Areal radius R = sqrt(A/4pi):      1.91244
+INFO (QuasiLocalMeasures):    Area A:                            46.0563
+INFO (QuasiLocalMeasures):    Irreducible mass M = R/2:         0.957216
+INFO (QuasiLocalMeasures):    Areal radius R = sqrt(A/4pi):      1.91443
 INFO (QuasiLocalMeasures): Coordinate-dependent quantities for surface    0:
-INFO (QuasiLocalMeasures):    Equatorial circumference:             12.0172
-INFO (QuasiLocalMeasures):    Polar circumference at phi=0:         12.0108
-INFO (QuasiLocalMeasures):    Polar circumference at phi=pi/2:      12.0167
-INFO (QuasiLocalMeasures):    Spin guess J from distortion:        0.225730E-01
-INFO (QuasiLocalMeasures):    Mass guess M from distortion:        0.956294
+INFO (QuasiLocalMeasures):    Equatorial circumference:             12.0299
+INFO (QuasiLocalMeasures):    Polar circumference at phi=0:         12.0227
+INFO (QuasiLocalMeasures):    Polar circumference at phi=pi/2:      12.0295
+INFO (QuasiLocalMeasures):    Spin guess J from distortion:        0.259543E-01
+INFO (QuasiLocalMeasures):    Mass guess M from distortion:        0.957312
 INFO (QuasiLocalMeasures): Isolated Horizon quantities for surface    0:
 INFO (QuasiLocalMeasures):    Killing vector field eigenvalue norm:      1.00001
-INFO (QuasiLocalMeasures):    Spin J:                                  -0.793732E-06
-INFO (QuasiLocalMeasures):    Kerr spin parameter a = J/M:             -0.830072E-06
-INFO (QuasiLocalMeasures):    Dimensionless spin parameter a = J/M^2:  -0.868074E-06
-INFO (QuasiLocalMeasures):    Spin J from NP:                          -0.824356E-04
+INFO (QuasiLocalMeasures):    Spin J:                                  -0.895501E-06
+INFO (QuasiLocalMeasures):    Kerr spin parameter a = J/M:             -0.935527E-06
+INFO (QuasiLocalMeasures):    Dimensionless spin parameter a = J/M^2:  -0.977342E-06
+INFO (QuasiLocalMeasures):    Spin J from NP:                          -0.954187E-04
 INFO (QuasiLocalMeasures):    Spin J from phi-coordinate-vector:         0.00000
-INFO (QuasiLocalMeasures):    Mass M:                                   0.956222
+INFO (QuasiLocalMeasures):    Mass M:                                   0.957216
 INFO (QuasiLocalMeasures): Global quantities for surface    0:
-INFO (QuasiLocalMeasures):    ADM energy:                 -19.6058
-INFO (QuasiLocalMeasures):    ADM momentum x:            -0.846068E-04
-INFO (QuasiLocalMeasures):    ADM momentum y:             0.808445E-02
-INFO (QuasiLocalMeasures):    ADM momentum z:             0.835791E-07
-INFO (QuasiLocalMeasures):    ADM angular momentum x:    -0.893891E-06
-INFO (QuasiLocalMeasures):    ADM angular momentum y:    -0.835663E-06
-INFO (QuasiLocalMeasures):    ADM angular momentum z:     0.808543E-01
-INFO (QuasiLocalMeasures):    Weinberg energy:                  39.4779
-INFO (QuasiLocalMeasures):    Weinberg momentum x:            -0.174507E-02
-INFO (QuasiLocalMeasures):    Weinberg momentum y:             0.166711
-INFO (QuasiLocalMeasures):    Weinberg momentum z:             0.861291E-06
-INFO (QuasiLocalMeasures):    Weinberg angular momentum x:    -0.184653E-04
-INFO (QuasiLocalMeasures):    Weinberg angular momentum y:    -0.860939E-05
-INFO (QuasiLocalMeasures):    Weinberg angular momentum z:      1.66728
+INFO (QuasiLocalMeasures):    ADM energy:                 -19.7150
+INFO (QuasiLocalMeasures):    ADM momentum x:            -0.130864E-03
+INFO (QuasiLocalMeasures):    ADM momentum y:             0.929609E-02
+INFO (QuasiLocalMeasures):    ADM momentum z:             0.957140E-07
+INFO (QuasiLocalMeasures):    ADM angular momentum x:    -0.887673E-06
+INFO (QuasiLocalMeasures):    ADM angular momentum y:    -0.956984E-06
+INFO (QuasiLocalMeasures):    ADM angular momentum z:     0.929722E-01
+INFO (QuasiLocalMeasures):    Weinberg energy:                  39.6953
+INFO (QuasiLocalMeasures):    Weinberg momentum x:            -0.271038E-02
+INFO (QuasiLocalMeasures):    Weinberg momentum y:             0.192502
+INFO (QuasiLocalMeasures):    Weinberg momentum z:             0.990323E-06
+INFO (QuasiLocalMeasures):    Weinberg angular momentum x:    -0.184258E-04
+INFO (QuasiLocalMeasures):    Weinberg angular momentum y:    -0.989923E-05
+INFO (QuasiLocalMeasures):    Weinberg angular momentum z:      1.92521
 ------------------------------------------------------------------------------------
 Iteration      Time | *me_per_hour |     LEANBSSNMOL::conf_fac | *TISTICS::maxrss_mb
                     |              |      minimum      maximum |   minimum   maximum
 ------------------------------------------------------------------------------------
-        0     0.000 |    0.0000000 |    0.0001922    0.9976914 |      2519      3551
+        0     0.000 |    0.0000000 |    0.0001922    0.9976816 |      1476      1872
 INFO (Carpet): Terminating due to cctk_final_time at t = 0.000000
 INFO (TimerReport): Timer Report before terminating at iteration 0 time 0
 INFO (TimerReport): Top timers at iteration 0 time 0
 ======================================================================
     %    Time/s   Min/s   Max/s   Timer (gettimeofday)
 ======================================================================
-100.0   79.0700 79.0632 79.0749   main/Initialise
- 99.9   79.0216 79.0063 79.0288   meta mode/meta mode/global mode
- 73.1   57.7667 56.1932 59.3382   main/Initialise/CallInitial
- 62.3   49.2980 46.0343 52.7505   main/Initialise/CallInitial/CCTK_INITIAL
- 62.3   49.2970 46.0332 52.7496   main/Initialise/CallInitial/CCTK_INITIAL/CallFunction
- 51.0   40.3109 36.3284 45.5286   main/Initialise/CallInitial/CCTK_INITIAL/CallFunction/thorns
- 29.9   23.6192 23.0804 23.7994   [0106] NRInitialDataVTU: NRInitialDataVTU_Open in CCTK_INITIAL
- 29.9   23.6191 23.0798 23.7993   main/Initialise/CallInitial/CCTK_INITIAL/CallFunction/thorns/NRInitialDataVTU_Open
- 20.5   16.2414 16.0513 16.6469   meta mode/meta mode/global mode/level(0)
- 19.2   15.1657 11.2563 20.2990   [0107] NRInitialDataVTU: NRInitialDataVTU_Fill in CCTK_INITIAL
- 19.2   15.1637 11.2497 20.2917   main/Initialise/CallInitial/CCTK_INITIAL/CallFunction/thorns/NRInitialDataVTU_Fill
- 16.5   13.0199 12.9362 13.0536   main/Initialise/CallAnalysis
- 11.4    8.9789  4.4592 14.9384   [0110] LeanBSSNMoL: LeanBSSN_Boundaries in CCTK_INITIAL
- 11.4    8.9785  4.4589 14.9381   main/Initialise/CallInitial/CCTK_INITIAL/CallFunction/syncs
-  9.3    7.3454  7.2416  7.4700   main/Initialise/CallAnalysis/OutputGH
-  9.3    7.3454  7.2416  7.4700   main/Initialise/CallAnalysis/OutputGH/OutputGH
-  9.2    7.2916  7.1920  7.4255   main/Initialise/CallAnalysis/OutputGH/OutputGH/IOASCII::IOASCII_1D [2]
-  9.2    7.2915  7.1919  7.4255   main/Initialise/CallAnalysis/OutputGH/OutputGH/IOASCII::IOASCII_1D [2]/OutputGH<1>
-  8.0    6.3216  4.4584  8.0130   main/Initialise/CallInitial/CCTK_POSTINITIAL
-  8.0    6.3202  4.4571  8.0117   main/Initialise/CallInitial/CCTK_POSTINITIAL/CallFunction
-  7.2    5.6681  5.5426  5.7797   main/Initialise/CallAnalysis/CCTK_ANALYSIS
-  7.1    5.6507  5.4492  5.7664   main/Initialise/CallAnalysis/CCTK_ANALYSIS/CallFunction
-  7.0    5.5724  4.9174  8.4499   meta mode/meta mode/global mode/level(1)
-  6.8    5.4079  5.3793  5.4779   meta mode/meta mode/global mode/level(4)
-  6.3    4.9543  4.4532  5.4519   meta mode/meta mode/global mode/level(5)
-  6.1    4.8602  1.8337  9.7763   main/Initialise/CallInitial/CCTK_INITIAL/CallFunction/syncs/Prolongate
-  6.1    4.8298  4.6224  5.0300   main/Initialise/CallAnalysis/CCTK_ANALYSIS/CallFunction/thorns
-  6.1    4.7939  4.6865  4.8820   main/Initialise/CallPostInitial
-  6.0    4.7682  4.6585  4.8544   main/Initialise/CallPostInitial/CCTK_POSTSTEP
-  6.0    4.7677  4.6580  4.8539   main/Initialise/CallPostInitial/CCTK_POSTSTEP/CallFunction
-  6.0    4.7419  4.6392  4.8308   main/Initialise/CallPostInitial/CCTK_POSTSTEP/CallFunction/thorns
-  5.9    4.6590  3.9774  5.2723   meta mode/meta mode/global mode/level(7)
-  5.7    4.5315  4.0720  4.9724   meta mode/meta mode/global mode/level(6)
-  5.6    4.4242  4.3502  4.4998   [0149] AHFinderDirect: AHFinderDirect_find_horizons in CCTK_POSTSTEP
-  5.6    4.4241  4.3501  4.4997   main/Initialise/CallPostInitial/CCTK_POSTSTEP/CallFunction/thorns/AHFinderDirect_find_horizons
-  5.2    4.1182  1.2513  8.2278   main/Initialise/CallInitial/CCTK_INITIAL/CallFunction/syncs/Sync
-  5.2    4.1066  1.2454  8.2225   main/Initialise/CallInitial/CCTK_INITIAL/CallFunction/syncs/Sync/comm_state[6].state_do_some_work.step
-  5.1    4.0379  3.6738  6.8436   meta mode/meta mode/global mode/level(3)
-  4.7    3.7444  0.0004  7.3166   main/Initialise/CallInitial/CCTK_INITIAL/CallFunction/syncs/Prolongate/comm_state[6].state_do_some_work.step
-  4.4    3.4605  1.8243  5.0971   main/Initialise/CallRestrict
+100.0   102.714 102.704 102.722   main/Initialise
+ 99.9   102.622 102.599 102.633   meta mode/meta mode/global mode
+ 71.4    73.310  70.762  75.848   main/Initialise/CallInitial
+ 60.8    62.405  57.180  67.524   main/Initialise/CallInitial/CCTK_INITIAL
+ 60.8    62.404  57.179  67.524   main/Initialise/CallInitial/CCTK_INITIAL/CallFunction
+ 47.1    48.375  41.741  56.913   main/Initialise/CallInitial/CCTK_INITIAL/CallFunction/thorns
+ 28.9    29.698  28.236  30.886   [0106] NRInitialDataVTU: NRInitialDataVTU_Open in CCTK_INITIAL
+ 28.9    29.698  28.236  30.886   main/Initialise/CallInitial/CCTK_INITIAL/CallFunction/thorns/NRInitialDataVTU_Open
+ 18.4    18.888  17.624  20.466   meta mode/meta mode/global mode/level(0)
+ 17.2    17.640  12.505  25.544   [0107] NRInitialDataVTU: NRInitialDataVTU_Fill in CCTK_INITIAL
+ 17.2    17.637  12.504  25.534   main/Initialise/CallInitial/CCTK_INITIAL/CallFunction/thorns/NRInitialDataVTU_Fill
+ 16.9    17.335  17.274  17.359   main/Initialise/CallAnalysis
+ 13.7    14.021   5.770  22.551   [0110] LeanBSSNMoL: LeanBSSN_Boundaries in CCTK_INITIAL
+ 13.6    14.020   5.770  22.551   main/Initialise/CallInitial/CCTK_INITIAL/CallFunction/syncs
+  9.8    10.042   9.752  10.158   main/Initialise/CallAnalysis/OutputGH
+  9.8    10.042   9.752  10.158   main/Initialise/CallAnalysis/OutputGH/OutputGH
+  9.7     9.986   9.442  10.121   main/Initialise/CallAnalysis/OutputGH/OutputGH/IOASCII::IOASCII_1D [2]
+  9.7     9.986   9.442  10.120   main/Initialise/CallAnalysis/OutputGH/OutputGH/IOASCII::IOASCII_1D [2]/OutputGH<1>
+  8.0     8.252   8.248   8.254   main/CarpetStartup
+  8.0     8.221   8.205   8.231   main/CarpetStartup/CarpetLib::gh::regrid
+  8.0     8.220   8.204   8.230   main/CarpetStartup/CarpetLib::gh::regrid/CarpetLib::dh::regrid
+  7.5     7.672   7.627   7.760   main/Initialise/CallPostInitial
+  7.1     7.290   2.441  15.555   main/Initialise/CallInitial/CCTK_INITIAL/CallFunction/syncs/Sync
+  7.1     7.286   7.141   7.517   main/Initialise/CallAnalysis/CCTK_ANALYSIS
+  7.1     7.284   2.436  15.548   main/Initialise/CallInitial/CCTK_INITIAL/CallFunction/syncs/Sync/comm_state[6].state_do_some_work.step
+  7.1     7.261   7.003   7.387   main/Initialise/CallAnalysis/CCTK_ANALYSIS/CallFunction
+  6.7     6.882   5.660  10.025   meta mode/meta mode/global mode/level(7)
+  6.6     6.792   4.206  11.450   main/Initialise/CallInitial/CCTK_POSTINITIAL
+  6.6     6.791   4.205  11.449   main/Initialise/CallInitial/CCTK_POSTINITIAL/CallFunction
+  6.6     6.731   0.521  13.101   main/Initialise/CallInitial/CCTK_INITIAL/CallFunction/syncs/Prolongate
+  6.4     6.589   6.321   6.753   main/Initialise/CallAnalysis/CCTK_ANALYSIS/CallFunction/thorns
+  6.3     6.462   6.429   6.503   meta mode/meta mode/global mode/level(4)
+  6.1     6.285   5.408   7.182   meta mode/meta mode/global mode/level(5)
+  6.1     6.260   5.262  10.542   meta mode/meta mode/global mode/level(1)
+  5.9     6.083   5.250   6.920   meta mode/meta mode/global mode/level(6)
+  5.3     5.428   0.001  11.383   main/Initialise/CallInitial/CCTK_INITIAL/CallFunction/syncs/Prolongate/comm_state[6].state_do_some_work.step
+  5.2     5.369   5.171   7.654   main/Initialise/CallPostInitial/CCTK_POSTSTEP
+  5.2     5.368   5.171   7.653   main/Initialise/CallPostInitial/CCTK_POSTSTEP/CallFunction
+  5.2     5.354   5.159   7.642   main/Initialise/CallPostInitial/CCTK_POSTSTEP/CallFunction/thorns
+  5.0     5.109   4.555   9.664   meta mode/meta mode/global mode/level(3)
 ======================================================================
 ==================================================================================================================================================================================================
 Thorn           | Scheduled routine in time bin           | gettimeofday [secs] | getrusage [secs] | cycle [secs] | cycle[avg] [secs] | cycle[sdv] [secs] | cycle[min] [secs] | cycle[max] [secs] 
 ==================================================================================================================================================================================================
-Carpet          | Multi-model Startup routine             |          0.01912600 |       0.01365100 |   0.00000000 |        0.00000000 |        0.00000000 |        0.00000000 |        0.00000000 
-CycleClock      | Set up CycleClock                       |          0.10108500 |       0.10193200 |   0.00002242 |        0.00002242 |        0.00000000 |        0.00002242 |        0.00002242 
-LoopControl     | Set up LoopControl                      |          0.00024600 |       0.00003800 |   0.00024646 |        0.00024646 |        0.00000000 |        0.00024646 |        0.00024646 
-Timers          | Prepare hierarchical timers             |          0.00055000 |       0.00000000 |   0.00055048 |        0.00055048 |        0.00000000 |        0.00055048 |        0.00055048 
-Carpet          | Startup routine                         |          0.00000100 |       0.00000000 |   0.00000175 |        0.00000175 |        0.00000000 |        0.00000175 |        0.00000175 
-IOUtil          | Startup routine                         |          0.00012200 |       0.00000000 |   0.00012174 |        0.00012174 |        0.00000000 |        0.00012174 |        0.00012174 
-CarpetIOScalar  | Startup routine                         |          0.00026900 |       0.00000000 |   0.00026845 |        0.00026845 |        0.00000000 |        0.00026845 |        0.00026845 
-CarpetInterp    | Startup routine                         |          0.00018100 |       0.00000700 |   0.00018170 |        0.00018170 |        0.00000000 |        0.00018170 |        0.00018170 
-CarpetReduce    | Startup routine                         |          0.00007600 |       0.00001400 |   0.00007620 |        0.00007620 |        0.00000000 |        0.00007620 |        0.00007620 
-CartGrid3D      | Register GH Extension for GridSymmetry  |          0.00000000 |       0.00000000 |   0.00000073 |        0.00000073 |        0.00000000 |        0.00000073 |        0.00000073 
-CoordBase       | Register a GH extension to store the coo|          0.00000100 |       0.00000000 |   0.00000064 |        0.00000064 |        0.00000000 |        0.00000064 |        0.00000064 
-AEILocalInterp  | register CCTK_InterpLocalUniform() inter|          0.00000200 |       0.00000000 |   0.00000178 |        0.00000178 |        0.00000000 |        0.00000178 |        0.00000178 
-EMGEvolve       | Register the masks for excision         |          0.00000300 |       0.00000100 |   0.00000320 |        0.00000320 |        0.00000000 |        0.00000320 |        0.00000320 
-CarpetIOASCII   | Startup routine                         |          0.00090000 |       0.00000000 |   0.00090052 |        0.00090052 |        0.00000000 |        0.00090052 |        0.00090052 
-LeanBSSNMoL     | Register slicing                        |          0.00006400 |       0.00000000 |   0.00006325 |        0.00006325 |        0.00000000 |        0.00006325 |        0.00006325 
-LocalInterp     | register LocalInterp's interpolation ope|          0.00000100 |       0.00000000 |   0.00000070 |        0.00000070 |        0.00000000 |        0.00000070 |        0.00000070 
-CarpetIOBasic   | Startup routine                         |          0.00006400 |       0.00000000 |   0.00006417 |        0.00006417 |        0.00000000 |        0.00006417 |        0.00006417 
-MoL             | Startup banner                          |          0.00021300 |       0.00001400 |   0.00021299 |        0.00021299 |        0.00000000 |        0.00021299 |        0.00021299 
-Slab            | Create MPI datatypes for complex variabl|          0.00017700 |       0.00003300 |   0.00017755 |        0.00017755 |        0.00000000 |        0.00017755 |        0.00017755 
-SymBase         | Register GH Extension for SymBase       |          0.00000200 |       0.00000100 |   0.00000211 |        0.00000211 |        0.00000000 |        0.00000211 |        0.00000211 
-TerminationTrigg| Start signal handler                    |          0.00008400 |       0.00001600 |   0.00008428 |        0.00008428 |        0.00000000 |        0.00008428 |        0.00008428 
-CarpetIOHDF5    | Startup routine                         |          0.00017000 |       0.00003200 |   0.00016983 |        0.00016983 |        0.00000000 |        0.00016983 |        0.00016983 
-Vectors         | Print startup message                   |          0.00002600 |       0.00000500 |   0.00002667 |        0.00002667 |        0.00000000 |        0.00002667 |        0.00002667 
-hwloc           | Output hwloc version                    |          0.00002800 |       0.00000500 |   0.00002835 |        0.00002835 |        0.00000000 |        0.00002835 |        0.00002835 
+Carpet          | Multi-model Startup routine             |          0.16829000 |       0.15212600 |   0.00000000 |        0.00000000 |        0.00000000 |        0.00000000 |        0.00000000 
+CycleClock      | Set up CycleClock                       |          0.10089700 |       0.09929700 |   0.00000150 |        0.00000150 |        0.00000000 |        0.00000150 |        0.00000150 
+LoopControl     | Set up LoopControl                      |          0.00000900 |       0.00000100 |   0.00000820 |        0.00000820 |        0.00000000 |        0.00000820 |        0.00000820 
+Timers          | Prepare hierarchical timers             |          0.00001200 |       0.00000100 |   0.00001170 |        0.00001170 |        0.00000000 |        0.00001170 |        0.00001170 
+Carpet          | Startup routine                         |          0.00000700 |       0.00000100 |   0.00000757 |        0.00000757 |        0.00000000 |        0.00000757 |        0.00000757 
+IOUtil          | Startup routine                         |          0.00002200 |       0.00000300 |   0.00002195 |        0.00002195 |        0.00000000 |        0.00002195 |        0.00002195 
+CarpetIOScalar  | Startup routine                         |          0.00002600 |       0.00000000 |   0.00002564 |        0.00002564 |        0.00000000 |        0.00002564 |        0.00002564 
+CarpetInterp    | Startup routine                         |          0.00000700 |       0.00000000 |   0.00000780 |        0.00000780 |        0.00000000 |        0.00000780 |        0.00000780 
+CarpetReduce    | Startup routine                         |          0.00003200 |       0.00000000 |   0.00003222 |        0.00003222 |        0.00000000 |        0.00003222 |        0.00003222 
+CartGrid3D      | Register GH Extension for GridSymmetry  |          0.00000100 |       0.00000000 |   0.00000109 |        0.00000109 |        0.00000000 |        0.00000109 |        0.00000109 
+CoordBase       | Register a GH extension to store the coo|          0.00000100 |       0.00000000 |   0.00000072 |        0.00000072 |        0.00000000 |        0.00000072 |        0.00000072 
+AEILocalInterp  | register CCTK_InterpLocalUniform() inter|          0.00001600 |       0.00000000 |   0.00001545 |        0.00001545 |        0.00000000 |        0.00001545 |        0.00001545 
+EMGEvolve       | Register the masks for excision         |          0.00000400 |       0.00000000 |   0.00000373 |        0.00000373 |        0.00000000 |        0.00000373 |        0.00000373 
+CarpetIOASCII   | Startup routine                         |          0.00013400 |       0.00000000 |   0.00013427 |        0.00013427 |        0.00000000 |        0.00013427 |        0.00013427 
+LeanBSSNMoL     | Register slicing                        |          0.00002900 |       0.00000000 |   0.00002893 |        0.00002893 |        0.00000000 |        0.00002893 |        0.00002893 
+LocalInterp     | register LocalInterp's interpolation ope|          0.00000100 |       0.00000000 |   0.00000080 |        0.00000080 |        0.00000000 |        0.00000080 |        0.00000080 
+CarpetIOBasic   | Startup routine                         |          0.00004600 |       0.00000000 |   0.00004597 |        0.00004597 |        0.00000000 |        0.00004597 |        0.00004597 
+MoL             | Startup banner                          |          0.00003300 |       0.00000000 |   0.00003389 |        0.00003389 |        0.00000000 |        0.00003389 |        0.00003389 
+Slab            | Create MPI datatypes for complex variabl|          0.00002800 |       0.00000000 |   0.00002802 |        0.00002802 |        0.00000000 |        0.00002802 |        0.00002802 
+SymBase         | Register GH Extension for SymBase       |          0.00000300 |       0.00000000 |   0.00000349 |        0.00000349 |        0.00000000 |        0.00000349 |        0.00000349 
+TerminationTrigg| Start signal handler                    |          0.00012400 |       0.00000000 |   0.00012407 |        0.00012407 |        0.00000000 |        0.00012407 |        0.00012407 
+CarpetIOHDF5    | Startup routine                         |          0.00039100 |       0.00000000 |   0.00039196 |        0.00039196 |        0.00000000 |        0.00039196 |        0.00039196 
+Vectors         | Print startup message                   |          0.00002100 |       0.00000000 |   0.00002138 |        0.00002138 |        0.00000000 |        0.00002138 |        0.00002138 
+hwloc           | Output hwloc version                    |          0.00004200 |       0.00000000 |   0.00004254 |        0.00004254 |        0.00000000 |        0.00004254 |        0.00004254 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-                | Total time for CCTK_STARTUP             |          0.12339100 |       0.11574900 |   0.00320597 |        0.00320597 |        0.00000000 |        0.00320597 |        0.00320597 
+                | Total time for CCTK_STARTUP             |          0.27017600 |       0.25142900 |   0.00099288 |        0.00099288 |        0.00000000 |        0.00099288 |        0.00099288 
 ==================================================================================================================================================================================================
-ADMBase         | Set up GF symmetries                    |          0.00005500 |       0.00002400 |   0.00005564 |        0.00005564 |        0.00000000 |        0.00005564 |        0.00005564 
-Boundary        | Register boundary conditions that this t|          0.00001200 |       0.00000500 |   0.00001215 |        0.00001215 |        0.00000000 |        0.00001215 |        0.00001215 
-CarpetRegrid2   | Initialise locations of refined regions |          0.00002600 |       0.00001100 |   0.00002613 |        0.00002613 |        0.00000000 |        0.00002613 |        0.00002613 
-CartGrid3D      | Register coordinates for the Cartesian g|          0.00009800 |       0.00004200 |   0.00009827 |        0.00009827 |        0.00000000 |        0.00009827 |        0.00009827 
-CoordGauge      | Initialize slicing, setup priorities for|          0.00000800 |       0.00000300 |   0.00000878 |        0.00000878 |        0.00000000 |        0.00000878 |        0.00000878 
-CoordGauge      | Identify the slicing for the next iterat|          0.00000500 |       0.00000300 |   0.00000545 |        0.00000545 |        0.00000000 |        0.00000545 |        0.00000545 
-MoL             | Set up the MoL bookkeeping index arrays |          0.00003000 |       0.00001300 |   0.00002926 |        0.00002926 |        0.00000000 |        0.00002926 |        0.00002926 
-MoL             | Set the flag so it is ok to register wit|          0.00001000 |       0.00000400 |   0.00001074 |        0.00001074 |        0.00000000 |        0.00001074 |        0.00001074 
-TmunuBase       | Set the stress_energy_state variable    |          0.00007500 |       0.00003200 |   0.00007489 |        0.00007489 |        0.00000000 |        0.00007489 |        0.00007489 
-EMGEvolve       | Register variables for MoL              |          0.00009200 |       0.00004000 |   0.00009202 |        0.00009202 |        0.00000000 |        0.00009202 |        0.00009202 
-LeanBSSNMoL     | Register variables for MoL              |          0.00011800 |       0.00010400 |   0.00011801 |        0.00011801 |        0.00000000 |        0.00011801 |        0.00011801 
-Slab            | Initialise timers                       |          0.00002700 |       0.00002700 |   0.00002709 |        0.00002709 |        0.00000000 |        0.00002709 |        0.00002709 
-SpaceMask       | Set grid symmetries for mask            |          0.00000700 |       0.00000700 |   0.00000658 |        0.00000658 |        0.00000000 |        0.00000658 |        0.00000658 
-SpaceMask       | Set grid symmetries for emask (compatibi|          0.00000700 |       0.00000700 |   0.00000625 |        0.00000625 |        0.00000000 |        0.00000625 |        0.00000625 
-CartGrid3D      | Register symmetry boundaries            |          0.00007200 |       0.00007200 |   0.00007178 |        0.00007178 |        0.00000000 |        0.00007178 |        0.00007178 
-ReflectionSymmet| Register reflection symmetry boundaries |          0.00001100 |       0.00001100 |   0.00001138 |        0.00001138 |        0.00000000 |        0.00001138 |        0.00001138 
-SymBase         | Print symmetry boundary face description|          0.00000600 |       0.00000500 |   0.00000521 |        0.00000521 |        0.00000000 |        0.00000521 |        0.00000521 
-MoL             | Report how many of each type of variable|          0.00007900 |       0.00007900 |   0.00007839 |        0.00007839 |        0.00000000 |        0.00007839 |        0.00007839 
+ADMBase         | Set up GF symmetries                    |          0.00003400 |       0.00002100 |   0.00003445 |        0.00003445 |        0.00000000 |        0.00003445 |        0.00003445 
+Boundary        | Register boundary conditions that this t|          0.00001300 |       0.00000800 |   0.00001285 |        0.00001285 |        0.00000000 |        0.00001285 |        0.00001285 
+CarpetRegrid2   | Initialise locations of refined regions |          0.00002400 |       0.00001400 |   0.00002353 |        0.00002353 |        0.00000000 |        0.00002353 |        0.00002353 
+CartGrid3D      | Register coordinates for the Cartesian g|          0.00011800 |       0.00007200 |   0.00011837 |        0.00011837 |        0.00000000 |        0.00011837 |        0.00011837 
+CoordGauge      | Initialize slicing, setup priorities for|          0.00001400 |       0.00000800 |   0.00001328 |        0.00001328 |        0.00000000 |        0.00001328 |        0.00001328 
+CoordGauge      | Identify the slicing for the next iterat|          0.00000700 |       0.00000400 |   0.00000675 |        0.00000675 |        0.00000000 |        0.00000675 |        0.00000675 
+MoL             | Set up the MoL bookkeeping index arrays |          0.00002700 |       0.00001700 |   0.00002724 |        0.00002724 |        0.00000000 |        0.00002724 |        0.00002724 
+MoL             | Set the flag so it is ok to register wit|          0.00000800 |       0.00000500 |   0.00000764 |        0.00000764 |        0.00000000 |        0.00000764 |        0.00000764 
+TmunuBase       | Set the stress_energy_state variable    |          0.00008800 |       0.00005400 |   0.00008768 |        0.00008768 |        0.00000000 |        0.00008768 |        0.00008768 
+EMGEvolve       | Register variables for MoL              |          0.00009900 |       0.00006000 |   0.00009909 |        0.00009909 |        0.00000000 |        0.00009909 |        0.00009909 
+LeanBSSNMoL     | Register variables for MoL              |          0.00014300 |       0.00011100 |   0.00014293 |        0.00014293 |        0.00000000 |        0.00014293 |        0.00014293 
+Slab            | Initialise timers                       |          0.00003200 |       0.00003100 |   0.00003169 |        0.00003169 |        0.00000000 |        0.00003169 |        0.00003169 
+SpaceMask       | Set grid symmetries for mask            |          0.00000800 |       0.00000900 |   0.00000860 |        0.00000860 |        0.00000000 |        0.00000860 |        0.00000860 
+SpaceMask       | Set grid symmetries for emask (compatibi|          0.00000800 |       0.00000800 |   0.00000775 |        0.00000775 |        0.00000000 |        0.00000775 |        0.00000775 
+CartGrid3D      | Register symmetry boundaries            |          0.00009200 |       0.00009200 |   0.00009179 |        0.00009179 |        0.00000000 |        0.00009179 |        0.00009179 
+ReflectionSymmet| Register reflection symmetry boundaries |          0.00001000 |       0.00001000 |   0.00000955 |        0.00000955 |        0.00000000 |        0.00000955 |        0.00000955 
+SymBase         | Print symmetry boundary face description|          0.00000700 |       0.00000700 |   0.00000677 |        0.00000677 |        0.00000000 |        0.00000677 |        0.00000677 
+MoL             | Report how many of each type of variable|          0.00009500 |       0.00009500 |   0.00009483 |        0.00009483 |        0.00000000 |        0.00009483 |        0.00009483 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-                | Total time for CCTK_WRAGH               |          0.00073800 |       0.00048900 |   0.00073800 |        0.00073800 |        0.00000000 |        0.00073800 |        0.00073800 
+                | Total time for CCTK_WRAGH               |          0.00082700 |       0.00062600 |   0.00082477 |        0.00082477 |        0.00000000 |        0.00082477 |        0.00082477 
 ==================================================================================================================================================================================================
-ADMBase         | Check consistency of parameters         |          0.00000800 |       0.00000800 |   0.00000801 |        0.00000801 |        0.00000000 |        0.00000801 |        0.00000801 
-Boundary        | Check dimension of grid variables       |          0.00000500 |       0.00000400 |   0.00000447 |        0.00000447 |        0.00000000 |        0.00000447 |        0.00000447 
-Carpet          | Parameter checking routine              |          0.00002700 |       0.00002700 |   0.00002690 |        0.00002690 |        0.00000000 |        0.00002690 |        0.00002690 
-CarpetLib       | Test prolongation operators             |          0.00002100 |       0.00002100 |   0.00002073 |        0.00002073 |        0.00000000 |        0.00002073 |        0.00002073 
-CarpetMask      | Check parameters                        |          0.00000700 |       0.00000700 |   0.00000674 |        0.00000674 |        0.00000000 |        0.00000674 |        0.00000674 
-CarpetRegrid2   | Check parameters                        |          0.00001600 |       0.00001600 |   0.00001592 |        0.00001592 |        0.00000000 |        0.00001592 |        0.00001592 
-CartGrid3D      | Check coordinates for CartGrid3D        |          0.00000800 |       0.00000800 |   0.00000782 |        0.00000782 |        0.00000000 |        0.00000782 |        0.00000782 
-Dissipation     | Check dissipation parameters for consist|          0.00000700 |       0.00000700 |   0.00000733 |        0.00000733 |        0.00000000 |        0.00000733 |        0.00000733 
-EMGInit         | Check parameters for EMG_Merger         |          0.00001000 |       0.00000900 |   0.00000951 |        0.00000951 |        0.00000000 |        0.00000951 |        0.00000951 
-Fortran         | Test whether Fortran parameters work cor|          0.00000600 |       0.00000600 |   0.00000547 |        0.00000547 |        0.00000000 |        0.00000547 |        0.00000547 
-LeanBSSNMoL     | Check Lean parameters for consistency   |          0.00000700 |       0.00000700 |   0.00000639 |        0.00000639 |        0.00000000 |        0.00000639 |        0.00000639 
-MoL             | Basic parameter checking                |          0.00000700 |       0.00000700 |   0.00000680 |        0.00000680 |        0.00000000 |        0.00000680 |        0.00000680 
-Multipole       | Check Multipole parameters              |          0.00000700 |       0.00000700 |   0.00000613 |        0.00000613 |        0.00000000 |        0.00000613 |        0.00000613 
-NPScalars       | Check NPScalars parameters for consisten|          0.00000500 |       0.00000500 |   0.00000522 |        0.00000522 |        0.00000000 |        0.00000522 |        0.00000522 
-NRInitialDataVTU| Check NRInitialDataVTU parameters for co|          0.00000600 |       0.00000600 |   0.00000665 |        0.00000665 |        0.00000000 |        0.00000665 |        0.00000665 
-QuasiLocalMeasur| Check quasi-local parameter settings    |          0.00118300 |       0.00117700 |   0.00118304 |        0.00118304 |        0.00000000 |        0.00118304 |        0.00118304 
-SphericalSurface| Check that all surface names are unique |          0.00000500 |       0.00000500 |   0.00000530 |        0.00000530 |        0.00000000 |        0.00000530 |        0.00000530 
-TerminationTrigg| Check consitency of parameters          |          0.00000500 |       0.00000500 |   0.00000490 |        0.00000490 |        0.00000000 |        0.00000490 |        0.00000490 
-TmunuBase       | Check that no deprecated parameters are |          0.00000500 |       0.00000500 |   0.00000483 |        0.00000483 |        0.00000000 |        0.00000483 |        0.00000483 
-Vectors         | Run correctness tests.                  |          0.00003900 |       0.00003800 |   0.00003821 |        0.00003821 |        0.00000000 |        0.00003821 |        0.00003821 
+ADMBase         | Check consistency of parameters         |          0.00001300 |       0.00001200 |   0.00001232 |        0.00001232 |        0.00000000 |        0.00001232 |        0.00001232 
+Boundary        | Check dimension of grid variables       |          0.00000600 |       0.00000600 |   0.00000573 |        0.00000573 |        0.00000000 |        0.00000573 |        0.00000573 
+Carpet          | Parameter checking routine              |          0.00002800 |       0.00002800 |   0.00002803 |        0.00002803 |        0.00000000 |        0.00002803 |        0.00002803 
+CarpetLib       | Test prolongation operators             |          0.00002200 |       0.00002100 |   0.00002144 |        0.00002144 |        0.00000000 |        0.00002144 |        0.00002144 
+CarpetMask      | Check parameters                        |          0.00000800 |       0.00000900 |   0.00000826 |        0.00000826 |        0.00000000 |        0.00000826 |        0.00000826 
+CarpetRegrid2   | Check parameters                        |          0.00003000 |       0.00003100 |   0.00003047 |        0.00003047 |        0.00000000 |        0.00003047 |        0.00003047 
+CartGrid3D      | Check coordinates for CartGrid3D        |          0.00001000 |       0.00001100 |   0.00001005 |        0.00001005 |        0.00000000 |        0.00001005 |        0.00001005 
+Dissipation     | Check dissipation parameters for consist|          0.00000800 |       0.00000900 |   0.00000830 |        0.00000830 |        0.00000000 |        0.00000830 |        0.00000830 
+EMGInit         | Check parameters for EMG_Merger         |          0.00001100 |       0.00001100 |   0.00001117 |        0.00001117 |        0.00000000 |        0.00001117 |        0.00001117 
+Fortran         | Test whether Fortran parameters work cor|          0.00000700 |       0.00000700 |   0.00000652 |        0.00000652 |        0.00000000 |        0.00000652 |        0.00000652 
+LeanBSSNMoL     | Check Lean parameters for consistency   |          0.00000600 |       0.00000600 |   0.00000613 |        0.00000613 |        0.00000000 |        0.00000613 |        0.00000613 
+MoL             | Basic parameter checking                |          0.00000800 |       0.00000900 |   0.00000824 |        0.00000824 |        0.00000000 |        0.00000824 |        0.00000824 
+Multipole       | Check Multipole parameters              |          0.00000800 |       0.00000700 |   0.00000721 |        0.00000721 |        0.00000000 |        0.00000721 |        0.00000721 
+NPScalars       | Check NPScalars parameters for consisten|          0.00000700 |       0.00000600 |   0.00000647 |        0.00000647 |        0.00000000 |        0.00000647 |        0.00000647 
+NRInitialDataVTU| Check NRInitialDataVTU parameters for co|          0.00000900 |       0.00000900 |   0.00000933 |        0.00000933 |        0.00000000 |        0.00000933 |        0.00000933 
+QuasiLocalMeasur| Check quasi-local parameter settings    |          0.00129900 |       0.00129300 |   0.00129884 |        0.00129884 |        0.00000000 |        0.00129884 |        0.00129884 
+SphericalSurface| Check that all surface names are unique |          0.00000700 |       0.00000600 |   0.00000625 |        0.00000625 |        0.00000000 |        0.00000625 |        0.00000625 
+TerminationTrigg| Check consitency of parameters          |          0.00000600 |       0.00000600 |   0.00000598 |        0.00000598 |        0.00000000 |        0.00000598 |        0.00000598 
+TmunuBase       | Check that no deprecated parameters are |          0.00000600 |       0.00000600 |   0.00000571 |        0.00000571 |        0.00000000 |        0.00000571 |        0.00000571 
+Vectors         | Run correctness tests.                  |          0.00004100 |       0.00004100 |   0.00004096 |        0.00004096 |        0.00000000 |        0.00004096 |        0.00004096 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-                | Total time for CCTK_PARAMCHECK          |          0.00138400 |       0.00137500 |   0.00138037 |        0.00138037 |        0.00000000 |        0.00138037 |        0.00138037 
+                | Total time for CCTK_PARAMCHECK          |          0.00154000 |       0.00153400 |   0.00153740 |        0.00153740 |        0.00000000 |        0.00153740 |        0.00153740 
 ==================================================================================================================================================================================================
-ADMBase         | Set the shift_state variable to 1       |          0.00308700 |       0.00176000 |   0.00308179 |        0.00038522 |        0.00057796 |        0.00007911 |        0.00070837 
-ADMBase         | Set the dtlapse_state variable to 1     |          0.00018500 |       0.00010700 |   0.00018470 |        0.00002309 |        0.00000546 |        0.00002113 |        0.00002721 
-ADMBase         | Set the dtshift_state variable to 1     |          0.00016300 |       0.00009500 |   0.00016256 |        0.00002032 |        0.00000423 |        0.00001855 |        0.00002345 
-ADMMacros       | Initialize the local_spatial_order      |          0.00016400 |       0.00009800 |   0.00016493 |        0.00002062 |        0.00000360 |        0.00001932 |        0.00002303 
-CartGrid3D      | Set up ranges for spatial 3D Cartesian c|          0.00028700 |       0.00018200 |   0.00028538 |        0.00003567 |        0.00006764 |        0.00002129 |        0.00009396 
-CartGrid3D      | Set up spatial 3D Cartesian coordinates |          0.02959000 |       0.01445000 |   0.02959121 |        0.00369890 |        0.01339176 |        0.00110485 |        0.01581680 
-SphericalSurface| Set surface resolution automatically    |          0.00066900 |       0.00036600 |   0.00066977 |        0.00008372 |        0.00061321 |        0.00000125 |        0.00065732 
-AHFinderDirect  | setup data structures                   |          0.00907600 |       0.00799200 |   0.00907521 |        0.00113440 |        0.00847849 |        0.00000117 |        0.00906531 
-Dissipation     | Ensure that there are enough ghost zones|          0.00364700 |       0.00246700 |   0.00364524 |        0.00045566 |        0.00097585 |        0.00019689 |        0.00112235 
-EMGBase         | Register symmetries of the grid function|          0.00006300 |       0.00001200 |   0.00006309 |        0.00000789 |        0.00004926 |        0.00000114 |        0.00005396 
-EMGEvolve       | Schedule symmetries                     |          0.00103100 |       0.00049200 |   0.00103423 |        0.00012928 |        0.00095674 |        0.00000115 |        0.00102423 
-EMGEvolve       | set all rhs functions to zero to prevent|          0.04152000 |       0.00201800 |   0.04151701 |        0.00518963 |        0.01978079 |        0.00136738 |        0.02311798 
-LeanBSSNMoL     | Register symmetries of the BSSN grid fun|          0.00031500 |       0.00016900 |   0.00031354 |        0.00003919 |        0.00027974 |        0.00000117 |        0.00030085 
-LeanBSSNMoL     | Set all rhs functions to zero to prevent|          0.10855000 |       0.01000700 |   0.10854825 |        0.01356853 |        0.05390668 |        0.00353020 |        0.06250472 
-NPScalars       | Set symmetries for grid functions       |          0.00083000 |       0.00081600 |   0.00082935 |        0.00010367 |        0.00075302 |        0.00000131 |        0.00080803 
-NPScalars_EMG   | Set symmetries for grid functions       |          0.00018800 |       0.00015700 |   0.00018664 |        0.00002333 |        0.00016566 |        0.00000101 |        0.00017829 
-NaNChecker      | Reset the NaNChecker::NaNsFound counter |          0.00002900 |       0.00002500 |   0.00002976 |        0.00000372 |        0.00001838 |        0.00000115 |        0.00002091 
-SpaceMask       | Initialise mask to zero                 |          0.00395900 |       0.00315500 |   0.00395840 |        0.00049480 |        0.00116901 |        0.00017509 |        0.00143266 
-SpaceMask       | Set old style mask to one               |          0.00416600 |       0.00082500 |   0.00416674 |        0.00052084 |        0.00157986 |        0.00018282 |        0.00186852 
-SphericalSurface| Calculate surface coordinate descriptors|          0.00004800 |       0.00002600 |   0.00004837 |        0.00000605 |        0.00003622 |        0.00000111 |        0.00003993 
-CarpetReduce    | Allocate the weight function            |          0.00020000 |       0.00010600 |   0.00019599 |        0.00002450 |        0.00017293 |        0.00000129 |        0.00018626 
-CarpetReduce    | Initialise the weight function          |          0.01562600 |       0.01858800 |   0.01562350 |        0.00195294 |        0.01460566 |        0.00000113 |        0.01561528 
-CarpetReduce    | Set up the outer boundaries of the weigh|          0.00385900 |       0.00775400 |   0.00386891 |        0.00048361 |        0.00359832 |        0.00000109 |        0.00384952 
-CarpetReduce    | Set up the weight function for the restr|          0.00441200 |       0.00831700 |   0.00441071 |        0.00055134 |        0.00411673 |        0.00000100 |        0.00440219 
-CarpetMask      | Set up the weight function for the exclu|          0.00024700 |       0.00024100 |   0.00024544 |        0.00003068 |        0.00022005 |        0.00000121 |        0.00023652 
-CarpetMask      | Set up the weight function for the exclu|          0.00023800 |       0.00119600 |   0.00023781 |        0.00002973 |        0.00021273 |        0.00000108 |        0.00022871 
-CarpetReduce    | Set the weight function                 |          0.02377900 |       0.03748600 |   0.02377656 |        0.00297207 |        0.02223041 |        0.00000123 |        0.02376671 
-CarpetReduce    | Test the weight function                |          0.00772200 |       0.01413200 |   0.00772069 |        0.00096509 |        0.00721270 |        0.00000110 |        0.00771195 
-SphericalSurface| Set surface radii to be used for initial|          0.00004500 |       0.00002300 |   0.00004545 |        0.00000568 |        0.00003362 |        0.00000109 |        0.00003713 
-SphericalSurface| Test the state of the spherical surfaces|          0.00002200 |       0.00001200 |   0.00002298 |        0.00000287 |        0.00001152 |        0.00000119 |        0.00001364 
-SymBase         | Check whether the driver set up the grid|          0.00037900 |       0.00018100 |   0.00037693 |        0.00004712 |        0.00011321 |        0.00002912 |        0.00015263 
-TerminationTrigg| Clear trigger state                     |          0.00018500 |       0.00008700 |   0.00018579 |        0.00002322 |        0.00000965 |        0.00002091 |        0.00003202 
-TerminationTrigg| Start timer                             |          0.00038600 |       0.00017700 |   0.00038451 |        0.00004806 |        0.00003390 |        0.00003765 |        0.00007810 
-TerminationTrigg| Create termination file                 |          0.01432000 |       0.00120400 |   0.01431813 |        0.00178977 |        0.00427934 |        0.00112087 |        0.00578745 
-Time            | Initialise Time variables               |          0.00003400 |       0.00001600 |   0.00003248 |        0.00000406 |        0.00001757 |        0.00000129 |        0.00002048 
-Time            | Set timestep based on Courant condition |          0.00016200 |       0.00007100 |   0.00017068 |        0.00002134 |        0.00002434 |        0.00001189 |        0.00003404 
+ADMBase         | Set the shift_state variable to 1       |          0.00390900 |       0.00193300 |   0.00390710 |        0.00048839 |        0.00089169 |        0.00013102 |        0.00111776 
+ADMBase         | Set the dtlapse_state variable to 1     |          0.00021600 |       0.00013000 |   0.00021692 |        0.00002712 |        0.00001532 |        0.00002174 |        0.00003764 
+ADMBase         | Set the dtshift_state variable to 1     |          0.00018900 |       0.00010200 |   0.00018643 |        0.00002330 |        0.00001726 |        0.00001914 |        0.00003899 
+ADMMacros       | Initialize the local_spatial_order      |          0.00017500 |       0.00008400 |   0.00017483 |        0.00002185 |        0.00000443 |        0.00001996 |        0.00002422 
+CartGrid3D      | Set up ranges for spatial 3D Cartesian c|          0.00034700 |       0.00010100 |   0.00034634 |        0.00004329 |        0.00012057 |        0.00002187 |        0.00015519 
+CartGrid3D      | Set up spatial 3D Cartesian coordinates |          0.01716900 |       0.00709100 |   0.01716793 |        0.00214599 |        0.00592453 |        0.00075808 |        0.00712423 
+SphericalSurface| Set surface resolution automatically    |          0.00049700 |       0.00033700 |   0.00049821 |        0.00006228 |        0.00045373 |        0.00000141 |        0.00048670 
+AHFinderDirect  | setup data structures                   |          0.01032700 |       0.00845800 |   0.01032712 |        0.00129089 |        0.00965078 |        0.00000117 |        0.01031837 
+Dissipation     | Ensure that there are enough ghost zones|          0.00426300 |       0.00169700 |   0.00425928 |        0.00053241 |        0.00194347 |        0.00013905 |        0.00225663 
+EMGBase         | Register symmetries of the grid function|          0.00008100 |       0.00005300 |   0.00008146 |        0.00001018 |        0.00006643 |        0.00000118 |        0.00007232 
+EMGEvolve       | Schedule symmetries                     |          0.00120700 |       0.00110300 |   0.00120750 |        0.00015094 |        0.00111855 |        0.00000126 |        0.00119725 
+EMGEvolve       | set all rhs functions to zero to prevent|          0.03340400 |       0.00086300 |   0.03340387 |        0.00417548 |        0.01702812 |        0.00086080 |        0.01969468 
+LeanBSSNMoL     | Register symmetries of the BSSN grid fun|          0.00035000 |       0.00000200 |   0.00035005 |        0.00004376 |        0.00031521 |        0.00000128 |        0.00033861 
+LeanBSSNMoL     | Set all rhs functions to zero to prevent|          0.08879300 |       0.01086900 |   0.08879225 |        0.01109903 |        0.04484950 |        0.00228434 |        0.05219641 
+NPScalars       | Set symmetries for grid functions       |          0.00106900 |       0.00104000 |   0.00106592 |        0.00013324 |        0.00098160 |        0.00000149 |        0.00105144 
+NPScalars_EMG   | Set symmetries for grid functions       |          0.00017800 |       0.00017000 |   0.00017694 |        0.00002212 |        0.00015549 |        0.00000113 |        0.00016757 
+NaNChecker      | Reset the NaNChecker::NaNsFound counter |          0.00003200 |       0.00002400 |   0.00002913 |        0.00000364 |        0.00001802 |        0.00000104 |        0.00002049 
+SpaceMask       | Initialise mask to zero                 |          0.00576500 |       0.00249100 |   0.00576389 |        0.00072049 |        0.00148485 |        0.00018180 |        0.00153689 
+SpaceMask       | Set old style mask to one               |          0.00365600 |       0.00056400 |   0.00365572 |        0.00045696 |        0.00158276 |        0.00011775 |        0.00187698 
+SphericalSurface| Calculate surface coordinate descriptors|          0.00004400 |       0.00000600 |   0.00004154 |        0.00000519 |        0.00002873 |        0.00000124 |        0.00003207 
+CarpetReduce    | Allocate the weight function            |          0.00023300 |       0.00005800 |   0.00023073 |        0.00002884 |        0.00020653 |        0.00000117 |        0.00022203 
+CarpetReduce    | Initialise the weight function          |          0.00360300 |       0.00354300 |   0.00360412 |        0.00045051 |        0.00335997 |        0.00000138 |        0.00359348 
+CarpetReduce    | Set up the outer boundaries of the weigh|          0.00128500 |       0.00126600 |   0.00128004 |        0.00016000 |        0.00118740 |        0.00000113 |        0.00127072 
+CarpetReduce    | Set up the weight function for the restr|          0.00151400 |       0.00148700 |   0.00151278 |        0.00018910 |        0.00140414 |        0.00000123 |        0.00150255 
+CarpetMask      | Set up the weight function for the exclu|          0.00023800 |       0.00023200 |   0.00023710 |        0.00002964 |        0.00020964 |        0.00000138 |        0.00022573 
+CarpetMask      | Set up the weight function for the exclu|          0.00022200 |       0.00021100 |   0.00021550 |        0.00002694 |        0.00019216 |        0.00000109 |        0.00020668 
+CarpetReduce    | Set the weight function                 |          0.01154000 |       0.00847500 |   0.01154012 |        0.00144251 |        0.01078454 |        0.00000113 |        0.01153053 
+CarpetReduce    | Test the weight function                |          0.03893200 |       0.03879100 |   0.03893084 |        0.00486635 |        0.03640520 |        0.00000128 |        0.03892030 
+SphericalSurface| Set surface radii to be used for initial|          0.00006000 |       0.00005400 |   0.00006018 |        0.00000752 |        0.00004580 |        0.00000110 |        0.00005036 
+SphericalSurface| Test the state of the spherical surfaces|          0.00002400 |       0.00001900 |   0.00002323 |        0.00000290 |        0.00001222 |        0.00000110 |        0.00001433 
+SymBase         | Check whether the driver set up the grid|          0.00053700 |       0.00041300 |   0.00053867 |        0.00006733 |        0.00023705 |        0.00002765 |        0.00028806 
+TerminationTrigg| Clear trigger state                     |          0.00021500 |       0.00010500 |   0.00021389 |        0.00002674 |        0.00001339 |        0.00002172 |        0.00003773 
+TerminationTrigg| Start timer                             |          0.00035100 |       0.00014900 |   0.00034988 |        0.00004374 |        0.00003818 |        0.00003378 |        0.00007713 
+TerminationTrigg| Create termination file                 |          0.04148000 |       0.00181700 |   0.04147950 |        0.00518494 |        0.00485671 |        0.00217113 |        0.00857527 
+Time            | Initialise Time variables               |          0.00003400 |       0.00000600 |   0.00003247 |        0.00000406 |        0.00001611 |        0.00000170 |        0.00001912 
+Time            | Set timestep based on Courant condition |          0.00018000 |       0.00006600 |   0.00018047 |        0.00002256 |        0.00001822 |        0.00001468 |        0.00003657 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-                | Total time for CCTK_BASEGRID            |          0.27918300 |       0.13481000 |   0.27917274 |        0.03489659 |        0.15970626 |        0.00796023 |        0.18104050 
+                | Total time for CCTK_BASEGRID            |          0.27211900 |       0.09381000 |   0.27208195 |        0.03401024 |        0.14563830 |        0.00684938 |        0.16631502 
 ==================================================================================================================================================================================================
-StaticConformal | Set the conformal_state variable to 0   |          0.00038500 |       0.00013800 |   0.00038518 |        0.00004815 |        0.00009733 |        0.00003074 |        0.00013716 
-ADMBase         | Set the shift to 0 at all points        |          0.03555000 |       0.00075500 |   0.03554874 |        0.00444359 |        0.01589129 |        0.00130685 |        0.01891873 
-ADMBase         | Set the dtlapse to 0 at all points      |          0.01048700 |       0.00078800 |   0.01048607 |        0.00131076 |        0.00362739 |        0.00041384 |        0.00439724 
-ADMBase         | Set the dtshift to 0 at all points      |          0.02486200 |       0.00332500 |   0.02486225 |        0.00310778 |        0.00760283 |        0.00105209 |        0.00903308 
-CarpetIOASCII   | Initialisation routine                  |          0.00003700 |       0.00001700 |   0.00003606 |        0.00000451 |        0.00002166 |        0.00000127 |        0.00002473 
-CarpetIOBasic   | Initialisation routine                  |          0.00002300 |       0.00000900 |   0.00002059 |        0.00000257 |        0.00000992 |        0.00000110 |        0.00001184 
-CarpetIOHDF5    | Initialisation routine                  |          0.00002200 |       0.00001000 |   0.00002233 |        0.00000279 |        0.00001074 |        0.00000123 |        0.00001283 
-CarpetIOScalar  | Initialisation routine                  |          0.00002500 |       0.00001000 |   0.00002150 |        0.00000269 |        0.00000973 |        0.00000114 |        0.00001178 
-NRInitialDataVTU| Load the VTU/PVTU file                  |         23.08040000 |       9.36947200 |  23.07991023 |        2.88498878 |       21.58926974 |        0.00000112 |       23.07990142 
-NRInitialDataVTU| Fill grid functions by interpolating a V|         13.07472000 |      25.27013500 |  13.07431784 |        1.63428973 |        2.95504482 |        0.33420069 |        3.64918977 
-EMGInit         | Merger of dyonic black holes            |          1.34913600 |       1.34467700 |   1.34909892 |        0.16863736 |        0.65610062 |        0.05106211 |        0.77417571 
-LeanBSSNMoL     | Convert initial data into BSSN variables|          0.11446400 |       0.19141100 |   0.11446122 |        0.01430765 |        0.05378873 |        0.00411385 |        0.06376503 
-LeanBSSNMoL     | Boundary enforcement                    |          8.52268100 |       8.56056200 |   8.52233881 |        1.06529235 |        1.96796983 |        0.15708580 |        2.14978234 
-MoL             | Initialise the step size control        |          0.00008200 |       0.00006700 |   0.00008281 |        0.00001035 |        0.00001663 |        0.00000440 |        0.00002475 
-PunctureTracker | Calculate initial location of punctures |          0.00040500 |       0.00030100 |   0.00040312 |        0.00005039 |        0.00036810 |        0.00000107 |        0.00039472 
-QuasiLocalMeasur| Initialise quasi-local calculations     |          0.00036200 |       0.00021400 |   0.00036220 |        0.00004527 |        0.00033023 |        0.00000106 |        0.00035418 
-Boundary        | Apply all requested local physical bound|          0.00114700 |       0.00140400 |   0.00114738 |        0.00014342 |        0.00017347 |        0.00004777 |        0.00028571 
-CartGrid3D      | Apply symmetry boundary conditions      |          0.00023800 |       0.00020200 |   0.00023762 |        0.00002970 |        0.00001594 |        0.00002478 |        0.00004401 
-ReflectionSymmet| Apply reflection symmetries             |          0.00051400 |       0.00071300 |   0.00051535 |        0.00006442 |        0.00021402 |        0.00002992 |        0.00026442 
-Boundary        | Unselect all grid variables for boundary|          0.00004200 |       0.00003100 |   0.00003998 |        0.00000500 |        0.00000390 |        0.00000396 |        0.00000845 
+StaticConformal | Set the conformal_state variable to 0   |          0.00059200 |       0.00029300 |   0.00059202 |        0.00007400 |        0.00007133 |        0.00003794 |        0.00011112 
+ADMBase         | Set the shift to 0 at all points        |          0.02212100 |       0.00189700 |   0.02211973 |        0.00276497 |        0.01142712 |        0.00060925 |        0.01319345 
+ADMBase         | Set the dtlapse to 0 at all points      |          0.00669700 |       0.00111700 |   0.00669700 |        0.00083713 |        0.00261759 |        0.00022073 |        0.00316077 
+ADMBase         | Set the dtshift to 0 at all points      |          0.01348300 |       0.00221200 |   0.01348030 |        0.00168504 |        0.00489834 |        0.00058275 |        0.00579918 
+CarpetIOASCII   | Initialisation routine                  |          0.00003400 |       0.00002000 |   0.00003206 |        0.00000401 |        0.00001947 |        0.00000126 |        0.00002222 
+CarpetIOBasic   | Initialisation routine                  |          0.00002600 |       0.00001300 |   0.00002305 |        0.00000288 |        0.00001113 |        0.00000130 |        0.00001329 
+CarpetIOHDF5    | Initialisation routine                  |          0.00002300 |       0.00001500 |   0.00002298 |        0.00000287 |        0.00001077 |        0.00000131 |        0.00001294 
+CarpetIOScalar  | Initialisation routine                  |          0.00002400 |       0.00001400 |   0.00002283 |        0.00000285 |        0.00001083 |        0.00000130 |        0.00001298 
+NRInitialDataVTU| Load the VTU/PVTU file                  |         28.23612200 |       9.99692200 |  28.23549505 |        3.52943688 |       26.41187716 |        0.00000121 |       28.23548570 
+NRInitialDataVTU| Fill grid functions by interpolating a V|         14.38410400 |      14.26088000 |  14.38378605 |        1.79797326 |        3.09301124 |        0.30932831 |        3.49376190 
+EMGInit         | Merger of dyonic black holes            |          0.78639700 |       0.73890100 |   0.78637797 |        0.09829725 |        0.36157977 |        0.03193858 |        0.43086300 
+LeanBSSNMoL     | Convert initial data into BSSN variables|          0.13068200 |       0.11256800 |   0.13068055 |        0.01633507 |        0.06447521 |        0.00486678 |        0.07551953 
+LeanBSSNMoL     | Boundary enforcement                    |         15.19914800 |      15.12640200 |  15.19881159 |        1.89985145 |        2.75793357 |        0.36149908 |        3.20415894 
+MoL             | Initialise the step size control        |          0.00010500 |       0.00009600 |   0.00010409 |        0.00001301 |        0.00001982 |        0.00000599 |        0.00002465 
+PunctureTracker | Calculate initial location of punctures |          0.00013300 |       0.00008100 |   0.00013136 |        0.00001642 |        0.00010720 |        0.00000126 |        0.00011659 
+QuasiLocalMeasur| Initialise quasi-local calculations     |          0.00027200 |       0.00025000 |   0.00027300 |        0.00003413 |        0.00024586 |        0.00000121 |        0.00026410 
+Boundary        | Apply all requested local physical bound|          0.00164600 |       0.00163100 |   0.00164566 |        0.00020571 |        0.00030645 |        0.00005164 |        0.00038762 
+CartGrid3D      | Apply symmetry boundary conditions      |          0.00028600 |       0.00027000 |   0.00028485 |        0.00003561 |        0.00001403 |        0.00003095 |        0.00004682 
+ReflectionSymmet| Apply reflection symmetries             |          0.00038500 |       0.00037100 |   0.00038511 |        0.00004814 |        0.00005057 |        0.00003806 |        0.00009498 
+Boundary        | Unselect all grid variables for boundary|          0.00004500 |       0.00004400 |   0.00004540 |        0.00000567 |        0.00000728 |        0.00000421 |        0.00001230 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-                | Total time for CCTK_INITIAL             |         46.21558200 |      44.74424100 |  46.21429820 |        5.77678728 |       27.25056693 |        0.54938478 |       29.75073788 
+                | Total time for CCTK_INITIAL             |         58.78232500 |      40.24399700 |  58.78101064 |        7.34762633 |       32.70869473 |        0.70922312 |       35.46306207 
 ==================================================================================================================================================================================================
-CarpetIOHDF5    | Close all filereader input files        |          0.00019500 |       0.00011800 |   0.00019390 |        0.00002424 |        0.00017022 |        0.00000129 |        0.00018346 
-LeanBSSNMoL     | Remove trace of A                       |          0.01847000 |       0.03714600 |   0.01846449 |        0.00230806 |        0.00832752 |        0.00065936 |        0.00999400 
-EMGEvolve       | MoL boundary enforcement for EMG variabl|          2.87965100 |       2.95026500 |   2.87956982 |        0.35994623 |        1.31163757 |        0.01443304 |        1.43188255 
-Boundary        | Apply all requested local physical bound|          0.00930400 |       0.01696600 |   0.00930292 |        0.00023257 |        0.00250985 |        0.00004567 |        0.00259524 
-CartGrid3D      | Apply symmetry boundary conditions      |          0.00109100 |       0.00404700 |   0.00108533 |        0.00002713 |        0.00002629 |        0.00002215 |        0.00003874 
-ReflectionSymmet| Apply reflection symmetries             |          0.00124600 |       0.00116500 |   0.00124039 |        0.00003101 |        0.00004980 |        0.00002139 |        0.00005773 
-Boundary        | Unselect all grid variables for boundary|          0.00018500 |       0.00016500 |   0.00018208 |        0.00000455 |        0.00000713 |        0.00000324 |        0.00000975 
-LeanBSSNMoL     | Make sure conformal factor does not drop|          0.00157900 |       0.00249800 |   0.00157730 |        0.00019716 |        0.00069453 |        0.00006441 |        0.00083605 
-LeanBSSNMoL     | MoL boundary enforcement                |          1.06383800 |       1.18136500 |   1.06379873 |        0.13297484 |        0.67979037 |        0.01878206 |        0.76743604 
-LeanBSSNMoL     | Convert variables back to the ADM ones  |          0.14407700 |       0.11447900 |   0.14407246 |        0.01800906 |        0.11520970 |        0.00118009 |        0.12562854 
-TmunuBase       | Initialise the stress-energy tensor to z|          0.03612800 |       0.01233500 |   0.03612565 |        0.00451571 |        0.01867340 |        0.00148992 |        0.02181894 
-EMGEvolve       | Compute the energy-momentum tensor      |          0.05203400 |       0.07936200 |   0.05203451 |        0.00650431 |        0.03506346 |        0.00097581 |        0.03918315 
-NPScalars       | calculate Psi4 as grid function         |          1.55734200 |       2.84180400 |   1.55729973 |        0.09733123 |        0.65817653 |        0.01794911 |        0.58532111 
-NPScalars       | Symmetry boundary conditions            |          0.34482600 |       0.46271500 |   0.34481176 |        0.02155074 |        0.06734112 |        0.00106808 |        0.05224538 
-NPScalars_EMG   | calculate grid functions                |          1.31188100 |       1.33202500 |   1.31184311 |        0.16398039 |        0.72099472 |        0.03544288 |        0.82998601 
-NPScalars_EMG   | Symmetry boundary conditions            |          0.38359000 |       0.44131700 |   0.38357868 |        0.04794734 |        0.17905414 |        0.00911984 |        0.20672640 
+CarpetIOHDF5    | Close all filereader input files        |          0.00014400 |       0.00014100 |   0.00014203 |        0.00001775 |        0.00012089 |        0.00000134 |        0.00013084 
+LeanBSSNMoL     | Remove trace of A                       |          0.02520900 |       0.02109700 |   0.02520503 |        0.00315063 |        0.01371191 |        0.00082488 |        0.01586251 
+EMGEvolve       | MoL boundary enforcement for EMG variabl|          2.12329000 |       2.10962000 |   2.12324369 |        0.26540546 |        0.77725140 |        0.00665270 |        0.71994459 
+Boundary        | Apply all requested local physical bound|          0.00972500 |       0.00815300 |   0.00972569 |        0.00024314 |        0.00152070 |        0.00008195 |        0.00152366 
+CartGrid3D      | Apply symmetry boundary conditions      |          0.00135500 |       0.00115300 |   0.00135459 |        0.00003386 |        0.00008358 |        0.00002552 |        0.00010663 
+ReflectionSymmet| Apply reflection symmetries             |          0.00160400 |       0.00137000 |   0.00160123 |        0.00004003 |        0.00017270 |        0.00002487 |        0.00019868 
+Boundary        | Unselect all grid variables for boundary|          0.00025200 |       0.00021600 |   0.00024781 |        0.00000620 |        0.00002156 |        0.00000376 |        0.00002384 
+LeanBSSNMoL     | Make sure conformal factor does not drop|          0.00213600 |       0.00191700 |   0.00213395 |        0.00026674 |        0.00098263 |        0.00009448 |        0.00115746 
+LeanBSSNMoL     | MoL boundary enforcement                |          2.50768800 |       2.47213900 |   2.50763351 |        0.31345419 |        1.57652259 |        0.01719863 |        1.68661599 
+LeanBSSNMoL     | Convert variables back to the ADM ones  |          0.15528400 |       0.10630300 |   0.15527820 |        0.01940978 |        0.11164387 |        0.00081351 |        0.12293482 
+TmunuBase       | Initialise the stress-energy tensor to z|          0.04198800 |       0.01144400 |   0.04198760 |        0.00524845 |        0.02322862 |        0.00091427 |        0.02645585 
+EMGEvolve       | Compute the energy-momentum tensor      |          0.05139200 |       0.04773100 |   0.05139222 |        0.00642403 |        0.02902891 |        0.00118244 |        0.03283193 
+NPScalars       | calculate Psi4 as grid function         |          1.47852600 |       1.46473200 |   1.47849159 |        0.09240572 |        0.57979280 |        0.02032062 |        0.47213198 
+NPScalars       | Symmetry boundary conditions            |          0.30639500 |       0.30235500 |   0.30638845 |        0.01914928 |        0.08535835 |        0.00158199 |        0.06924671 
+NPScalars_EMG   | calculate grid functions                |          0.77151500 |       0.75160900 |   0.77149794 |        0.09643724 |        0.42473871 |        0.02137819 |        0.48792714 
+NPScalars_EMG   | Symmetry boundary conditions            |          0.26214200 |       0.25274200 |   0.26214063 |        0.03276758 |        0.08270183 |        0.00697624 |        0.09280908 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-                | Total time for CCTK_POSTINITIAL         |          7.80543700 |       9.47777200 |   7.80518088 |        0.85558457 |        3.79772635 |        0.10125835 |        4.07394311 
+                | Total time for CCTK_POSTINITIAL         |          7.73864500 |       7.55272200 |   7.73846415 |        0.85446008 |        3.70688105 |        0.07807538 |        3.72990169 
 ==================================================================================================================================================================================================
-LeanBSSNMoL     | Remove trace of A                       |          0.02904400 |       0.04755300 |   0.02903986 |        0.00362998 |        0.01276644 |        0.00121166 |        0.01522285 
-EMGEvolve       | MoL boundary enforcement for EMG variabl|          0.36394500 |       0.43706500 |   0.36392600 |        0.04549075 |        0.15540544 |        0.00640832 |        0.18733948 
-Boundary        | Apply all requested local physical bound|          0.00986800 |       0.01745300 |   0.00986517 |        0.00030829 |        0.00369888 |        0.00008017 |        0.00390302 
-CartGrid3D      | Apply symmetry boundary conditions      |          0.00090700 |       0.00281200 |   0.00090511 |        0.00002828 |        0.00007593 |        0.00002243 |        0.00010121 
-ReflectionSymmet| Apply reflection symmetries             |          0.00106400 |       0.00535800 |   0.00106255 |        0.00003320 |        0.00004465 |        0.00002215 |        0.00005733 
-Boundary        | Unselect all grid variables for boundary|          0.00017300 |       0.00016900 |   0.00017648 |        0.00000552 |        0.00000800 |        0.00000355 |        0.00000950 
-LeanBSSNMoL     | Make sure conformal factor does not drop|          0.00182500 |       0.00310000 |   0.00182444 |        0.00022805 |        0.00066340 |        0.00008404 |        0.00083212 
-LeanBSSNMoL     | MoL boundary enforcement                |          0.33531000 |       0.46728700 |   0.33529438 |        0.04191180 |        0.06771134 |        0.01857790 |        0.09620023 
-LeanBSSNMoL     | Convert variables back to the ADM ones  |          0.09115400 |       0.11029000 |   0.09114857 |        0.01139357 |        0.04863483 |        0.00184810 |        0.05559824 
-TmunuBase       | Initialise the stress-energy tensor to z|          0.03109600 |       0.02944800 |   0.03109608 |        0.00388701 |        0.01453633 |        0.00093666 |        0.01719768 
-EMGEvolve       | Compute the energy-momentum tensor      |          0.03686700 |       0.07102300 |   0.03686635 |        0.00460829 |        0.02115082 |        0.00090883 |        0.02419929 
-NPScalars       | Symmetry boundary conditions            |          0.17453700 |       0.23091900 |   0.17452833 |        0.02181604 |        0.08054459 |        0.00366230 |        0.09553493 
-NPScalars_EMG   | Symmetry boundary conditions            |          0.10542700 |       0.18266400 |   0.10542415 |        0.01317802 |        0.01350657 |        0.00699385 |        0.02049589 
+LeanBSSNMoL     | Remove trace of A                       |          0.03442500 |       0.02938800 |   0.03442439 |        0.00430305 |        0.01432164 |        0.00124628 |        0.01726011 
+EMGEvolve       | MoL boundary enforcement for EMG variabl|          0.17789100 |       0.16237700 |   0.17788817 |        0.02223602 |        0.05238073 |        0.00678028 |        0.05879838 
+Boundary        | Apply all requested local physical bound|          0.01158300 |       0.01038600 |   0.01158608 |        0.00036206 |        0.00433820 |        0.00004148 |        0.00458938 
+CartGrid3D      | Apply symmetry boundary conditions      |          0.00116200 |       0.00096000 |   0.00115584 |        0.00003612 |        0.00020139 |        0.00002476 |        0.00023330 
+ReflectionSymmet| Apply reflection symmetries             |          0.00119500 |       0.00099200 |   0.00119350 |        0.00003730 |        0.00004900 |        0.00002490 |        0.00006435 
+Boundary        | Unselect all grid variables for boundary|          0.00021400 |       0.00018800 |   0.00021289 |        0.00000665 |        0.00001419 |        0.00000416 |        0.00001697 
+LeanBSSNMoL     | Make sure conformal factor does not drop|          0.00242300 |       0.00218500 |   0.00242216 |        0.00030277 |        0.00120060 |        0.00008112 |        0.00141525 
+LeanBSSNMoL     | MoL boundary enforcement                |          0.30773100 |       0.28249300 |   0.30772713 |        0.03846589 |        0.07689940 |        0.01791389 |        0.10422432 
+LeanBSSNMoL     | Convert variables back to the ADM ones  |          0.12221100 |       0.10558200 |   0.12221429 |        0.01527679 |        0.08371429 |        0.00101593 |        0.09226721 
+TmunuBase       | Initialise the stress-energy tensor to z|          0.03135500 |       0.02678800 |   0.03135538 |        0.00391942 |        0.01839291 |        0.00045829 |        0.02066700 
+EMGEvolve       | Compute the energy-momentum tensor      |          0.05373100 |       0.05306100 |   0.05372945 |        0.00671618 |        0.03146156 |        0.00102227 |        0.03547441 
+NPScalars       | Symmetry boundary conditions            |          0.09982100 |       0.09834800 |   0.09982009 |        0.01247751 |        0.02237900 |        0.00305441 |        0.02755236 
+NPScalars_EMG   | Symmetry boundary conditions            |          0.16048700 |       0.14914700 |   0.16048436 |        0.02006055 |        0.01952117 |        0.00753220 |        0.02989692 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-                | Total time for CCTK_POSTRESTRICTINITIAL |          1.18121700 |       1.60514100 |   1.18115746 |        0.14651881 |        0.41874723 |        0.04075996 |        0.51669177 
+                | Total time for CCTK_POSTRESTRICTINITIAL |          1.00422900 |       0.92189500 |   1.00421373 |        0.12420031 |        0.32487410 |        0.03919997 |        0.39245997 
 ==================================================================================================================================================================================================
-NRInitialDataVTU| Unload the VTU/PVTU file                |          0.02581300 |       0.00731300 |   0.02581118 |        0.00322640 |        0.02412581 |        0.00000108 |        0.02579402 
+NRInitialDataVTU| Unload the VTU/PVTU file                |          2.32150500 |       0.01935800 |   2.32145216 |        0.29018152 |        2.17149963 |        0.00000127 |        2.32143343 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-                | Total time for CCTK_POSTPOSTINITIAL     |          0.02581300 |       0.00731300 |   0.02581118 |        0.00322640 |        0.02412581 |        0.00000108 |        0.02579402 
+                | Total time for CCTK_POSTPOSTINITIAL     |          2.32150500 |       0.01935800 |   2.32145216 |        0.29018152 |        2.17149963 |        0.00000127 |        2.32143343 
 ==================================================================================================================================================================================================
-CarpetIOHDF5    | Initial data checkpoint routine         |          0.00026000 |       0.00021500 |   0.00025851 |        0.00003231 |        0.00020295 |        0.00000284 |        0.00022205 
+CarpetIOHDF5    | Initial data checkpoint routine         |          0.00024700 |       0.00024200 |   0.00024192 |        0.00003024 |        0.00019713 |        0.00000242 |        0.00021453 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-                | Total time for CCTK_CPINITIAL           |          0.00026000 |       0.00021500 |   0.00025851 |        0.00003231 |        0.00020295 |        0.00000284 |        0.00022205 
+                | Total time for CCTK_CPINITIAL           |          0.00024700 |       0.00024200 |   0.00024192 |        0.00003024 |        0.00019713 |        0.00000242 |        0.00021453 
 ==================================================================================================================================================================================================
-AHFinderDirect  | import the excision mask                |          0.00716800 |       0.00208900 |   0.00716430 |        0.00089554 |        0.00669230 |        0.00000104 |        0.00715561 
-AHFinderDirect  | find apparent horizon(s) after this time|          4.36337500 |       4.82123200 |   4.36313968 |        0.54539246 |        4.08133543 |        0.00000099 |        4.36313217 
-AHFinderDirect  | store apparent horizon(s) into spherical|          0.00595000 |       0.00588700 |   0.00594906 |        0.00074363 |        0.00555688 |        0.00000099 |        0.00594162 
-AHFinderDirect  | save apparent horizon(s) into Cactus var|          0.00014900 |       0.00013400 |   0.00014846 |        0.00001856 |        0.00013100 |        0.00000099 |        0.00014110 
-AHFinderDirect  | set mask(s) based on apparent horizon po|          0.00431800 |       0.00400700 |   0.00431719 |        0.00053965 |        0.00215216 |        0.00016729 |        0.00252454 
-SphericalSurface| Set surface radii                       |          0.00007300 |       0.00007300 |   0.00007326 |        0.00000916 |        0.00005994 |        0.00000105 |        0.00006523 
-SphericalSurface| Test the state of the spherical surfaces|          0.00002200 |       0.00002100 |   0.00002142 |        0.00000268 |        0.00001215 |        0.00000099 |        0.00001404 
-NaNChecker      | Prepare data structures to check for NaN|          0.00004200 |       0.00003900 |   0.00004407 |        0.00000551 |        0.00001565 |        0.00000291 |        0.00002002 
-NaNChecker      | Check for NaNs                          |          0.02082800 |       0.04049000 |   0.02082827 |        0.00260353 |        0.01021473 |        0.00073504 |        0.01198841 
-NaNChecker      | Count NaNs in NaNChecker::NaNsFound     |          0.15686000 |       0.20488800 |   0.15685261 |        0.01960658 |        0.06129384 |        0.00434563 |        0.07538083 
-NaNChecker      | Output NaNChecker::NaNmask and take acti|          0.00009900 |       0.00009800 |   0.00009803 |        0.00001225 |        0.00008369 |        0.00000104 |        0.00009054 
-PunctureTracker | Copy puncture positions to spherical sur|          0.00002200 |       0.00002100 |   0.00002178 |        0.00000272 |        0.00001258 |        0.00000101 |        0.00001449 
-SpaceMask       | Ensure that all mask values are legal   |          0.00279900 |       0.00269500 |   0.00279898 |        0.00034987 |        0.00167552 |        0.00007690 |        0.00190765 
-Dissipation     | Setup spatially varying dissipation     |          0.00958800 |       0.00747200 |   0.00958525 |        0.00119816 |        0.00335575 |        0.00030792 |        0.00413043 
-CarpetReduce    | Allocate the weight function            |          0.00010300 |       0.00010400 |   0.00010384 |        0.00001298 |        0.00008875 |        0.00000104 |        0.00009600 
-CarpetReduce    | Initialise the weight function          |          0.00356700 |       0.00395500 |   0.00356665 |        0.00044583 |        0.00332841 |        0.00000101 |        0.00355927 
-CarpetReduce    | Set up the outer boundaries of the weigh|          0.00089300 |       0.00177900 |   0.00089299 |        0.00011162 |        0.00082750 |        0.00000100 |        0.00088568 
-CarpetReduce    | Set up the weight function for the restr|          0.00136300 |       0.00233300 |   0.00136405 |        0.00017051 |        0.00126816 |        0.00000098 |        0.00135676 
-CarpetMask      | Set up the weight function for the exclu|          0.00022800 |       0.00022700 |   0.00022764 |        0.00002846 |        0.00020475 |        0.00000099 |        0.00021998 
-CarpetMask      | Set up the weight function for the exclu|          0.08482100 |       0.16613100 |   0.08481537 |        0.01060192 |        0.07932963 |        0.00000097 |        0.08480799 
-CarpetReduce    | Set the weight function                 |          0.01121300 |       0.01230700 |   0.01121148 |        0.00140144 |        0.01046549 |        0.00000098 |        0.01119100 
-CarpetReduce    | Test the weight function                |          0.11456200 |       0.12033300 |   0.11455625 |        0.01431953 |        0.10714939 |        0.00000100 |        0.11454861 
+AHFinderDirect  | import the excision mask                |          0.00686000 |       0.00029900 |   0.00686060 |        0.00085758 |        0.00640743 |        0.00000112 |        0.00685118 
+AHFinderDirect  | find apparent horizon(s) after this time|          4.99132100 |       4.94279300 |   4.99121146 |        0.62390143 |        4.66884170 |        0.00000113 |        4.99120294 
+AHFinderDirect  | store apparent horizon(s) into spherical|          0.00771000 |       0.00672100 |   0.00770840 |        0.00096355 |        0.00719106 |        0.00000105 |        0.00769016 
+AHFinderDirect  | save apparent horizon(s) into Cactus var|          0.00018500 |       0.00014300 |   0.00018473 |        0.00002309 |        0.00016356 |        0.00000106 |        0.00017609 
+AHFinderDirect  | set mask(s) based on apparent horizon po|          0.00361400 |       0.00152500 |   0.00361362 |        0.00045170 |        0.00167210 |        0.00014118 |        0.00197148 
+SphericalSurface| Set surface radii                       |          0.00004700 |       0.00004300 |   0.00004591 |        0.00000574 |        0.00003356 |        0.00000109 |        0.00003713 
+SphericalSurface| Test the state of the spherical surfaces|          0.00003400 |       0.00002700 |   0.00002953 |        0.00000369 |        0.00001900 |        0.00000105 |        0.00002146 
+NaNChecker      | Prepare data structures to check for NaN|          0.00005000 |       0.00002700 |   0.00004990 |        0.00000624 |        0.00001654 |        0.00000318 |        0.00002159 
+NaNChecker      | Check for NaNs                          |          0.00571400 |       0.00523500 |   0.00571369 |        0.00071421 |        0.00258319 |        0.00020931 |        0.00309437 
+NaNChecker      | Count NaNs in NaNChecker::NaNsFound     |          0.18759000 |       0.18559300 |   0.18758512 |        0.02344814 |        0.14297403 |        0.00024414 |        0.15602545 
+NaNChecker      | Output NaNChecker::NaNmask and take acti|          0.00011500 |       0.00011300 |   0.00011436 |        0.00001429 |        0.00009820 |        0.00000107 |        0.00010615 
+PunctureTracker | Copy puncture positions to spherical sur|          0.00002400 |       0.00002400 |   0.00002416 |        0.00000302 |        0.00001367 |        0.00000105 |        0.00001580 
+SpaceMask       | Ensure that all mask values are legal   |          0.00309700 |       0.00278500 |   0.00309774 |        0.00038722 |        0.00115413 |        0.00010030 |        0.00141203 
+Dissipation     | Setup spatially varying dissipation     |          0.00832800 |       0.00615700 |   0.00832867 |        0.00104108 |        0.00325782 |        0.00029991 |        0.00385742 
+CarpetReduce    | Allocate the weight function            |          0.00009100 |       0.00000600 |   0.00009024 |        0.00001128 |        0.00007485 |        0.00000112 |        0.00008130 
+CarpetReduce    | Initialise the weight function          |          0.00289600 |       0.00283100 |   0.00289411 |        0.00036176 |        0.00269880 |        0.00000105 |        0.00288626 
+CarpetReduce    | Set up the outer boundaries of the weigh|          0.00107100 |       0.00106100 |   0.00107168 |        0.00013396 |        0.00099387 |        0.00000104 |        0.00106364 
+CarpetReduce    | Set up the weight function for the restr|          0.00140300 |       0.00137200 |   0.00140274 |        0.00017534 |        0.00130356 |        0.00000105 |        0.00139471 
+CarpetMask      | Set up the weight function for the exclu|          0.00026400 |       0.00026000 |   0.00026250 |        0.00003281 |        0.00023460 |        0.00000104 |        0.00025225 
+CarpetMask      | Set up the weight function for the exclu|          0.09331600 |       0.09071100 |   0.09331193 |        0.01166399 |        0.08727702 |        0.00000104 |        0.09330417 
+CarpetReduce    | Set the weight function                 |          0.00791400 |       0.00582700 |   0.00791382 |        0.00098923 |        0.00739331 |        0.00000103 |        0.00790504 
+CarpetReduce    | Test the weight function                |          0.08550900 |       0.08509200 |   0.08550746 |        0.01068843 |        0.07997627 |        0.00000103 |        0.08549938 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-                | Total time for CCTK_POSTSTEP            |          4.78804300 |       5.39631500 |   4.78778063 |        0.59847258 |        4.37525370 |        0.00565176 |        4.68917197 
+                | Total time for CCTK_POSTSTEP            |          5.40715300 |       5.33864500 |   5.40702238 |        0.67587780 |        5.01437827 |        0.00101504 |        5.36487001 
 ==================================================================================================================================================================================================
-CarpetLib       | Print timing statistics if desired      |          0.00004100 |       0.00003700 |   0.00004116 |        0.00000514 |        0.00001747 |        0.00000162 |        0.00002047 
-CarpetLib       | Print memory statistics if desired      |          0.00002900 |       0.00002600 |   0.00002848 |        0.00000356 |        0.00001646 |        0.00000123 |        0.00001896 
-EMGEvolve       | Compute constraints                     |          0.14916600 |       0.25733500 |   0.14915799 |        0.01864475 |        0.07201514 |        0.00549788 |        0.08493492 
-EMGEvolve       | Enforce symmetry BCs in constraint compu|          0.02547400 |       0.04350800 |   0.02547015 |        0.00318377 |        0.00832073 |        0.00084107 |        0.00972042 
-Boundary        | Apply all requested local physical bound|          0.00707600 |       0.01248900 |   0.00707617 |        0.00029484 |        0.00240377 |        0.00006624 |        0.00226968 
-CartGrid3D      | Apply symmetry boundary conditions      |          0.00067100 |       0.00060600 |   0.00066852 |        0.00002786 |        0.00002923 |        0.00002369 |        0.00004833 
-ReflectionSymmet| Apply reflection symmetries             |          0.00071500 |       0.00260000 |   0.00071369 |        0.00002974 |        0.00003062 |        0.00002344 |        0.00004902 
-Boundary        | Unselect all grid variables for boundary|          0.00010600 |       0.00009500 |   0.00010450 |        0.00000435 |        0.00000609 |        0.00000339 |        0.00000957 
-LeanBSSNMoL     | Compute constraints                     |          0.75979000 |       1.46113300 |   0.75975177 |        0.09496897 |        0.39321594 |        0.02757797 |        0.45869185 
-LeanBSSNMoL     | Enforce symmetry BCs in constraint compu|          0.45226800 |       0.53014900 |   0.45224340 |        0.05653042 |        0.20705792 |        0.00152012 |        0.24327349 
-LoopControl     | Output LoopControl statistics           |          0.00038000 |       0.00030700 |   0.00038056 |        0.00004757 |        0.00034725 |        0.00000106 |        0.00037239 
-Multipole       | Calculate Multipoles                    |          2.19838000 |       2.75228500 |   2.19826029 |        0.27478254 |        2.05627565 |        0.00000105 |        2.19825228 
-NPScalars_EMG   | calculate grid functions                |          1.31077600 |       1.33720500 |   1.31070671 |        0.16383834 |        0.72551884 |        0.03534803 |        0.83433833 
-NPScalars_EMG   | Symmetry boundary conditions            |          0.28931600 |       0.34287300 |   0.28930128 |        0.03616266 |        0.11720535 |        0.00811013 |        0.14182882 
-QuasiLocalMeasur| Calculate quasi-local quantities        |          0.24238900 |       0.18978800 |   0.24237569 |        0.24237569 |        0.00000000 |        0.24237569 |        0.24237569 
-SystemStatistics| Collect system statistics               |          0.00026100 |       0.00021400 |   0.00025624 |        0.00003203 |        0.00022969 |        0.00000116 |        0.00024688 
-TerminationTrigg| Check elapsed job walltime              |          0.00030300 |       0.00028200 |   0.00030254 |        0.00003782 |        0.00007947 |        0.00002204 |        0.00011072 
-TerminationTrigg| Check if we received a termination signa|          0.00021000 |       0.00020600 |   0.00021023 |        0.00002628 |        0.00001536 |        0.00002060 |        0.00003720 
-TerminationTrigg| Check termination file                  |          0.01207200 |       0.01533000 |   0.01207131 |        0.00150891 |        0.00201797 |        0.00037173 |        0.00229723 
-TimerReport     | Print the timer report                  |          0.00003200 |       0.00001100 |   0.00003283 |        0.00000410 |        0.00001811 |        0.00000148 |        0.00002104 
+CarpetLib       | Print timing statistics if desired      |          0.00004300 |       0.00004100 |   0.00004172 |        0.00000521 |        0.00001605 |        0.00000217 |        0.00001963 
+CarpetLib       | Print memory statistics if desired      |          0.00002700 |       0.00002800 |   0.00002710 |        0.00000339 |        0.00001585 |        0.00000120 |        0.00001821 
+EMGEvolve       | Compute constraints                     |          0.14736000 |       0.13310600 |   0.14735825 |        0.01841978 |        0.07380018 |        0.00492963 |        0.08635893 
+EMGEvolve       | Enforce symmetry BCs in constraint compu|          0.01356800 |       0.01294800 |   0.01356676 |        0.00169585 |        0.00354369 |        0.00067448 |        0.00422655 
+Boundary        | Apply all requested local physical bound|          0.00642500 |       0.00589900 |   0.00642540 |        0.00026772 |        0.00171678 |        0.00008270 |        0.00148549 
+CartGrid3D      | Apply symmetry boundary conditions      |          0.00072000 |       0.00063400 |   0.00071998 |        0.00003000 |        0.00001906 |        0.00002628 |        0.00004397 
+ReflectionSymmet| Apply reflection symmetries             |          0.00078600 |       0.00068800 |   0.00078542 |        0.00003273 |        0.00002911 |        0.00002498 |        0.00004478 
+Boundary        | Unselect all grid variables for boundary|          0.00012000 |       0.00010500 |   0.00011801 |        0.00000492 |        0.00000778 |        0.00000398 |        0.00001102 
+LeanBSSNMoL     | Compute constraints                     |          0.62979500 |       0.62118600 |   0.62978266 |        0.07872283 |        0.34662656 |        0.01779529 |        0.39855357 
+LeanBSSNMoL     | Enforce symmetry BCs in constraint compu|          0.11812100 |       0.11530900 |   0.11811573 |        0.01476447 |        0.04755883 |        0.00207733 |        0.05378827 
+LoopControl     | Output LoopControl statistics           |          0.00043600 |       0.00042700 |   0.00043303 |        0.00005413 |        0.00039560 |        0.00000122 |        0.00042418 
+Multipole       | Calculate Multipoles                    |          3.47584500 |       3.23996600 |   3.47576765 |        0.43447096 |        3.25127363 |        0.00000114 |        3.47575895 
+NPScalars_EMG   | calculate grid functions                |          0.76131500 |       0.75668600 |   0.76129822 |        0.09516228 |        0.42104317 |        0.02098975 |        0.48379672 
+NPScalars_EMG   | Symmetry boundary conditions            |          0.27836200 |       0.26906900 |   0.27835535 |        0.03479442 |        0.05575413 |        0.00322301 |        0.07184982 
+QuasiLocalMeasur| Calculate quasi-local quantities        |          1.55832600 |       1.45069800 |   1.55829267 |        1.55829267 |        0.00000000 |        1.55829267 |        1.55829267 
+SystemStatistics| Collect system statistics               |          0.00051600 |       0.00038500 |   0.00051094 |        0.00006387 |        0.00046770 |        0.00000125 |        0.00050136 
+TerminationTrigg| Check elapsed job walltime              |          0.00059300 |       0.00047900 |   0.00059308 |        0.00007413 |        0.00031554 |        0.00002510 |        0.00036895 
+TerminationTrigg| Check if we received a termination signa|          0.00025700 |       0.00024900 |   0.00025743 |        0.00003218 |        0.00003093 |        0.00002328 |        0.00005810 
+TerminationTrigg| Check termination file                  |          0.01074300 |       0.00153900 |   0.01074228 |        0.00134278 |        0.00259334 |        0.00066148 |        0.00321955 
+TimerReport     | Print the timer report                  |          0.00004000 |       0.00000300 |   0.00003941 |        0.00000493 |        0.00002568 |        0.00000139 |        0.00002894 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-                | Total time for CCTK_ANALYSIS            |          5.44945500 |       6.94647900 |   5.44915349 |        0.89250934 |        3.58482107 |        0.32180962 |        4.21891727 
+                | Total time for CCTK_ANALYSIS            |          7.00339800 |       6.60944500 |   7.00323107 |        2.23823924 |        4.20523361 |        1.60883833 |        6.13884966 
 ==================================================================================================================================================================================================
-CarpetIOHDF5    | Termination checkpoint routine          |          0.00012700 |       0.00010500 |   0.00012735 |        0.00001592 |        0.00010300 |        0.00000110 |        0.00011206 
-LoopControl     | Output LoopControl statistics           |          0.00011500 |       0.00009900 |   0.00011456 |        0.00001432 |        0.00009941 |        0.00000100 |        0.00010731 
-MoL             | Free the MoL bookkeeping index arrays   |          0.00034500 |       0.00025000 |   0.00034568 |        0.00004321 |        0.00006137 |        0.00002541 |        0.00009730 
-TimerReport     | Print the timer report                  |          0.52030900 |       0.51344600 |   0.52028004 |        0.06503500 |        0.48666886 |        0.00000107 |        0.52027204 
+CarpetIOHDF5    | Termination checkpoint routine          |          0.00021900 |       0.00021800 |   0.00021779 |        0.00002722 |        0.00018398 |        0.00000131 |        0.00019915 
+LoopControl     | Output LoopControl statistics           |          0.00018700 |       0.00018600 |   0.00018684 |        0.00002335 |        0.00016557 |        0.00000120 |        0.00017824 
+MoL             | Free the MoL bookkeeping index arrays   |          0.00043700 |       0.00043700 |   0.00043571 |        0.00005446 |        0.00006488 |        0.00004072 |        0.00011306 
+TimerReport     | Print the timer report                  |          1.23327400 |       1.18437200 |   1.23324686 |        0.15415586 |        1.15358674 |        0.00000126 |        1.23323744 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-                | Total time for CCTK_TERMINATE           |          0.52089600 |       0.51390000 |   0.52086762 |        0.06510845 |        0.48693263 |        0.00002858 |        0.52058870 
+                | Total time for CCTK_TERMINATE           |          1.23411700 |       1.18521300 |   1.23408720 |        0.15426090 |        1.15400117 |        0.00004449 |        1.23372789 
 ==================================================================================================================================================================================================
-Timers          | Prepare hierarchical timers             |          0.00029600 |       0.00000000 |   0.00029626 |        0.00029626 |        0.00000000 |        0.00029626 |        0.00029626 
+Timers          | Prepare hierarchical timers             |          0.00032800 |       0.00029900 |   0.00032803 |        0.00032803 |        0.00000000 |        0.00032803 |        0.00032803 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-                | Total time for CCTK_SHUTDOWN            |          0.00029600 |       0.00000000 |   0.00029626 |        0.00029626 |        0.00000000 |        0.00029626 |        0.00029626 
+                | Total time for CCTK_SHUTDOWN            |          0.00032800 |       0.00029900 |   0.00032803 |        0.00032803 |        0.00000000 |        0.00032803 |        0.00032803 
 ==================================================================================================================================================================================================
 --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-                | Total time for simulation               |         79.59677200 |      84.46188300 |  79.59395399 |       79.59395399 |        0.00000000 |       79.59395399 |       79.59395399 
+                | Total time for simulation               |        103.95660300 |      75.11102000 | 103.95430700 |      103.95430700 |        0.00000000 |      103.95430700 |      103.95430700 
 ==================================================================================================================================================================================================
 --------------------------------------------------------------------------------
 Done.
